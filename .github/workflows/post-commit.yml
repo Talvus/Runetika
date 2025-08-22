@@ -1,0 +1,138 @@
+name: Post-Commit Automation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  post-commit-automation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetch full history for commit analysis
+    
+    - name: Setup Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+    
+    - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          target
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-
+    
+    - name: Install dependencies
+      run: |
+        cargo install cargo-outdated
+        cargo install cargo-tree
+    
+    - name: Build documentation
+      run: |
+        chmod +x tools/build_docs.sh
+        ./tools/build_docs.sh
+    
+    - name: Run code analysis
+      run: |
+        chmod +x tools/debug_analysis.sh
+        ./tools/debug_analysis.sh
+    
+    - name: Check code quality
+      run: |
+        cargo check
+        cargo clippy -- -D warnings
+        cargo test --no-run
+    
+    - name: Upload documentation artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: documentation
+        path: |
+          docs/
+          RESEARCH_AND_NEXT_STEPS.md
+          DEBUG_ANALYSIS_REPORT_*.md
+          COMMIT_SUMMARY_*.md
+    
+    - name: Create summary comment
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          // Read the latest debug report
+          const debugReports = fs.readdirSync('.').filter(f => f.startsWith('DEBUG_ANALYSIS_REPORT_'));
+          const latestReport = debugReports.sort().pop();
+          
+          let summary = '## 🤖 Post-Commit Automation Results\n\n';
+          
+          if (latestReport) {
+            const reportContent = fs.readFileSync(latestReport, 'utf8');
+            
+            // Extract key metrics
+            const todoMatch = reportContent.match(/TODO\/FIXME comments: (\d+)/);
+            const unsafeMatch = reportContent.match(/Unwrap\/expect\/panic calls: (\d+)/);
+            const hardcodedMatch = reportContent.match(/Potential hardcoded values: (\d+)/);
+            
+            summary += '### 📊 Code Quality Metrics\n';
+            summary += `- **TODO/FIXME Comments**: ${todoMatch ? todoMatch[1] : 'N/A'}\n`;
+            summary += `- **Unsafe Operations**: ${unsafeMatch ? unsafeMatch[1] : 'N/A'}\n`;
+            summary += `- **Hardcoded Values**: ${hardcodedMatch ? hardcodedMatch[1] : 'N/A'}\n\n`;
+            
+            summary += '### 📚 Documentation Status\n';
+            summary += '- ✅ Rust API documentation built\n';
+            summary += '- ✅ Project structure documented\n';
+            summary += '- ✅ Development guide generated\n';
+            summary += '- ✅ API index created\n\n';
+            
+            summary += '### 🔍 Analysis Complete\n';
+            summary += 'The post-commit automation has completed successfully. ';
+            summary += 'Review the generated reports for insights and next steps.\n\n';
+            
+            summary += '**Generated Files:**\n';
+            summary += '- `docs/` - Comprehensive project documentation\n';
+            summary += '- `RESEARCH_AND_NEXT_STEPS.md` - Updated development roadmap\n';
+            summary += '- `DEBUG_ANALYSIS_REPORT_*.md` - Code quality analysis\n';
+          } else {
+            summary += '⚠️ No debug report found. Automation may have encountered issues.\n';
+          }
+          
+          summary += '\n---\n*Generated automatically by post-commit workflow*';
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: summary
+          });
+    
+    - name: Commit documentation updates
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add generated documentation
+        git add docs/ || true
+        git add RESEARCH_AND_NEXT_STEPS.md || true
+        git add DEBUG_ANALYSIS_REPORT_*.md || true
+        git add COMMIT_SUMMARY_*.md || true
+        
+        # Commit if there are changes
+        if git diff --staged --quiet; then
+          echo "No documentation changes to commit"
+        else
+          git commit -m "🤖 Auto-update documentation and analysis [skip ci]"
+          git push
+        fi

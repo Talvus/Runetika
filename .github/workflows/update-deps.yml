@@ -1,0 +1,54 @@
+# Automated dependency update workflow
+# Runs weekly to check for outdated dependencies and create PRs
+
+name: Update Dependencies
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        
+      - name: Install cargo-edit
+        run: cargo install cargo-edit
+        
+      - name: Update dependencies
+        run: |
+          # Update all dependencies to latest compatible versions
+          cargo update
+          
+          # Check for major version updates
+          cargo upgrade --dry-run > updates.txt
+          
+      - name: Run tests
+        run: cargo test --all-features
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: 'chore: update dependencies'
+          title: '⬆️ Update Dependencies'
+          body: |
+            ## Automated Dependency Updates
+            
+            This PR updates the project dependencies to their latest versions.
+            
+            ### Changes
+            See commit diff for detailed changes.
+            
+            ### Checklist
+            - [ ] All tests pass
+            - [ ] Game runs correctly
+            - [ ] No breaking changes identified
+          branch: deps/auto-update
+          delete-branch: true

@@ -1,0 +1,12 @@
+# Rust toolchain configuration
+# This ensures all developers and CI use the same Rust version
+
+[toolchain]
+channel = "stable"
+components = ["rustfmt", "clippy", "rust-docs", "rust-src", "rust-analyzer"]
+profile = "default"
+# Uncomment to pin to specific version
+# channel = "1.75.0"
+
+# For WASM builds
+targets = ["wasm32-unknown-unknown"]

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Automated dependency updates for Runetika",
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "timezone": "America/New_York",
+  "schedule": ["every weekend"],
+  "cargo": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Automatically merge minor and patch updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Require approval for major updates",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "description": "Group Bevy-related updates",
+      "matchPackagePatterns": ["^bevy"],
+      "groupName": "Bevy dependencies",
+      "groupSlug": "bevy"
+    },
+    {
+      "description": "Security updates should be merged immediately",
+      "matchDatasources": ["cargo"],
+      "matchUpdateTypes": ["patch"],
+      "matchPackagePatterns": ["*"],
+      "prPriority": 10,
+      "vulnerabilityAlerts": {
+        "labels": ["security"],
+        "automerge": true
+      }
+    }
+  ],
+  "rust": {
+    "enabled": true
+  },
+  "postUpdateOptions": [
+    "cargoUpdateLockFile"
+  ],
+  "prConcurrentLimit": 3,
+  "prCreation": "immediate",
+  "labels": ["dependencies", "automated"],
+  "commitMessagePrefix": "chore(deps):",
+  "commitMessageAction": "update",
+  "rangeStrategy": "auto",
+  "separateMajorMinor": true,
+  "dependencyDashboardTitle": "🔄 Dependency Updates Dashboard"
+}

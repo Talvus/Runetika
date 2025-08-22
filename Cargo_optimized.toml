@@ -1,0 +1,161 @@
+[package]
+name = "runetika"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A cosmic terminal adventure game built with Bevy"
+repository = "https://github.com/yourusername/runetika"
+license = "MIT OR Apache-2.0"
+keywords = ["game", "bevy", "terminal", "space"]
+categories = ["games"]
+
+[dependencies]
+# Core game engine
+bevy = { version = "0.16", features = [
+    "bevy_asset",
+    "bevy_winit",
+    "bevy_core_pipeline",
+    "bevy_sprite",
+    "bevy_text",
+    "bevy_ui",
+    "bevy_pbr",
+    "bevy_gltf",
+    "bevy_audio",
+    "bevy_gilrs",         # Gamepad support
+    "bevy_gizmos",        # Debug visualization
+    "serialize",          # Save/load support
+    "wayland",           # Linux Wayland support
+    "x11",              # Linux X11 support
+    "subpixel_glyph_atlas", # Better text rendering
+    "webgl2",           # Web support
+]}
+
+# Physics
+avian2d = "0.2"
+
+# Utilities
+rand = { version = "0.8", features = ["small_rng"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Platform-specific dependencies
+[target.'cfg(target_os = "macos")'.dependencies]
+# macOS specific optimizations
+core-foundation = "0.9"
+metal = "0.27"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+# Web platform support
+wasm-bindgen = "0.2"
+web-sys = "0.3"
+console_error_panic_hook = "0.1"
+
+[target.'cfg(windows)'.dependencies]
+# Windows specific
+winapi = { version = "0.3", features = ["winuser"] }
+
+# Development dependencies
+[dev-dependencies]
+bevy-inspector-egui = "0.27"  # Runtime inspection
+criterion = "0.5"              # Benchmarking
+
+# Build dependencies
+[build-dependencies]
+embed-resource = "2.0"         # Windows icon embedding
+
+# Profile configurations for different build types
+[profile.dev]
+opt-level = 1                  # Basic optimizations for faster iteration
+
+[profile.dev.package."*"]
+opt-level = 3                  # Optimize dependencies even in dev
+
+[profile.release]
+opt-level = 3                  # Maximum speed optimizations
+lto = "thin"                   # Link-time optimization
+codegen-units = 1              # Single codegen unit for better optimization
+strip = true                   # Strip symbols for smaller binary
+panic = "abort"                # Smaller binary, no unwinding
+incremental = false            # Disable incremental compilation
+
+# Platform-specific release profiles
+[profile.release-macos]
+inherits = "release"
+lto = "fat"                    # More aggressive LTO for macOS
+# Target native CPU for maximum performance
+rustflags = ["-C", "target-cpu=native"]
+
+[profile.release-windows]
+inherits = "release"
+# Windows-specific optimizations
+rustflags = ["-C", "target-feature=+crt-static"]
+
+[profile.release-linux]
+inherits = "release"
+lto = "fat"
+# Linux-specific optimizations
+rustflags = ["-C", "link-arg=-s"]
+
+# Web/WASM profile
+[profile.wasm-release]
+inherits = "release"
+opt-level = "z"                # Optimize for size
+lto = "fat"
+panic = "abort"
+
+# Distribution profile (maximum optimization, longer compile time)
+[profile.dist]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+strip = true
+panic = "abort"
+incremental = false
+
+# Benchmarking profile
+[profile.bench]
+inherits = "release"
+debug = true                   # Include debug symbols for profiling
+
+# Features for conditional compilation
+[features]
+default = ["native"]
+native = ["bevy/dynamic_linking"]  # Dynamic linking for faster dev builds
+web = ["bevy/webgl2"]
+debug = ["bevy/trace", "bevy/trace_tracy"]  # Profiling support
+steam = []  # Steam integration (future)
+
+# Package metadata
+[package.metadata.bundle]
+name = "Runetika"
+identifier = "com.cosmicstudios.runetika"
+icon = ["assets/icon.png"]
+version = "0.1.0"
+copyright = "Copyright (c) 2024 Cosmic Studios"
+category = "Game"
+short_description = "A cosmic terminal adventure"
+long_description = """
+Runetika is a space-themed adventure game featuring a powerful
+terminal interface and exploration mechanics. Navigate the cosmos
+using command-line skills and uncover the mysteries of the universe.
+"""
+
+# Workspace configuration (if using workspace)
+[workspace]
+members = [".", "tools/*"]
+resolver = "2"
+
+# Patch dependencies for optimization (example)
+[patch.crates-io]
+# Use a forked version with optimizations if needed
+# bevy = { git = "https://github.com/yourusername/bevy", branch = "optimized" }
+
+# Benchmarks
+[[bench]]
+name = "ecs_benchmarks"
+harness = false
+
+[[bench]]
+name = "render_benchmarks"
+harness = false

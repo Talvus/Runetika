@@ -215,3 +215,20 @@ pub fn animate_terminal_glow(
         );
     }
 }
+
+pub fn cleanup_terminal(
+    mut commands: Commands,
+    terminal_query: Query<Entity, With<Terminal>>,
+    backdrop_query: Query<Entity, With<super::starfield::TerminalBackdrop>>,
+    starfield_query: Query<Entity, With<super::starfield::Starfield>>,
+) {
+    for entity in terminal_query.iter() {
+        commands.entity(entity).despawn();
+    }
+    for entity in backdrop_query.iter() {
+        commands.entity(entity).despawn();
+    }
+    for entity in starfield_query.iter() {
+        commands.entity(entity).despawn();
+    }
+}

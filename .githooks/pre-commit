@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# Pre-commit hook for Runetika
+# Ensures code quality and dependency safety before commits
+
+set -e
+
+echo "Running pre-commit checks..."
+
+# Format check
+echo "Checking code formatting..."
+cargo fmt -- --check || {
+    echo "❌ Code is not formatted. Run 'cargo fmt' to fix."
+    exit 1
+}
+
+# Clippy lints
+echo "Running clippy..."
+cargo clippy -- -D warnings || {
+    echo "❌ Clippy found issues. Please fix them before committing."
+    exit 1
+}
+
+# Security audit (warning only, don't block commit)
+echo "Checking for security vulnerabilities..."
+if command -v cargo-audit &> /dev/null; then
+    cargo audit || echo "⚠️  Security warnings found. Consider updating dependencies."
+fi
+
+# Check for outdated dependencies (info only)
+if command -v cargo-outdated &> /dev/null; then
+    outdated_count=$(cargo outdated --format json | jq '.dependencies | length' 2>/dev/null || echo "0")
+    if [ "$outdated_count" -gt 0 ]; then
+        echo "ℹ️  You have $outdated_count outdated dependencies. Run './tools/update-deps.sh' to update."
+    fi
+fi
+
+echo "✅ All pre-commit checks passed!"
