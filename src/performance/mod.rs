@@ -244,14 +244,18 @@ fn auto_adjust_quality(
     metrics: Res<PerformanceMetrics>,
     mut quality: ResMut<QualitySettings>,
 ) {
-    // Don't adjust too frequently
-    static mut LAST_ADJUSTMENT: f32 = 0.0;
-    let current_time = bevy::utils::Instant::now().elapsed().as_secs_f32();
+    // Don't adjust too frequently - use atomic for thread safety
+    use std::sync::atomic::{AtomicU64, Ordering};
+    static LAST_ADJUSTMENT: AtomicU64 = AtomicU64::new(0);
     
-    unsafe {
-        if current_time - LAST_ADJUSTMENT < 2.0 {
-            return;
-        }
+    let current_time = bevy::utils::Instant::now().elapsed().as_secs_f32();
+    let current_time_bits = current_time.to_bits() as u64;
+    
+    let last_time_bits = LAST_ADJUSTMENT.load(Ordering::Relaxed);
+    let last_time = f32::from_bits(last_time_bits as u32);
+    
+    if current_time - last_time < 2.0 {
+        return;
     }
     
     if metrics.is_struggling() {
@@ -267,7 +271,7 @@ fn auto_adjust_quality(
             info!("Reducing shadow quality to {}", quality.shadow_quality);
         }
         
-        unsafe { LAST_ADJUSTMENT = current_time; }
+        LAST_ADJUSTMENT.store(current_time_bits, Ordering::Relaxed);
     } else if metrics.has_headroom() {
         // Increase quality incrementally
         if quality.resolution_scale < 1.0 {
@@ -281,7 +285,7 @@ fn auto_adjust_quality(
             info!("Increasing particle density to {}", quality.particle_density);
         }
         
-        unsafe { LAST_ADJUSTMENT = current_time; }
+        LAST_ADJUSTMENT.store(current_time_bits, Ordering::Relaxed);
     }
 }
 
