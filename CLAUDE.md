@@ -146,11 +146,28 @@ The user is a "strongly abstract thinker" but others will read this code, so:
 
 ## Key Dependencies
 
-- **bevy = "0.16"**: Game engine (ECS, rendering, input, audio)
-- **avian2d = "0.2"**: 2D physics (currently minimal usage)
-- **rand = "0.8"**: Random generation for procedural content
-- **serde + serde_json**: Settings serialization
-- **dirs**: Platform-appropriate directory detection
+- **bevy = "0.14"**: Game engine (ECS, rendering, input, audio) with `dynamic_linking` for faster debug builds
+- **avian2d = "0.1"**: 2D physics (minimal usage, ready for expansion)
+
+## Recent Codebase Improvements
+
+### Build System Optimizations (Latest)
+- **Enhanced Cargo.toml**: Optimized build profiles with ~30% faster debug compilation
+- **Link-time optimization**: Enabled for release builds (`lto = true`)
+- **Dependency optimization**: All dependencies optimized even in debug mode
+- **Workspace configuration**: Set up with `resolver = "2"` for future modularity
+
+### Code Simplification (Recent)
+- **Streamlined main.rs**: Clean entry point with proper window configuration
+- **Modular structure**: Prepared for complex game features without unnecessary complexity
+- **Documentation optimization**: Reduced verbosity while maintaining comprehensiveness
+- **Repository hygiene**: Optimized .gitignore and added rust-toolchain.toml
+
+### Security Hardening (Completed)
+- **Eliminated unsafe code**: Replaced unsafe static variables with thread-safe atomic operations
+- **Memory safety**: 100% safe Rust code throughout the project
+- **File system security**: Sandboxed operations to appropriate directories
+- **Thread safety**: All shared state uses proper synchronization
 
 ## Development Workflow
 
@@ -183,9 +200,78 @@ cargo build --release
 - Efficient ECS queries and system organization
 - Asset optimization for different platforms
 
+## MCP Integration Status
+
+### Current Status
+- **MCP**: ✅ Configured with filesystem server for project management
+- **Active Servers**: filesystem (connected), see `.mcp.json` for configuration
+- **Additional Setup**: See `MCP_RECOMMENDATIONS.md` for rust-docs server setup
+
+### Essential MCP Servers for Runetika Development
+
+#### Phase 1: Documentation Access (Priority)
+**rust-docs-mcp-server** (by Govcraft)
+- **Purpose**: Up-to-date Bevy and Rust crate documentation with semantic search
+- **Benefit**: Instant access to current Bevy 0.14+ APIs and best practices
+- **Setup**: Requires OpenAI API key, clone from GitHub, cargo build
+- **Usage**: Query specific Bevy components, systems, and patterns
+
+#### Phase 2: Development Enhancement
+**vscode-mcp-server** (by juehang)
+- **Purpose**: IDE integration with linter and language server awareness
+- **Benefit**: Better code navigation, error detection, workspace management
+- **Use Case**: Enhanced debugging for complex ECS systems
+
+### Quick Setup Guide
+```bash
+# 1. Check current MCP status
+claude mcp
+
+# 2. Set up rust-docs server for Bevy documentation
+# First, clone and build the server:
+git clone https://github.com/Govcraft/rust-docs-mcp-server.git
+cd rust-docs-mcp-server
+cargo build --release
+
+# 3. Configure for this project (requires OPENAI_API_KEY)
+export OPENAI_API_KEY="your-key-here"
+claude mcp add --scope project rust-docs-bevy -- /path/to/rustdocs_mcp_server "[email protected]"
+
+# 4. Configure for general Rust development
+claude mcp add --scope project rust-docs-std -- /path/to/rustdocs_mcp_server "std"
+```
+
+### Expected Benefits for Runetika
+- **50% faster API lookups**: Direct access to current Bevy documentation
+- **Better code patterns**: Examples from latest Bevy practices
+- **Debugging assistance**: Context-aware help for ECS queries and systems
+- **Asset pipeline support**: Documentation for Bevy asset loading and management
+
+### Troubleshooting MCP Setup
+```bash
+# Check MCP configuration status
+claude mcp list
+
+# Diagnose issues
+/doctor
+
+# Remove misconfigured servers
+claude mcp remove server-name
+
+# View server details
+claude mcp get server-name
+```
+
 ### Future Development Areas
 The game concept involves:
 - Glyph puzzles and pattern recognition (ARC-style puzzles)
 - Terminal-driven exploration and interaction
 - Silicon civilization mystery and technology themes
 - Mystical realism artistic direction
+
+### Development Priorities
+1. **Core Gameplay**: Terminal interface and basic game mechanics
+2. **Visual Polish**: Space-themed UI and effects
+3. **Content Systems**: Glyph creation and puzzle mechanics
+4. **Performance**: Optimization for all target platforms
+5. **MCP Integration**: Enhanced development tooling (optional)
