@@ -1,0 +1,10 @@
+name = "Runetika"
+version = "0.1.0"
+defaultTargets = ["runetika"]
+
+[[lean_lib]]
+name = "Runetika"
+
+[[lean_exe]]
+name = "runetika"
+root = "Main"
