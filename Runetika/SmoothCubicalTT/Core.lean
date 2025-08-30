@@ -1,5 +1,5 @@
-import Mathlib.CategoryTheory.Limits.Kan
-import Mathlib.Topology.ContinuousFunction.Basic
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.Square
+import Mathlib.Topology.ContinuousMap.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Order.Hom.Basic
 

@@ -1,9 +1,9 @@
-import Runetika.SCTT.Core
-import Runetika.SCTT.SelfCertifying
-import Runetika.SCTT.Categorical
-import Runetika.SCTT.HigherInductive
+import Runetika.SmoothCubicalTT.Core
+import Runetika.SmoothCubicalTT.SelfCertifying
+import Runetika.SmoothCubicalTT.Categorical
+import Runetika.SmoothCubicalTT.HigherInductive
 import Mathlib.Data.Finset.Basic
-import Mathlib.Topology.ContinuousFunction.Basic
+import Mathlib.Topology.ContinuousMap.Basic
 
 namespace SmoothCubicalTT.Distributed
 

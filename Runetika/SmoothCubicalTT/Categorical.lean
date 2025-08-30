@@ -1,7 +1,7 @@
 import Runetika.SmoothCubicalTT.Core
 import Runetika.SmoothCubicalTT.SelfCertifying
 import Mathlib.CategoryTheory.Functor.Basic
-import Mathlib.CategoryTheory.Limits.Kan.Extension
+import Mathlib.CategoryTheory.Limits.Shapes.Pullback.Square
 import Mathlib.CategoryTheory.Monad.Basic
 import Mathlib.Topology.MetricSpace.Basic
 

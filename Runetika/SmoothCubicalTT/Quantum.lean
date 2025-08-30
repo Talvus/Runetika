@@ -1,7 +1,7 @@
-import Runetika.SCTT.Core
-import Runetika.SCTT.HigherInductive
-import Runetika.SCTT.Distributed
-import Mathlib.LinearAlgebra.Matrix.Basic
+import Runetika.SmoothCubicalTT.Core
+import Runetika.SmoothCubicalTT.HigherInductive
+import Runetika.SmoothCubicalTT.Distributed
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.Data.Complex.Basic
 
 namespace SmoothCubicalTT.Quantum

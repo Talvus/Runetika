@@ -1,7 +1,7 @@
-import Runetika.SCTT.Core
-import Runetika.SCTT.SelfCertifying
-import Runetika.SCTT.Distributed
-import Mathlib.Analysis.Calculus.Deriv
+import Runetika.SmoothCubicalTT.Core
+import Runetika.SmoothCubicalTT.SelfCertifying
+import Runetika.SmoothCubicalTT.Distributed
+import Mathlib.Analysis.Calculus.FDeriv.Basic
 import Mathlib.Probability.Distributions.Exponential
 
 namespace SmoothCubicalTT.Economics

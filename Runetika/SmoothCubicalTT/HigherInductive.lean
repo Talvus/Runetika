@@ -1,6 +1,6 @@
-import Runetika.SCTT.Core
-import Runetika.SCTT.SelfCertifying
-import Runetika.SCTT.Categorical
+import Runetika.SmoothCubicalTT.Core
+import Runetika.SmoothCubicalTT.SelfCertifying
+import Runetika.SmoothCubicalTT.Categorical
 import Mathlib.Data.List.Basic
 import Mathlib.Algebra.Group.Defs
 
