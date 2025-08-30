@@ -1,6 +1,6 @@
 import Runetika.SmoothCubicalTT.Core
 import Mathlib.Data.Fintype.Basic
-import Mathlib.Data.Vector
+import Mathlib.Data.List.Basic
 import Mathlib.Logic.Equiv.Basic
 
 namespace SmoothCubicalTT.SelfCertifying

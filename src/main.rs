@@ -16,6 +16,7 @@ mod menu;
 mod game_state;
 mod credits;
 mod settings;
+pub mod compression_test;
 
 use bevy::prelude::*;
 use terminal::TerminalPlugin;

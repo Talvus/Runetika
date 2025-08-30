@@ -34,6 +34,9 @@ rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
+# Compression for save data and assets
+flate2 = "1.0"
+
 # Platform directories for proper settings storage
 dirs = "5.0"
 

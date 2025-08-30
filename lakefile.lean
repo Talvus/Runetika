@@ -4,7 +4,7 @@ open Lake DSL
 package runetika
 
 require mathlib from git
-  "file:///Users/tensorhusker/Git/mathlib4"
+  "https://github.com/leanprover-community/mathlib4.git"
 
 lean_lib Runetika
 

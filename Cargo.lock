@@ -4701,6 +4701,7 @@ dependencies = [
  "avian2d",
  "bevy 0.16.1",
  "dirs",
+ "flate2",
  "rand",
  "serde",
  "serde_json",
