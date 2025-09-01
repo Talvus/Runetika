@@ -5,7 +5,7 @@
 /// Complex options are presented simply, with tooltips for deeper understanding.
 
 use bevy::prelude::*;
-use bevy::hierarchy::ChildBuilder;
+// ChildBuilder is now in bevy::prelude
 use super::components::*;
 use crate::game_state::GameState;
 

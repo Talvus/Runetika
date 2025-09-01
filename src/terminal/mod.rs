@@ -18,6 +18,9 @@ pub mod commands;
 pub mod ui;
 pub mod starfield;
 
+// Re-export commonly used items
+pub use crate::perspective::InteractableTerminal;
+
 use bevy::prelude::*;
 use self::systems::*;
 use self::ui::*;

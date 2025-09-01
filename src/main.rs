@@ -16,6 +16,13 @@ mod menu;
 mod game_state;
 mod credits;
 mod settings;
+mod spaceship;
+mod player;
+mod perspective;
+mod puzzle;
+mod silicon_mind;
+mod terminal_interface;
+mod terminal_commands;
 
 use bevy::prelude::*;
 use terminal::TerminalPlugin;
@@ -23,6 +30,12 @@ use menu::MainMenuPlugin;
 use game_state::{GameStatePlugin, GameState};
 use credits::CreditsPlugin;
 use settings::SettingsPlugin;
+use spaceship::SpaceshipPlugin;
+use player::PlayerPlugin;
+use perspective::PerspectivePlugin;
+use puzzle::PuzzlePlugin;
+use silicon_mind::SiliconMindPlugin;
+use terminal_interface::TerminalInterfacePlugin;
 
 /// Tile component - Represents a single map cell
 /// 
@@ -139,6 +152,12 @@ fn main() {
             TerminalPlugin,
             CreditsPlugin,
             SettingsPlugin,
+            SpaceshipPlugin,
+            PlayerPlugin,
+            PerspectivePlugin,
+            PuzzlePlugin,
+            SiliconMindPlugin,
+            TerminalInterfacePlugin,
         ))
         .add_systems(Startup, setup_camera)
         .add_systems(OnEnter(GameState::InGame), setup_map)

@@ -147,7 +147,7 @@ pub struct AudioSettings {
 }
 
 impl AudioSettings {
-    pub fn apply_to_audio_system(&self, _audio: &bevy::audio::Audio) {
+    pub fn apply_to_audio_system(&self) {
         // Would apply volume settings here
     }
 }

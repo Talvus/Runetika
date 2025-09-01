@@ -22,9 +22,9 @@ edition = "2021"  # Using Rust 2021 edition for latest language features
 # Bevy provides the foundation: graphics, input, audio, and the ECS architecture
 bevy = "0.16"
 
-# Physics Engine (currently unused but ready for future features)
-# Avian2D will handle collision detection and physics simulation
-avian2d = "0.2"
+# Physics Engine for collision detection and physics simulation
+# Avian2D provides 2D physics for Bevy
+avian2d = "0.3"
 
 # Random Number Generation
 # Used for procedural generation, particle effects, and gameplay randomness
@@ -36,6 +36,10 @@ serde_json = "1.0"
 
 # Platform directories for proper settings storage
 dirs = "5.0"
+
+# WebAssembly runtime for silicon consciousness modules
+wasmer = "4.0"
+wat = "1.0"  # WebAssembly Text format compiler
 
 # Development Profile - Fast iteration
 # Balances compilation speed with runtime performance

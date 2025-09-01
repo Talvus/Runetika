@@ -1,7 +1,7 @@
 //! UI components and layout for the credits screen.
 
 use bevy::prelude::*;
-use bevy::hierarchy::ChildBuilder;
+// ChildBuilder is now in bevy::prelude
 use super::{CreditsScreen, CreditsContent, CreditEntry, CreditsState};
 
 /// Color scheme for credits screen

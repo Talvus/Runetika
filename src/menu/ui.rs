@@ -4,7 +4,7 @@
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
-use bevy::hierarchy::ChildBuilder;
+// ChildBuilder is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
 

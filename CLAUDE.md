@@ -2,6 +2,30 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ PENDING DELETION FLAG
+
+**The following components are flagged for removal and should not be developed further:**
+
+### Components to Delete (DO NOT USE OR MODIFY):
+1. **Compression functionality** (`flate2` integration)
+   - `src/compression_test.rs`
+   - `examples/compression_test.rs`
+   - `src/lib.rs` (created only for compression test)
+   - `flate2` dependency in `Cargo.toml`
+
+2. **Lean/mathlib4 integration**
+   - All `.lean` files in `Runetika/` directory
+   - `lakefile.lean`
+   - `lake-manifest.json`
+   - `lean-toolchain`
+   - mathlib4 references and imports
+
+3. **Related PR #3**
+   - Compression functionality and Lean dependency updates
+   - Should be closed without merging
+
+**Note:** These components were experimental and are not part of the core game architecture. They will be removed in an upcoming cleanup commit.
+
 ## Essential Commands
 
 ### Building and Running

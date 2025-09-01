@@ -56,7 +56,7 @@ impl Plugin for SettingsPlugin {
                 systems::handle_settings_input,
                 systems::apply_graphics_changes,
                 systems::apply_audio_changes,
-                ui::update_settings_display,
+                systems::update_settings_display,
             ).run_if(in_state(GameState::Settings)))
             
             // Platform-specific optimizations
@@ -81,11 +81,10 @@ impl SettingsData {
     /// adjusts volume, remaps controls, etc.
     pub fn apply_all(&self, 
         windows: &mut Query<&mut Window>,
-        audio: &Audio,
         commands: &mut Commands,
     ) {
         self.graphics.apply_to_window(windows);
-        self.audio.apply_to_audio_system(audio);
+        self.audio.apply_to_audio_system();
         self.controls.apply_to_input_system(commands);
     }
     
