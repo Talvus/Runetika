@@ -1,0 +1,9 @@
+    Updating crates.io index
+error: failed to select a version for `bevy`.
+    ... required by package `runetika v0.1.0 (/Users/tensorhusker/Git/Runetika)`
+versions that meet the requirements `^0.16` are: 0.16.1, 0.16.0
+
+package `runetika` depends on `bevy` with feature `bevy_a11y` but `bevy` does not have that feature.
+
+
+failed to select a version for `bevy` which could resolve this conflict

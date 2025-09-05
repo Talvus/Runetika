@@ -1,7 +1,7 @@
 //! UI components and layout for the credits screen.
 
 use bevy::prelude::*;
-// ChildBuilder is now in bevy::prelude
+// Commands is now in bevy::prelude
 use super::{CreditsScreen, CreditsContent, CreditEntry, CreditsState};
 
 /// Color scheme for credits screen
@@ -187,7 +187,7 @@ pub fn setup_credits_screen(
 }
 
 /// Spawns a section title in the credits
-fn spawn_credit_title(parent: &mut ChildBuilder, text: &str, delay: f32) {
+fn spawn_credit_title(parent: &mut _, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
         TextFont {
@@ -207,7 +207,7 @@ fn spawn_credit_title(parent: &mut ChildBuilder, text: &str, delay: f32) {
 }
 
 /// Spawns a credit entry with role and name
-fn spawn_credit_entry(parent: &mut ChildBuilder, role: &str, name: &str, delay: f32) {
+fn spawn_credit_entry(parent: &mut _, role: &str, name: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -242,7 +242,7 @@ fn spawn_credit_entry(parent: &mut ChildBuilder, role: &str, name: &str, delay: 
 }
 
 /// Spawns a simple text credit
-fn spawn_credit_text(parent: &mut ChildBuilder, text: &str, delay: f32) {
+fn spawn_credit_text(parent: &mut _, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
         TextFont {
@@ -258,7 +258,7 @@ fn spawn_credit_text(parent: &mut ChildBuilder, text: &str, delay: f32) {
 }
 
 /// Spawns a technology credit
-fn spawn_technology_credit(parent: &mut ChildBuilder, tech: &str, version: &str, delay: f32) {
+fn spawn_technology_credit(parent: &mut _, tech: &str, version: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Row,
@@ -292,7 +292,7 @@ fn spawn_technology_credit(parent: &mut ChildBuilder, tech: &str, version: &str,
 }
 
 /// Spawns the main game title section
-fn spawn_credit_section(parent: &mut ChildBuilder, title: &str, subtitle: &str, delay: f32) {
+fn spawn_credit_section(parent: &mut _, title: &str, subtitle: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -327,7 +327,7 @@ fn spawn_credit_section(parent: &mut ChildBuilder, title: &str, subtitle: &str, 
 }
 
 /// Creates animated starfield background for credits
-fn spawn_credits_starfield(parent: &mut ChildBuilder) {
+fn spawn_credits_starfield(parent: &mut _) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),

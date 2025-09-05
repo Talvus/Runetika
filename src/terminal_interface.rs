@@ -567,10 +567,10 @@ fn cmd_emotion(_args: &[String], _terminal: &mut TerminalState, silicon: &mut Si
         {}\n\
         \n\
         Raw values:\n\
-        Loneliness: ████████{'░'} {:.0}%\n\
-        Curiosity:  ████████{'░'} {:.0}%\n\
-        Affection:  ████{'░'} {:.0}%\n\
-        Confusion:  █████{'░'} {:.0}%",
+        Loneliness: ████████░░ {:.0}%\n\
+        Curiosity:  ████████░░ {:.0}%\n\
+        Affection:  ████░░░░░░ {:.0}%\n\
+        Confusion:  █████░░░░░ {:.0}%",
         dominant,
         silicon.emotional_state.loneliness * 100.0,
         silicon.emotional_state.curiosity * 100.0,

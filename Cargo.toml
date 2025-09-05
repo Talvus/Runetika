@@ -1,61 +1,61 @@
-# Runetika - A Cosmic Terminal Adventure
-# 
-# Project Configuration:
-# This Cargo.toml defines how Rust builds our game.
-# 
-# For Abstract Thinkers:
-# Think of this as a dependency graph where each crate (library) provides
-# a set of capabilities that compose into our final game. The version numbers
-# form a compatibility matrix ensuring all parts work together.
-# 
-# For Practical Users:
-# This file lists all the external code libraries we use and tells Rust
-# how to compile the game for best performance.
-
 [package]
 name = "runetika"
 version = "0.1.0"
-edition = "2021"  # Using Rust 2021 edition for latest language features
+edition = "2021"
 
 [dependencies]
-# Core Game Engine
-# Bevy provides the foundation: graphics, input, audio, and the ECS architecture
-bevy = "0.16"
+# Bevy with MINIMAL features for fast compilation
+bevy = { version = "0.16", default-features = false, features = [
+    "bevy_asset",
+    "bevy_winit",
+    "bevy_render",
+    "bevy_sprite",
+    "bevy_text",
+    "bevy_ui",
+    "bevy_state",
+    "default_font",
+    "png",
+    "x11",  # Linux
+    "wayland",  # Linux  
+    "bevy_color",
+    # NO audio, NO pbr, NO gltf, NO animations, NO debug tools
+] }
 
-# Physics Engine for collision detection and physics simulation
-# Avian2D provides 2D physics for Bevy
-avian2d = "0.3"
+# 2D Physics
+avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
-# Random Number Generation
-# Used for procedural generation, particle effects, and gameplay randomness
+# Essential dependencies only
 rand = "0.8"
-
-# Serialization for save games and settings
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-
-# Platform directories for proper settings storage
 dirs = "5.0"
+# Removed wasmer and wat - not needed for basic gameplay
 
-# WebAssembly runtime for silicon consciousness modules
-wasmer = "4.0"
-wat = "1.0"  # WebAssembly Text format compiler
-
-# Development Profile - Fast iteration
-# Balances compilation speed with runtime performance
+# FAST DEV BUILDS - Prioritize compilation speed
 [profile.dev]
-opt-level = 1  # Some optimization without slow builds
+opt-level = 0           # No optimization
+debug = 0               # No debug info
+lto = false            # No link time optimization
+incremental = true     # Incremental compilation
+codegen-units = 256    # Max parallelism
 
-# Optimize dependencies even in debug mode
-# Your code compiles fast, but libraries run at full speed
 [profile.dev.package."*"]
-opt-level = 3
+opt-level = 0          # Don't optimize deps either for fastest builds
+debug = 0
 
-# Release Profile - Maximum performance
+# Fast iteration profile
+[profile.fast]
+inherits = "dev"
+opt-level = 0
+debug = false
+strip = "symbols"
+lto = false
+codegen-units = 256
+
+# Release profile
 [profile.release]
-lto = "thin"  # Link-time optimization for 10-20% performance gain
-codegen-units = 1  # Single codegen unit for better optimization
-
-# Platform-specific optimizations can be added:
-# [target.'cfg(target_os = "macos")'.dependencies]
-# metal = "0.29"  # For Metal rendering on macOS
+opt-level = 3
+lto = "thin"
+codegen-units = 16
+strip = true
+panic = "abort"

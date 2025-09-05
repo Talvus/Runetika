@@ -352,3 +352,4 @@ The project is prepared for web deployment with:
 - **Performance**: 60 FPS target on standard hardware
 - **Memory Usage**: Under 2GB RAM target
 - **Build Time**: ~30% faster debug compilation with optimizations
+- Let's have two major things in this game: it must be able to master ARC 2025 and 2026 - and Advanced Reasoning Corpus in general; and it must act as both an extremely good game as well as being a playground for AI and Smooth Cubical Type Theory - and other advanced math in general.

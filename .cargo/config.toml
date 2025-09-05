@@ -1,66 +1,41 @@
-# Cargo configuration for the project
+# Cargo configuration for Runetika - OPTIMIZED FOR SPEED
 
-# Optimize build times
-[target.x86_64-unknown-linux-gnu]
+[build]
+jobs = 4  # Use 4 parallel jobs
+# Note: sccache and incremental compilation don't work together
+# rustc-wrapper = "/opt/homebrew/bin/sccache"
+
+[env]
+CARGO_INCREMENTAL = "1"
+# RUSTC_WRAPPER = "/opt/homebrew/bin/sccache"  # Disabled - conflicts with incremental
+SCCACHE_CACHE_SIZE = "10G"
+
+# Fast linker settings for macOS
+[target.aarch64-apple-darwin]
 linker = "clang"
-rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+rustflags = [
+    "-C", "split-debuginfo=unpacked",
+    "-C", "debuginfo=0",  # No debug info for faster builds
+    "-C", "target-cpu=native",
+]
 
 [target.x86_64-apple-darwin]
+linker = "clang"
 rustflags = [
     "-C", "link-arg=-fuse-ld=lld",
     "-C", "split-debuginfo=unpacked",
+    "-C", "debuginfo=0",
 ]
 
-[target.aarch64-apple-darwin]
-rustflags = [
-    "-C", "split-debuginfo=unpacked",
-    # Optimize for Apple Silicon
-    "-C", "target-cpu=apple-m1",
-]
-
-[target.x86_64-pc-windows-msvc]
-rustflags = ["-C", "target-feature=+crt-static"]
-
-[target.wasm32-unknown-unknown]
-runner = "wasm-server-runner"
-
-# Alias commands for convenience
+# Cargo aliases
 [alias]
-# Update dependencies
-update-deps = "run --package tools --bin update-deps"
-# Check for outdated deps
-check-deps = "outdated"
-# Security audit
-audit = "audit"
-# Run with profiling
-profile = "run --release --features debug"
-# Build for all platforms
-build-all = "build --target x86_64-apple-darwin --target aarch64-apple-darwin --target wasm32-unknown-unknown"
-# Format and lint
-fmt-check = "fmt -- --check"
+fast = "build --profile fast"
+quick = "run --profile fast"
 lint = "clippy -- -D warnings"
 
-
-# Registry configuration
 [registries.crates-io]
-protocol = "sparse"  # Use sparse registry protocol for faster updates
+protocol = "sparse"
 
-# Network configuration
 [net]
-retry = 3  # Number of retries for network requests
-offline = false  # Set to true for offline development
-
-# Profile for faster compilation during development
-[profile.dev]
-# Enable some optimizations for dependencies
-opt-level = 1
-# Enable parallel frontend compilation
-split-debuginfo = "unpacked"
-
-[profile.dev.package."*"]
-# Optimize all dependencies even in debug mode
-opt-level = 3
-
-# Use mold linker on Linux for faster linking (if available)
-[target.'cfg(target_os = "linux")']
-rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=mold"]
+retry = 3
+git-fetch-with-cli = true  # Faster git operations

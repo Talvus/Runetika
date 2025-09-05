@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "🎮 Runetika - Main Room Test"
+echo "============================"
+echo "Controls:"
+echo "  WASD/Arrows: Move"
+echo "  R: Reset position"
+echo "  Space: Show position"
+echo "  ESC: Return to menu"
+echo ""
+cargo run 2>&1 | grep -v "warning:"

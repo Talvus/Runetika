@@ -5,7 +5,7 @@
 /// Complex options are presented simply, with tooltips for deeper understanding.
 
 use bevy::prelude::*;
-// ChildBuilder is now in bevy::prelude
+// Commands is now in bevy::prelude
 use super::components::*;
 use crate::game_state::GameState;
 
@@ -59,7 +59,7 @@ pub fn setup_settings_screen(
 }
 
 /// Create the settings header
-fn spawn_header(parent: &mut ChildBuilder) {
+fn spawn_header(parent: &mut _) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -84,7 +84,7 @@ fn spawn_header(parent: &mut ChildBuilder) {
 }
 
 /// Create the tab navigation bar
-fn spawn_tab_bar(parent: &mut ChildBuilder) {
+fn spawn_tab_bar(parent: &mut _) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -113,7 +113,7 @@ fn spawn_tab_bar(parent: &mut ChildBuilder) {
 
 /// Create an individual tab button
 fn spawn_tab(
-    parent: &mut ChildBuilder,
+    parent: &mut _,
     label: &str,
     tab_type: SettingsTabType,
     is_active: bool,
@@ -149,7 +149,7 @@ fn spawn_tab(
 }
 
 /// Create the main content area
-fn spawn_content_area(parent: &mut ChildBuilder, settings: &Res<SettingsData>) {
+fn spawn_content_area(parent: &mut _, settings: &Res<SettingsData>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -168,7 +168,7 @@ fn spawn_content_area(parent: &mut ChildBuilder, settings: &Res<SettingsData>) {
 }
 
 /// Create graphics settings controls
-fn spawn_graphics_settings(parent: &mut ChildBuilder, graphics: &GraphicsSettings) {
+fn spawn_graphics_settings(parent: &mut _, graphics: &GraphicsSettings) {
     // Resolution Scale
     spawn_slider_control(
         parent,
@@ -220,7 +220,7 @@ fn spawn_graphics_settings(parent: &mut ChildBuilder, graphics: &GraphicsSetting
 
 /// Create a slider control
 fn spawn_slider_control(
-    parent: &mut ChildBuilder,
+    parent: &mut _,
     label: &str,
     tooltip: &str,
     value: f32,
@@ -304,7 +304,7 @@ fn spawn_slider_control(
 
 /// Create a dropdown control
 fn spawn_dropdown_control(
-    parent: &mut ChildBuilder,
+    parent: &mut _,
     label: &str,
     tooltip: &str,
     current: &str,
@@ -376,7 +376,7 @@ fn spawn_dropdown_control(
 }
 
 /// Create the footer with action buttons
-fn spawn_footer(parent: &mut ChildBuilder) {
+fn spawn_footer(parent: &mut _) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
