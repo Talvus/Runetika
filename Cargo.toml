@@ -3,6 +3,10 @@ name = "runetika"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = []
+debug = ["bevy/bevy_gizmos", "bevy/bevy_ui"]
+
 [dependencies]
 # Bevy with essential features for our creative mechanics
 bevy = { version = "0.14", default-features = false, features = [

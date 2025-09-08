@@ -1,11 +1,29 @@
 use bevy::prelude::*;
 use std::collections::HashMap;
 
+// Import debug modules
+#[cfg(feature = "debug")]
+mod type_theory_viz_debug;
+#[cfg(feature = "debug")]
+mod debug_overlay;
+#[cfg(feature = "debug")]
+mod type_inspector;
+
+#[cfg(feature = "debug")]
+use type_theory_viz_debug::TypeTheoryDebugPlugin;
+#[cfg(feature = "debug")]
+use debug_overlay::DebugOverlayPlugin;
+#[cfg(feature = "debug")]
+use type_inspector::TypeInspectorPlugin;
+
 /// Type Theory Visualization System - See and manipulate mathematical reality
 /// 
 /// This mode reveals the underlying type-theoretical structure of the game world,
 /// allowing players to directly manipulate paths, equivalences, and proofs
 /// as visual/interactive elements.
+/// 
+/// With debug features enabled, it also provides powerful introspection tools
+/// for development and testing.
 pub struct TypeTheoryVizPlugin;
 
 impl Plugin for TypeTheoryVizPlugin {
@@ -22,6 +40,16 @@ impl Plugin for TypeTheoryVizPlugin {
                 construct_proofs,
                 verify_equivalences,
             ).chain());
+        
+        // Add debug plugins when feature is enabled
+        #[cfg(feature = "debug")]
+        {
+            app.add_plugins((
+                TypeTheoryDebugPlugin,
+                DebugOverlayPlugin,
+                TypeInspectorPlugin,
+            ));
+        }
     }
 }
 
