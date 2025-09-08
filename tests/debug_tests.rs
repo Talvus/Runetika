@@ -1,6 +1,8 @@
-#[cfg(test)]
+#[cfg(all(test, feature = "debug"))]
 mod debug_tests {
     use bevy::prelude::*;
+    use std::collections::HashMap;
+    use std::any::TypeId;
     use runetika::type_theory_viz_debug::*;
     use runetika::debug_overlay::*;
     use runetika::type_inspector::*;
@@ -149,5 +151,136 @@ mod debug_tests {
         
         let minimal = DebugVerbosity::Minimal;
         assert!(matches!(minimal, DebugVerbosity::Minimal));
+    }
+
+    #[test]
+    fn test_debug_context_bounds_checking() {
+        let mut debug_context = DebugContext::default();
+        
+        // Test watch list bounds
+        for i in 0..DebugContext::MAX_WATCHES {
+            let result = debug_context.add_watch(
+                format!("watch_{}", i),
+                WatchTarget::Performance(MetricType::FPS),
+            );
+            assert!(result.is_ok());
+        }
+        
+        // Adding one more should fail
+        let result = debug_context.add_watch(
+            "overflow".to_string(),
+            WatchTarget::Performance(MetricType::FPS),
+        );
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_performance_profiler_bounds() {
+        let mut profiler = PerformanceProfiler::default();
+        
+        // Test frame times bounds
+        for i in 0..150 {
+            profiler.add_frame_time(16.67);
+        }
+        
+        // Should maintain max size
+        assert_eq!(profiler.frame_times.len(), PerformanceProfiler::MAX_FRAME_TIMES);
+        
+        // Test system time bounds
+        for i in 0..PerformanceProfiler::MAX_SYSTEMS {
+            let result = profiler.add_system_time(format!("system_{}", i), 1.0);
+            assert!(result.is_ok());
+        }
+        
+        // Adding one more system should fail
+        let result = profiler.add_system_time("overflow_system".to_string(), 1.0);
+        assert!(result.is_err());
+    }
+
+    #[test]
+    fn test_debug_history_cleanup() {
+        let mut debug_context = DebugContext::default();
+        
+        // Add more snapshots than the limit
+        for i in 0..600 {
+            let snapshot = DebugSnapshot {
+                timestamp: std::time::Instant::now(),
+                frame: i,
+                entities: vec![],
+                resources: HashMap::new(),
+                metrics: PerformanceMetrics::default(),
+            };
+            debug_context.history.push_back(snapshot);
+        }
+        
+        // Cleanup should reduce to max size
+        debug_context.cleanup_history();
+        assert_eq!(debug_context.history.len(), DebugContext::MAX_HISTORY);
+    }
+
+    #[test]
+    fn test_breakpoint_bounds_checking() {
+        let mut debug_context = DebugContext::default();
+        
+        // Add breakpoints up to the limit
+        for i in 0..DebugContext::MAX_BREAKPOINTS {
+            let breakpoint = Breakpoint {
+                id: BreakpointId(i as u32),
+                condition: BreakpointCondition::FrameNumber(i as u64),
+                enabled: true,
+                hit_count: 0,
+                action: BreakpointAction::Pause,
+            };
+            let result = debug_context.add_breakpoint(breakpoint);
+            assert!(result.is_ok());
+        }
+        
+        // Adding one more should fail
+        let overflow_breakpoint = Breakpoint {
+            id: BreakpointId(999),
+            condition: BreakpointCondition::FrameNumber(999),
+            enabled: true,
+            hit_count: 0,
+            action: BreakpointAction::Pause,
+        };
+        let result = debug_context.add_breakpoint(overflow_breakpoint);
+        assert!(result.is_err());
+    }
+
+    #[test] 
+    fn test_memory_sample_limits() {
+        let mut profiler = PerformanceProfiler::default();
+        
+        // Add more memory samples than the limit
+        for i in 0..100 {
+            let sample = MemorySample {
+                timestamp: std::time::Instant::now(),
+                heap_usage: i * 1024,
+                entity_count: i,
+                component_pools: HashMap::new(),
+            };
+            profiler.add_memory_sample(sample);
+        }
+        
+        // Should maintain max size
+        assert_eq!(profiler.memory_samples.len(), PerformanceProfiler::MAX_MEMORY_SAMPLES);
+    }
+    
+    #[test]
+    fn test_debug_system_integration() {
+        let mut app = App::new();
+        app.add_plugins(MinimalPlugins)
+            .add_plugins(TypeTheoryDebugPlugin)
+            .insert_resource(ButtonInput::<KeyCode>::default());
+        
+        // Test that debug systems are properly registered
+        let debug_context = app.world.resource::<DebugContext>();
+        assert!(!debug_context.enabled);
+        
+        let profiler = app.world.resource::<PerformanceProfiler>();
+        assert!(!profiler.recording);
+        
+        // Run one update to ensure systems work without panicking
+        app.update();
     }
 }

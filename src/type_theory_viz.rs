@@ -415,7 +415,7 @@ pub struct ProofStep {
 #[derive(Clone)]
 pub enum InferenceRule {
     ModusPonens,
-    Universal instantiation,
+    UniversalInstantiation,
     Existential(String),
     Induction,
     Computation,

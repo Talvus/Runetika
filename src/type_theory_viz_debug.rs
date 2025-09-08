@@ -62,9 +62,41 @@ impl Default for DebugContext {
             selected_entity: None,
             breakpoints: Vec::new(),
             watch_list: HashMap::new(),
-            history: VecDeque::with_capacity(1000),
+            history: VecDeque::with_capacity(500), // Reduced capacity for memory efficiency
             overlay_config: OverlayConfig::default(),
         }
+    }
+}
+
+impl DebugContext {
+    /// Maximum number of history entries to keep
+    const MAX_HISTORY: usize = 500;
+    const MAX_WATCHES: usize = 100;
+    const MAX_BREAKPOINTS: usize = 50;
+    
+    /// Clean up old history entries to prevent memory leaks
+    pub fn cleanup_history(&mut self) {
+        while self.history.len() > Self::MAX_HISTORY {
+            self.history.pop_front();
+        }
+    }
+    
+    /// Add a watch target with bounds checking
+    pub fn add_watch(&mut self, name: String, target: WatchTarget) -> Result<(), String> {
+        if self.watch_list.len() >= Self::MAX_WATCHES {
+            return Err("Maximum number of watch targets exceeded".to_string());
+        }
+        self.watch_list.insert(name, target);
+        Ok(())
+    }
+    
+    /// Add a breakpoint with bounds checking
+    pub fn add_breakpoint(&mut self, breakpoint: Breakpoint) -> Result<(), String> {
+        if self.breakpoints.len() >= Self::MAX_BREAKPOINTS {
+            return Err("Maximum number of breakpoints exceeded".to_string());
+        }
+        self.breakpoints.push(breakpoint);
+        Ok(())
     }
 }
 
@@ -96,7 +128,7 @@ pub enum BreakpointCondition {
     ResourceModified(String),
     SystemExecuted(String),
     FrameNumber(u64),
-    Custom(Box<dyn Fn(&World) -> bool + Send + Sync>),
+    // Custom breakpoints removed for security - use predefined conditions instead
 }
 
 #[derive(Clone)]
@@ -172,13 +204,64 @@ pub struct ResourceSnapshot {
 }
 
 /// Performance profiler
-#[derive(Resource, Default)]
+#[derive(Resource)]
 pub struct PerformanceProfiler {
     pub frame_times: VecDeque<f32>,
     pub system_times: HashMap<String, VecDeque<f32>>,
     pub memory_samples: VecDeque<MemorySample>,
     pub hotspots: Vec<Hotspot>,
     pub recording: bool,
+}
+
+impl Default for PerformanceProfiler {
+    fn default() -> Self {
+        Self {
+            frame_times: VecDeque::with_capacity(120),
+            system_times: HashMap::new(),
+            memory_samples: VecDeque::with_capacity(60),
+            hotspots: Vec::new(),
+            recording: false,
+        }
+    }
+}
+
+impl PerformanceProfiler {
+    /// Maximum number of frame times to keep
+    const MAX_FRAME_TIMES: usize = 120;
+    const MAX_MEMORY_SAMPLES: usize = 60;
+    const MAX_SYSTEM_SAMPLES: usize = 120;
+    const MAX_SYSTEMS: usize = 100;
+    
+    /// Add a frame time with automatic cleanup
+    pub fn add_frame_time(&mut self, frame_time: f32) {
+        self.frame_times.push_back(frame_time);
+        while self.frame_times.len() > Self::MAX_FRAME_TIMES {
+            self.frame_times.pop_front();
+        }
+    }
+    
+    /// Add a system time sample with automatic cleanup
+    pub fn add_system_time(&mut self, system_name: String, time: f32) -> Result<(), String> {
+        if self.system_times.len() >= Self::MAX_SYSTEMS && !self.system_times.contains_key(&system_name) {
+            return Err("Maximum number of tracked systems exceeded".to_string());
+        }
+        
+        let times = self.system_times.entry(system_name).or_insert_with(|| VecDeque::with_capacity(Self::MAX_SYSTEM_SAMPLES));
+        times.push_back(time);
+        
+        while times.len() > Self::MAX_SYSTEM_SAMPLES {
+            times.pop_front();
+        }
+        Ok(())
+    }
+    
+    /// Add a memory sample with automatic cleanup
+    pub fn add_memory_sample(&mut self, sample: MemorySample) {
+        self.memory_samples.push_back(sample);
+        while self.memory_samples.len() > Self::MAX_MEMORY_SAMPLES {
+            self.memory_samples.pop_front();
+        }
+    }
 }
 
 #[derive(Clone)]
@@ -422,12 +505,7 @@ fn update_performance_metrics(
     }
     
     let frame_time = time.delta_secs();
-    profiler.frame_times.push_back(frame_time);
-    
-    // Keep only last 120 frames
-    while profiler.frame_times.len() > 120 {
-        profiler.frame_times.pop_front();
-    }
+    profiler.add_frame_time(frame_time);
     
     // Update memory sample
     let sample = MemorySample {
@@ -437,10 +515,7 @@ fn update_performance_metrics(
         component_pools: HashMap::new(),
     };
     
-    profiler.memory_samples.push_back(sample);
-    while profiler.memory_samples.len() > 60 {
-        profiler.memory_samples.pop_front();
-    }
+    profiler.add_memory_sample(sample);
 }
 
 /// Inspect entity types and components
@@ -523,14 +598,18 @@ fn handle_debug_commands(
     keyboard: Res<ButtonInput<KeyCode>>,
     mut commands: Commands,
 ) {
+    if !debug_context.enabled {
+        return;
+    }
+    
     // Pause/resume with P
-    if keyboard.just_pressed(KeyCode::KeyP) && debug_context.enabled {
+    if keyboard.just_pressed(KeyCode::KeyP) {
         // Would pause game execution
         info!("Debug pause toggled");
     }
     
     // Take snapshot with S
-    if keyboard.just_pressed(KeyCode::KeyS) && debug_context.enabled {
+    if keyboard.just_pressed(KeyCode::KeyS) {
         let snapshot = DebugSnapshot {
             timestamp: Instant::now(),
             frame: 0, // Would get actual frame number
@@ -540,13 +619,15 @@ fn handle_debug_commands(
         };
         
         debug_context.history.push_back(snapshot);
-        info!("Debug snapshot taken");
+        debug_context.cleanup_history(); // Ensure we don't exceed limits
+        info!("Debug snapshot taken (total: {})", debug_context.history.len());
     }
     
     // Clear debug info with C
-    if keyboard.just_pressed(KeyCode::KeyC) && debug_context.enabled {
+    if keyboard.just_pressed(KeyCode::KeyC) {
         debug_context.history.clear();
         debug_context.watch_list.clear();
+        debug_context.breakpoints.clear();
         info!("Debug info cleared");
     }
 }
@@ -558,24 +639,31 @@ pub trait TypeDebugExt {
     fn debug_label(&self) -> String;
 }
 
-/// Macro for adding debug watches
+/// Macro for adding debug watches with error handling
 #[macro_export]
 macro_rules! debug_watch {
     ($context:expr, $name:expr, $target:expr) => {
-        $context.watch_list.insert($name.to_string(), $target);
+        match $context.add_watch($name.to_string(), $target) {
+            Ok(_) => info!("Debug watch added: {}", $name),
+            Err(e) => warn!("Failed to add debug watch '{}': {}", $name, e),
+        }
     };
 }
 
-/// Macro for setting breakpoints
+/// Macro for setting breakpoints with error handling
 #[macro_export]
 macro_rules! debug_break {
     ($context:expr, $condition:expr) => {
-        $context.breakpoints.push(Breakpoint {
+        let breakpoint = Breakpoint {
             id: BreakpointId($context.breakpoints.len() as u32),
             condition: $condition,
             enabled: true,
             hit_count: 0,
             action: BreakpointAction::Pause,
-        });
+        };
+        match $context.add_breakpoint(breakpoint) {
+            Ok(_) => info!("Breakpoint added: {:?}", $condition),
+            Err(e) => warn!("Failed to add breakpoint: {}", e),
+        }
     };
 }
