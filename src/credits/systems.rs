@@ -4,7 +4,7 @@
 //! user input, and visual animations.
 
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 use super::{CreditsState, CreditsContent, CreditEntry};
 
 /// Handles user input while viewing credits.

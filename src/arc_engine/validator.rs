@@ -1,3 +1,4 @@
+use bevy::prelude::*;
 use super::pattern::Grid;
 
 #[derive(Debug, Clone)]

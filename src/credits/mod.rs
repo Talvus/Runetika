@@ -4,7 +4,7 @@
 //! the development team, contributors, and technologies used in creating Runetika.
 
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 
 pub mod ui;
 pub mod systems;

@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use super::components::*;
 use super::MenuState;
 use super::ui::colors::{BUTTON_NORMAL, BUTTON_HOVER, BUTTON_SELECTED};
-use crate::game_state::GameState;
+use crate::GameState;
 
 pub fn handle_menu_navigation(
     keyboard: Res<ButtonInput<KeyCode>>,

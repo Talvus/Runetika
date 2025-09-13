@@ -14,11 +14,7 @@ pub struct ARCEnginePlugin;
 impl Plugin for ARCEnginePlugin {
     fn build(&self, app: &mut App) {
         app.insert_resource(PuzzleState::default())
-            .add_event::<PuzzleSolvedEvent>()
-            .add_systems(Update, (
-                update_puzzle_state,
-                validate_player_solution,
-            ));
+            .add_event::<PuzzleSolvedEvent>();
     }
 }
 

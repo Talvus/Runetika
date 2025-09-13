@@ -26,7 +26,7 @@ use self::systems::*;
 use self::ui::*;
 use self::commands::register_builtin_commands;
 use self::starfield::*;
-use crate::game_state::GameState;
+use crate::GameState;
 
 /// Main terminal plugin - Integrates all terminal functionality into Bevy
 /// 

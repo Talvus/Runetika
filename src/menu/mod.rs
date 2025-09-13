@@ -21,7 +21,7 @@ pub mod systems;
 pub mod ui;
 
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 use self::systems::*;
 use self::ui::*;
 

@@ -1,53 +1,64 @@
 // Core game systems
-mod game_state;
-mod menu;
-mod credits;
-mod settings;
-mod terminal;
-
-// Game content systems
-mod arc_engine;
-mod silicon_mind_mvp;
-mod pattern_echo_mvp;
-
 use bevy::prelude::*;
-use game_state::{GameStatePlugin, GameState};
+use bevy::window::{PresentMode, WindowTheme};
+
+mod menu;
+mod settings;
+mod credits;
+mod silicon_mind;
+mod terminal_interface;
+mod terminal_commands;
+mod perspective;
+mod player;
+mod spaceship;
+mod puzzle;
+mod arc_engine;
+mod papilio;
+
+use menu::MainMenuPlugin;
+use settings::SettingsPlugin;
+use credits::CreditsPlugin;
+use silicon_mind::SiliconMindPlugin;
+use terminal_interface::TerminalInterfacePlugin;
+use arc_engine::ARCEnginePlugin;
+use papilio::PapilioPlugin;
+
+/// Core game state management
+#[derive(Debug, Clone, Copy, Default, Eq, PartialEq, Hash, States)]
+pub enum GameState {
+    #[default]
+    MainMenu,
+    InGame,
+    Settings,
+    Credits,
+    Terminal,
+}
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            primary_window: Some(Window { 
-                title: "Runetika - Unified Architecture".into(), 
-                resolution: (1280., 800.).into(), 
-                ..default() 
-            }),
-            ..default()
-        }))
+        .add_plugins(
+            DefaultPlugins
+                .set(WindowPlugin {
+                    primary_window: Some(Window {
+                        title: "Runetika".to_string(),
+                        resolution: (1280.0, 720.0).into(),
+                        present_mode: PresentMode::AutoVsync,
+                        window_theme: Some(WindowTheme::Dark),
+                        ..default()
+                    }),
+                    ..default()
+                })
+                .set(ImagePlugin::default_nearest()),
+        )
+        .init_state::<GameState>()
         .add_plugins((
-            // Core plugins
-            GameStatePlugin,
-            
-            // UI plugins
-            menu::MainMenuPlugin,
-            terminal::TerminalPlugin,
-            credits::CreditsPlugin,
-            settings::SettingsPlugin,
-            
-            // Game content plugins
-            arc_engine::ARCEnginePlugin,
-            silicon_mind_mvp::SiliconMindMVPPlugin,
-            pattern_echo_mvp::PatternEchoPlugin,
+            MainMenuPlugin,
+            SettingsPlugin,
+            CreditsPlugin,
+            SiliconMindPlugin,
+            TerminalInterfacePlugin,
+            ARCEnginePlugin,
+            PapilioPlugin,
         ))
-        .add_systems(Update, handle_pause_input.run_if(in_state(GameState::InGame)))
         .run();
-}
-
-fn handle_pause_input(
-    keyboard: Res<ButtonInput<KeyCode>>,
-    current_state: Res<State<GameState>>,
-    mut next_state: ResMut<NextState<GameState>>,
-) {
-    if keyboard.just_pressed(KeyCode::Escape) && current_state.get() == &GameState::InGame {
-        next_state.set(GameState::MainMenu);
-    }
 }

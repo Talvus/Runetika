@@ -6,7 +6,7 @@
 
 use bevy::prelude::*;
 use super::{SettingsData, SettingsFile};
-use crate::game_state::GameState;
+use crate::GameState;
 
 /// Load settings from disk on startup
 /// 
