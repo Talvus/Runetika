@@ -57,11 +57,11 @@ pub fn setup_credits_screen(
         .with_children(|header| {
             header.spawn((
                 Text::new("CREDITS"),
-                TextFont {
+                TextStyle {
                     font_size: 48.0,
                     ..default()
                 },
-                TextColor(colors::TITLE),
+                Color(colors::TITLE),
             ));
         });
         
@@ -176,11 +176,11 @@ pub fn setup_credits_screen(
         .with_children(|footer| {
             footer.spawn((
                 Text::new("Press ESC to return to menu • SPACE to pause scrolling"),
-                TextFont {
+                TextStyle {
                     font_size: 16.0,
                     ..default()
                 },
-                TextColor(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+                Color(Color::srgba(0.7, 0.6, 0.8, 0.7)),
             ));
         });
     });
@@ -190,11 +190,11 @@ pub fn setup_credits_screen(
 fn spawn_credit_title(parent: &mut _, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
-        TextFont {
+        TextStyle {
             font_size: 32.0,
             ..default()
         },
-        TextColor(colors::SECTION),
+        Color(colors::SECTION),
         Node {
             margin: UiRect::vertical(Val::Px(20.0)),
             ..default()
@@ -223,20 +223,20 @@ fn spawn_credit_entry(parent: &mut _, role: &str, name: &str, delay: f32) {
     .with_children(|entry| {
         entry.spawn((
             Text::new(role),
-            TextFont {
+            TextStyle {
                 font_size: 18.0,
                 ..default()
             },
-            TextColor(colors::ROLE),
+            Color(colors::ROLE),
         ));
         
         entry.spawn((
             Text::new(name),
-            TextFont {
+            TextStyle {
                 font_size: 24.0,
                 ..default()
             },
-            TextColor(colors::NAME),
+            Color(colors::NAME),
         ));
     });
 }
@@ -245,11 +245,11 @@ fn spawn_credit_entry(parent: &mut _, role: &str, name: &str, delay: f32) {
 fn spawn_credit_text(parent: &mut _, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
-        TextFont {
+        TextStyle {
             font_size: 20.0,
             ..default()
         },
-        TextColor(colors::TEXT),
+        Color(colors::TEXT),
         CreditEntry {
             delay,
             animation_timer: 0.0,
@@ -273,20 +273,20 @@ fn spawn_technology_credit(parent: &mut _, tech: &str, version: &str, delay: f32
     .with_children(|tech_entry| {
         tech_entry.spawn((
             Text::new(tech),
-            TextFont {
+            TextStyle {
                 font_size: 22.0,
                 ..default()
             },
-            TextColor(colors::NAME),
+            Color(colors::NAME),
         ));
         
         tech_entry.spawn((
             Text::new(format!("• {}", version)),
-            TextFont {
+            TextStyle {
                 font_size: 18.0,
                 ..default()
             },
-            TextColor(colors::ROLE),
+            Color(colors::ROLE),
         ));
     });
 }
@@ -308,20 +308,20 @@ fn spawn_credit_section(parent: &mut _, title: &str, subtitle: &str, delay: f32)
     .with_children(|section| {
         section.spawn((
             Text::new(title),
-            TextFont {
+            TextStyle {
                 font_size: 64.0,
                 ..default()
             },
-            TextColor(colors::TITLE),
+            Color(colors::TITLE),
         ));
         
         section.spawn((
             Text::new(subtitle),
-            TextFont {
+            TextStyle {
                 font_size: 24.0,
                 ..default()
             },
-            TextColor(colors::ROLE),
+            Color(colors::ROLE),
         ));
     });
 }

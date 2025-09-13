@@ -153,7 +153,7 @@ pub fn update_menu_buttons(
 
 pub fn animate_menu_elements(
     time: Res<Time>,
-    mut glow_query: Query<(&mut TextColor, &MenuGlow)>,
+    mut glow_query: Query<(&mut Color, &MenuGlow)>,
     mut particle_query: Query<(&mut Node, &MenuParticle)>,
     mut title_query: Query<&mut Transform, With<MenuTitle>>,
 ) {

@@ -74,11 +74,11 @@ fn spawn_header(parent: &mut _) {
     .with_children(|header| {
         header.spawn((
             Text::new("⚙️ SETTINGS"),
-            TextFont {
+            TextStyle {
                 font_size: 48.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
     });
 }
@@ -139,11 +139,11 @@ fn spawn_tab(
     .with_children(|tab| {
         tab.spawn((
             Text::new(label),
-            TextFont {
+            TextStyle {
                 font_size: 20.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
     });
 }
@@ -248,32 +248,32 @@ fn spawn_slider_control(
             // Label
             header.spawn((
                 Text::new(label),
-                TextFont {
+                TextStyle {
                     font_size: 18.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
             
             // Current value
             header.spawn((
                 Text::new(format!("{:.1}", value)),
-                TextFont {
+                TextStyle {
                     font_size: 18.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_SECONDARY),
+                Color(colors::TEXT_SECONDARY),
             ));
         });
         
         // Tooltip
         control.spawn((
             Text::new(tooltip),
-            TextFont {
+            TextStyle {
                 font_size: 14.0,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
         ));
         
         // Slider track
@@ -322,21 +322,21 @@ fn spawn_dropdown_control(
         // Label
         control.spawn((
             Text::new(label),
-            TextFont {
+            TextStyle {
                 font_size: 18.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
         
         // Tooltip
         control.spawn((
             Text::new(tooltip),
-            TextFont {
+            TextStyle {
                 font_size: 14.0,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
         ));
         
         // Dropdown button
@@ -356,20 +356,20 @@ fn spawn_dropdown_control(
         .with_children(|dropdown| {
             dropdown.spawn((
                 Text::new(current),
-                TextFont {
+                TextStyle {
                     font_size: 16.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
             
             dropdown.spawn((
                 Text::new("▼"),
-                TextFont {
+                TextStyle {
                     font_size: 16.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_SECONDARY),
+                Color(colors::TEXT_SECONDARY),
             ));
         });
     });
@@ -405,11 +405,11 @@ fn spawn_footer(parent: &mut _) {
         .with_children(|btn| {
             btn.spawn((
                 Text::new("Apply"),
-                TextFont {
+                TextStyle {
                     font_size: 20.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
         });
         
@@ -428,11 +428,11 @@ fn spawn_footer(parent: &mut _) {
         .with_children(|btn| {
             btn.spawn((
                 Text::new("Cancel"),
-                TextFont {
+                TextStyle {
                     font_size: 20.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
         });
     });

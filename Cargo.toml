@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Bevy with MINIMAL features for fast compilation
-bevy = { version = "0.16", default-features = false, features = [
+# Bevy with selected features for balanced compilation and functionality
+bevy = { version = "0.14", default-features = false, features = [
     "bevy_asset",
     "bevy_winit",
     "bevy_render",
@@ -17,12 +17,13 @@ bevy = { version = "0.16", default-features = false, features = [
     "png",
     "x11",  # Linux
     "wayland",  # Linux  
-    "bevy_color",
-    # NO audio, NO pbr, NO gltf, NO animations, NO debug tools
+    "bevy_core_pipeline",
+    "bevy_gizmos",  # For debug visualization
+    "multi_threaded",
 ] }
 
-# 2D Physics
-avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
+# 2D Physics - compatible with Bevy 0.14
+avian2d = { version = "0.1", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
 # Essential dependencies only
 rand = "0.8"

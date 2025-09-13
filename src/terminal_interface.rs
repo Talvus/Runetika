@@ -195,11 +195,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalOutputText,
         Text2d::new(""),
-        TextFont {
+        TextStyle {
             font_size: 14.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 0.8)),
+        Color(Color::srgb(0.0, 1.0, 0.8)),
         Transform::from_translation(Vec3::new(-380.0, 250.0, 501.0)),
         TextLayout::new_with_justify(JustifyText::Left),
         Visibility::Hidden,
@@ -210,11 +210,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalInputText,
         Text2d::new("> "),
-        TextFont {
+        TextStyle {
             font_size: 16.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 1.0)),
+        Color(Color::srgb(0.0, 1.0, 1.0)),
         Transform::from_translation(Vec3::new(-380.0, -250.0, 501.0)),
         TextLayout::new_with_justify(JustifyText::Left),
         Visibility::Hidden,
@@ -225,11 +225,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalCursor,
         Text2d::new("_"),
-        TextFont {
+        TextStyle {
             font_size: 16.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 1.0)),
+        Color(Color::srgb(0.0, 1.0, 1.0)),
         Transform::from_translation(Vec3::new(-360.0, -250.0, 502.0)),
         Visibility::Hidden,
     ));
@@ -450,7 +450,7 @@ fn update_terminal_display(
 fn animate_terminal_cursor(
     time: Res<Time>,
     terminal_state: Res<TerminalState>,
-    mut cursor_query: Query<(&mut Text2d, &mut TextColor), With<TerminalCursor>>,
+    mut cursor_query: Query<(&mut Text2d, &mut Color), With<TerminalCursor>>,
 ) {
     if !terminal_state.active {
         return;

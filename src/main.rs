@@ -1,18 +1,14 @@
-mod terminal;
-mod menu;
+// Core game systems
 mod game_state;
+mod menu;
 mod credits;
 mod settings;
-mod spaceship;
-mod spaceship_2d;
-mod main_room;
-mod maze;
-mod player;
-mod perspective;
-mod puzzle;
-mod silicon_mind;
-mod terminal_interface;
-mod terminal_commands;
+mod terminal;
+
+// Game content systems
+mod arc_engine;
+mod silicon_mind_mvp;
+mod pattern_echo_mvp;
 
 use bevy::prelude::*;
 use game_state::{GameStatePlugin, GameState};
@@ -21,24 +17,26 @@ fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window { 
-                title: "Runetika - Cosmic Odyssey".into(), 
+                title: "Runetika - Unified Architecture".into(), 
                 resolution: (1280., 800.).into(), 
                 ..default() 
             }),
             ..default()
         }))
         .add_plugins((
+            // Core plugins
             GameStatePlugin,
+            
+            // UI plugins
             menu::MainMenuPlugin,
             terminal::TerminalPlugin,
             credits::CreditsPlugin,
             settings::SettingsPlugin,
-            main_room::MainRoomPlugin,
-            maze::MazePlugin,
-            perspective::PerspectivePlugin,
-            puzzle::PuzzlePlugin,
-            silicon_mind::SiliconMindPlugin,
-            terminal_interface::TerminalInterfacePlugin,
+            
+            // Game content plugins
+            arc_engine::ARCEnginePlugin,
+            silicon_mind_mvp::SiliconMindMVPPlugin,
+            pattern_echo_mvp::PatternEchoPlugin,
         ))
         .add_systems(Update, handle_pause_input.run_if(in_state(GameState::InGame)))
         .run();

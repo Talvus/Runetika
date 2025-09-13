@@ -193,11 +193,11 @@ fn spawn_silicon_overlay(commands: &mut Commands) {
     commands.spawn((
         SiliconVision,
         Text2d::new("SILICON CONSCIOUSNESS ACTIVE"),
-        TextFont {
+        TextStyle {
             font_size: 20.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 1.0)),
+        Color(Color::srgb(0.0, 1.0, 1.0)),
         Transform::from_translation(Vec3::new(0.0, 350.0, 950.0)),
     ));
     
