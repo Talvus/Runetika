@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use super::components::*;
 use super::MenuState;
 use super::ui::colors::{BUTTON_NORMAL, BUTTON_HOVER, BUTTON_SELECTED};
-use crate::game_state::GameState;
+use crate::GameState;
 
 pub fn handle_menu_navigation(
     keyboard: Res<ButtonInput<KeyCode>>,
@@ -153,7 +153,7 @@ pub fn update_menu_buttons(
 
 pub fn animate_menu_elements(
     time: Res<Time>,
-    mut glow_query: Query<(&mut TextColor, &MenuGlow)>,
+    mut glow_query: Query<(&mut Color, &MenuGlow)>,
     mut particle_query: Query<(&mut Node, &MenuParticle)>,
     mut title_query: Query<&mut Transform, With<MenuTitle>>,
 ) {

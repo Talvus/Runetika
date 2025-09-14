@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use bevy::text::{TextColor, TextFont};
 use super::components::*;
 use super::{TerminalState, TerminalHistory, LineType};
 
@@ -23,12 +22,13 @@ pub const BORDER_GLOW: Color = Color::srgba(0.6, 0.2, 0.9, 0.8);  // Border purp
 pub fn setup_terminal(
     mut commands: Commands,
 ) {
-    let text_font = TextFont {
+    let text_style = TextStyle {
         font_size: FONT_SIZE,
+        color: TERMINAL_FG_COLOR,
         ..default()
     };
     
-    let header_font = TextFont {
+    let header_font = TextStyle {
         font_size: 18.0,
         ..default()
     };
@@ -74,7 +74,7 @@ pub fn setup_terminal(
                 header.spawn((
                     Text::new("◆ COSMIC TERMINAL v2.0 ◆"),
                     header_font.clone(),
-                    TextColor(Color::srgb(0.9, 0.7, 1.0)),
+                    Color(Color::srgb(0.9, 0.7, 1.0)),
                 ));
             });
             
@@ -107,21 +107,21 @@ pub fn setup_terminal(
                 input_area.spawn((
                     Text::new("❯ "),
                     text_font.clone(),
-                    TextColor(Color::srgb(0.8, 0.4, 1.0)),
+                    Color(Color::srgb(0.8, 0.4, 1.0)),
                     TerminalPrompt,
                 ));
                 
                 input_area.spawn((
                     Text::new(""),
                     text_font.clone(),
-                    TextColor(TERMINAL_FG_COLOR),
+                    Color(TERMINAL_FG_COLOR),
                     TerminalInputLine,
                 ));
                 
                 input_area.spawn((
                     Text::new("█"),  // Block cursor
                     text_font.clone(),
-                    TextColor(Color::srgb(0.9, 0.6, 1.0)),
+                    Color(Color::srgb(0.9, 0.6, 1.0)),
                     TerminalCursor,
                 ));
             });
@@ -178,11 +178,11 @@ pub fn update_terminal_display(
                 
                 parent.spawn((
                     Text::new(format!("{}{}", prefix, line.text)),
-                    TextFont {
+                    TextStyle {
                         font_size: FONT_SIZE,
                         ..default()
                     },
-                    TextColor(color),
+                    Color(color),
                     TerminalOutputLine { index },
                 ));
             }
@@ -192,7 +192,7 @@ pub fn update_terminal_display(
 
 pub fn animate_cursor(
     time: Res<Time>,
-    mut cursor_query: Query<&mut TextColor, With<TerminalCursor>>,
+    mut cursor_query: Query<&mut Color, With<TerminalCursor>>,
 ) {
     for mut text_color in cursor_query.iter_mut() {
         let alpha = (time.elapsed_secs() * 2.0).sin() * 0.5 + 0.5;

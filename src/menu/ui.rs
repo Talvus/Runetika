@@ -107,7 +107,7 @@ pub fn setup_main_menu(
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut _) {
+fn spawn_enhanced_starfield(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -156,7 +156,7 @@ fn spawn_enhanced_starfield(parent: &mut _) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut _) {
+fn spawn_nebula_effects(parent: &mut ChildBuilder) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
@@ -179,7 +179,7 @@ fn spawn_nebula_effects(parent: &mut _) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut _) {
+fn spawn_title_section(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -201,11 +201,11 @@ fn spawn_title_section(parent: &mut _) {
             // Glow layer
             title_container.spawn((
                 Text::new("RUNETIKA"),
-                TextFont {
+                TextStyle {
                     font_size: typography::TITLE_SIZE,
                     ..default()
                 },
-                TextColor(colors::TITLE_GLOW),
+                Color(colors::TITLE_GLOW),
                 Node {
                     position_type: PositionType::Absolute,
                     ..default()
@@ -216,11 +216,11 @@ fn spawn_title_section(parent: &mut _) {
             // Main text
             title_container.spawn((
                 Text::new("RUNETIKA"),
-                TextFont {
+                TextStyle {
                     font_size: typography::TITLE_SIZE,
                     ..default()
                 },
-                TextColor(colors::TITLE_PRIMARY),
+                Color(colors::TITLE_PRIMARY),
                 MenuGlow {
                     intensity: 1.0,
                     speed: animations::GLOW_PULSE_SPEED,
@@ -231,11 +231,11 @@ fn spawn_title_section(parent: &mut _) {
         // Animated subtitle
         title_parent.spawn((
             Text::new("═══ COSMIC ODYSSEY ═══"),
-            TextFont {
+            TextStyle {
                 font_size: typography::SUBTITLE_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY),
+            Color(colors::TEXT_SECONDARY),
             Node {
                 margin: UiRect::top(Val::Px(10.0)),
                 ..default()
@@ -245,11 +245,11 @@ fn spawn_title_section(parent: &mut _) {
         // Version badge
         title_parent.spawn((
             Text::new("ALPHA v0.1.0"),
-            TextFont {
+            TextStyle {
                 font_size: typography::VERSION_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.6)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.6)),
             Node {
                 margin: UiRect::top(Val::Px(5.0)),
                 ..default()
@@ -259,7 +259,7 @@ fn spawn_title_section(parent: &mut _) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildBuilder, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -294,7 +294,7 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut _,
+    parent: &mut ChildBuilder,
     text: &str,
     action: MenuAction,
     tooltip: &str,
@@ -328,11 +328,11 @@ fn spawn_enhanced_button(
         if is_selected {
             button.spawn((
                 Text::new("▸"),
-                TextFont {
+                TextStyle {
                     font_size: 24.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_ACCENT),
+                Color(colors::TEXT_ACCENT),
                 Node {
                     position_type: PositionType::Absolute,
                     left: Val::Px(15.0),
@@ -345,17 +345,17 @@ fn spawn_enhanced_button(
         // Button text
         button.spawn((
             Text::new(text),
-            TextFont {
+            TextStyle {
                 font_size: typography::BUTTON_TEXT_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
     }).id()
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut _) {
+fn spawn_footer_section(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -369,34 +369,34 @@ fn spawn_footer_section(parent: &mut _) {
     .with_children(|footer| {
         footer.spawn((
             Text::new("Navigate: ↑↓ or Mouse • Select: Enter • Back: ESC"),
-            TextFont {
+            TextStyle {
                 font_size: typography::FOOTER_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
         ));
         
         footer.spawn((
             Text::new("© 2024 Cosmic Studios • Made with Bevy & Rust"),
-            TextFont {
+            TextStyle {
                 font_size: typography::VERSION_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.5)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.5)),
         ));
     });
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut _) {
+fn spawn_decorative_elements(parent: &mut ChildBuilder) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
-        TextFont {
+        TextStyle {
             font_size: 20.0,
             ..default()
         },
-        TextColor(colors::TEXT_ACCENT.with_alpha(0.3)),
+        Color(colors::TEXT_ACCENT.with_alpha(0.3)),
         Node {
             position_type: PositionType::Absolute,
             top: Val::Px(20.0),
@@ -408,11 +408,11 @@ fn spawn_decorative_elements(parent: &mut _) {
     // Bottom corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
-        TextFont {
+        TextStyle {
             font_size: 20.0,
             ..default()
         },
-        TextColor(colors::TEXT_ACCENT.with_alpha(0.3)),
+        Color(colors::TEXT_ACCENT.with_alpha(0.3)),
         Node {
             position_type: PositionType::Absolute,
             bottom: Val::Px(20.0),

@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 use crate::perspective::CurrentPerspective;
 use crate::spaceship::{Door, RoomType};
 

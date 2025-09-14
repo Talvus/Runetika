@@ -328,11 +328,11 @@ pub fn spawn_performance_overlay(mut commands: Commands) {
     .with_children(|parent| {
         parent.spawn((
             Text::new("FPS: --\nEntities: --\nMemory: -- MB"),
-            TextFont {
+            TextStyle {
                 font_size: 14.0,
                 ..default()
             },
-            TextColor(Color::srgb(0.0, 1.0, 0.0)),
+            Color(Color::srgb(0.0, 1.0, 0.0)),
         ));
     });
 }

@@ -3,9 +3,14 @@ name = "runetika"
 version = "0.1.0"
 edition = "2021"
 
+# iOS static library configuration
+[lib]
+name = "runetika"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
 [dependencies]
-# Bevy with MINIMAL features for fast compilation
-bevy = { version = "0.16", default-features = false, features = [
+# Bevy with optimized features for fast compilation
+bevy = { version = "0.14", default-features = false, features = [
     "bevy_asset",
     "bevy_winit",
     "bevy_render",
@@ -17,45 +22,101 @@ bevy = { version = "0.16", default-features = false, features = [
     "png",
     "x11",  # Linux
     "wayland",  # Linux  
-    "bevy_color",
-    # NO audio, NO pbr, NO gltf, NO animations, NO debug tools
+    "bevy_core_pipeline",
+    "bevy_gizmos",  # For debug visualization
+    "multi_threaded",
+    "bevy_dynamic_plugin",  # Enable dynamic linking for faster compile
 ] }
 
-# 2D Physics
-avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
+# 2D Physics - compatible with Bevy 0.14
+avian2d = { version = "0.1", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
 # Essential dependencies only
 rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dirs = "5.0"
-# Removed wasmer and wat - not needed for basic gameplay
+log = "0.4"  # For FFI logging integration
 
-# FAST DEV BUILDS - Prioritize compilation speed
+# Performance monitoring
+tracy-client = { version = "0.17", optional = true }
+puffin = { version = "0.19", optional = true }
+
+# iOS FFI dependencies
+parking_lot = { version = "0.12", optional = true }
+crossbeam = { version = "0.8", optional = true }
+futures = { version = "0.3", optional = true }
+ahash = { version = "0.8", optional = true }
+
+# Evolved iOS architecture dependencies
+rayon = { version = "1.8", optional = true }
+dashmap = { version = "6.0", optional = true }
+smallvec = { version = "1.11", optional = true }
+mimalloc = { version = "0.1", optional = true, default-features = false }
+
+# Web support (for WASM builds)
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+web-sys = { version = "0.3", features = ["Storage", "Window"] }
+
+# Development dependencies
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[features]
+default = []
+profiling = ["tracy-client", "puffin", "bevy/trace_tracy"]
+fast-compile = ["bevy/dynamic_linking"]
+ios-ffi = [
+    "parking_lot",
+    "crossbeam",
+    "futures",
+    "ahash"
+]  # Enable iOS FFI bridge with optimizations
+ios-evolved = [
+    "ios-ffi",
+    "rayon",
+    "dashmap",
+    "smallvec",
+    "mimalloc"
+]  # Evolved iOS architecture with advanced features
+
+# ULTRA-FAST DEV BUILDS - Maximum compilation speed
 [profile.dev]
 opt-level = 0           # No optimization
-debug = 0               # No debug info
+debug = 0               # No debug info - saves significant time
 lto = false            # No link time optimization
 incremental = true     # Incremental compilation
 codegen-units = 256    # Max parallelism
+split-debuginfo = "unpacked"  # Faster on macOS
 
 [profile.dev.package."*"]
-opt-level = 0          # Don't optimize deps either for fastest builds
-debug = 0
+opt-level = 2          # Optimize dependencies for runtime performance
+debug = false
 
-# Fast iteration profile
-[profile.fast]
+# Fast iteration profile with some optimization
+[profile.fast-runtime]
 inherits = "dev"
-opt-level = 0
+opt-level = 1          # Basic optimization for better runtime
 debug = false
 strip = "symbols"
 lto = false
 codegen-units = 256
 
-# Release profile
+# Release profile - maximum performance
 [profile.release]
 opt-level = 3
-lto = "thin"
-codegen-units = 16
+lto = "fat"            # Full LTO for best performance
+codegen-units = 1      # Single codegen unit for best optimization
 strip = true
 panic = "abort"
+overflow-checks = false
+
+# Optimized release with faster compilation
+[profile.release-fast]
+inherits = "release"
+lto = "thin"
+codegen-units = 16
+
+[[bench]]
+name = "game_benchmarks"
+harness = false

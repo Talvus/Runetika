@@ -14,13 +14,13 @@
 /// This module handles all game settings like graphics quality, sound volume, and controls.
 /// It saves settings to disk, loads them on startup, and applies them immediately when changed.
 
-mod components;
-mod systems;
-mod ui;
-mod persistence;
+pub mod components;
+pub mod systems;
+pub mod ui;
+pub mod persistence;
 
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 
 pub use components::{SettingsData, GraphicsSettings, AudioSettings, ControlSettings};
 pub use persistence::SettingsFile;

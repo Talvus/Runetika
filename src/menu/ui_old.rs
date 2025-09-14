@@ -82,11 +82,11 @@ pub fn setup_main_menu(
             .with_children(|title_parent| {
                 title_parent.spawn((
                     Text::new("RUNETIKA"),
-                    TextFont {
+                    TextStyle {
                         font_size: 80.0,
                         ..default()
                     },
-                    TextColor(TITLE_COLOR),
+                    Color(TITLE_COLOR),
                     Node {
                         position_type: PositionType::Relative,
                         ..default()
@@ -99,11 +99,11 @@ pub fn setup_main_menu(
                 
                 title_parent.spawn((
                     Text::new("◆ COSMIC ODYSSEY ◆"),
-                    TextFont {
+                    TextStyle {
                         font_size: 20.0,
                         ..default()
                     },
-                    TextColor(Color::srgb(0.6, 0.5, 0.8)),
+                    Color(Color::srgb(0.6, 0.5, 0.8)),
                     Node {
                         position_type: PositionType::Absolute,
                         top: Val::Px(70.0),
@@ -155,21 +155,21 @@ pub fn setup_main_menu(
                     .with_children(|button| {
                         button.spawn((
                             Text::new(*text),
-                            TextFont {
+                            TextStyle {
                                 font_size: 24.0,
                                 ..default()
                             },
-                            TextColor(TEXT_COLOR),
+                            Color(TEXT_COLOR),
                         ));
                         
                         if index == 0 {
                             button.spawn((
                                 Text::new("▶"),
-                                TextFont {
+                                TextStyle {
                                     font_size: 20.0,
                                     ..default()
                                 },
-                                TextColor(Color::srgb(0.9, 0.6, 1.0)),
+                                Color(Color::srgb(0.9, 0.6, 1.0)),
                                 Node {
                                     position_type: PositionType::Absolute,
                                     left: Val::Px(20.0),
@@ -187,11 +187,11 @@ pub fn setup_main_menu(
             // Footer
             parent.spawn((
                 Text::new("Use ↑↓ or mouse to navigate • Enter to select"),
-                TextFont {
+                TextStyle {
                     font_size: 14.0,
                     ..default()
                 },
-                TextColor(Color::srgba(0.5, 0.4, 0.6, 0.7)),
+                Color(Color::srgba(0.5, 0.4, 0.6, 0.7)),
                 Node {
                     position_type: PositionType::Absolute,
                     bottom: Val::Px(30.0),

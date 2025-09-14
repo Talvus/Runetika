@@ -195,11 +195,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalOutputText,
         Text2d::new(""),
-        TextFont {
+        TextStyle {
             font_size: 14.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 0.8)),
+        Color(Color::srgb(0.0, 1.0, 0.8)),
         Transform::from_translation(Vec3::new(-380.0, 250.0, 501.0)),
         TextLayout::new_with_justify(JustifyText::Left),
         Visibility::Hidden,
@@ -210,11 +210,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalInputText,
         Text2d::new("> "),
-        TextFont {
+        TextStyle {
             font_size: 16.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 1.0)),
+        Color(Color::srgb(0.0, 1.0, 1.0)),
         Transform::from_translation(Vec3::new(-380.0, -250.0, 501.0)),
         TextLayout::new_with_justify(JustifyText::Left),
         Visibility::Hidden,
@@ -225,11 +225,11 @@ fn setup_terminal_ui(mut commands: Commands) {
         TerminalUI,
         TerminalCursor,
         Text2d::new("_"),
-        TextFont {
+        TextStyle {
             font_size: 16.0,
             ..default()
         },
-        TextColor(Color::srgb(0.0, 1.0, 1.0)),
+        Color(Color::srgb(0.0, 1.0, 1.0)),
         Transform::from_translation(Vec3::new(-360.0, -250.0, 502.0)),
         Visibility::Hidden,
     ));
@@ -414,8 +414,8 @@ fn execute_terminal_commands(
 
 fn update_terminal_display(
     terminal_state: Res<TerminalState>,
-    mut output_query: Query<&mut Text2d, (With<TerminalOutputText>, Without<TerminalInputText>)>,
-    mut input_query: Query<&mut Text2d, (With<TerminalInputText>, Without<TerminalOutputText>)>,
+    mut output_query: Query<&mut Text, (With<TerminalOutputText>, Without<TerminalInputText>)>,
+    mut input_query: Query<&mut Text, (With<TerminalInputText>, Without<TerminalOutputText>)>,
 ) {
     if !terminal_state.active {
         return;
@@ -450,20 +450,20 @@ fn update_terminal_display(
 fn animate_terminal_cursor(
     time: Res<Time>,
     terminal_state: Res<TerminalState>,
-    mut cursor_query: Query<(&mut Text2d, &mut TextColor), With<TerminalCursor>>,
+    mut cursor_query: Query<&mut Text, With<TerminalCursor>>,
 ) {
     if !terminal_state.active {
         return;
     }
     
-    if let Ok((mut text, mut color)) = cursor_query.get_single_mut() {
-        // Blink cursor
-        let alpha = (time.elapsed_secs() * 2.0).sin() * 0.5 + 0.5;
-        color.0 = Color::srgba(0.0, 1.0, 1.0, alpha);
+    if let Ok(mut text) = cursor_query.get_single_mut() {
+        // Blink cursor by changing text visibility
+        let alpha = (time.elapsed_seconds() * 2.0).sin() * 0.5 + 0.5;
         
-        // Position cursor
-        let cursor_offset = terminal_state.cursor_position as f32 * 8.0; // Approximate character width
-        **text = "_".to_string();
+        // Update cursor text with blinking effect
+        for section in &mut text.sections {
+            section.style.color.set_alpha(alpha);
+        }
     }
 }
 

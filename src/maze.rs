@@ -101,7 +101,7 @@ pub fn spawn_hallway(commands: &mut Commands) -> Vec2 {
     commands.spawn((
         Hallway,
         Text::new("→ MAZE"),
-        TextFont {
+        TextStyle {
             font_size: 16.0,
             ..default()
         },

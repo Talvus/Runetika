@@ -7,7 +7,7 @@
 use bevy::prelude::*;
 // Commands is now in bevy::prelude
 use super::components::*;
-use crate::game_state::GameState;
+use crate::GameState;
 
 /// Color scheme for settings UI
 mod colors {
@@ -59,7 +59,7 @@ pub fn setup_settings_screen(
 }
 
 /// Create the settings header
-fn spawn_header(parent: &mut _) {
+fn spawn_header(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -74,17 +74,17 @@ fn spawn_header(parent: &mut _) {
     .with_children(|header| {
         header.spawn((
             Text::new("⚙️ SETTINGS"),
-            TextFont {
+            TextStyle {
                 font_size: 48.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
     });
 }
 
 /// Create the tab navigation bar
-fn spawn_tab_bar(parent: &mut _) {
+fn spawn_tab_bar(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -113,7 +113,7 @@ fn spawn_tab_bar(parent: &mut _) {
 
 /// Create an individual tab button
 fn spawn_tab(
-    parent: &mut _,
+    parent: &mut ChildBuilder,
     label: &str,
     tab_type: SettingsTabType,
     is_active: bool,
@@ -139,17 +139,17 @@ fn spawn_tab(
     .with_children(|tab| {
         tab.spawn((
             Text::new(label),
-            TextFont {
+            TextStyle {
                 font_size: 20.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
     });
 }
 
 /// Create the main content area
-fn spawn_content_area(parent: &mut _, settings: &Res<SettingsData>) {
+fn spawn_content_area(parent: &mut ChildBuilder, settings: &Res<SettingsData>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -168,7 +168,7 @@ fn spawn_content_area(parent: &mut _, settings: &Res<SettingsData>) {
 }
 
 /// Create graphics settings controls
-fn spawn_graphics_settings(parent: &mut _, graphics: &GraphicsSettings) {
+fn spawn_graphics_settings(parent: &mut ChildBuilder, graphics: &GraphicsSettings) {
     // Resolution Scale
     spawn_slider_control(
         parent,
@@ -220,7 +220,7 @@ fn spawn_graphics_settings(parent: &mut _, graphics: &GraphicsSettings) {
 
 /// Create a slider control
 fn spawn_slider_control(
-    parent: &mut _,
+    parent: &mut ChildBuilder,
     label: &str,
     tooltip: &str,
     value: f32,
@@ -248,32 +248,32 @@ fn spawn_slider_control(
             // Label
             header.spawn((
                 Text::new(label),
-                TextFont {
+                TextStyle {
                     font_size: 18.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
             
             // Current value
             header.spawn((
                 Text::new(format!("{:.1}", value)),
-                TextFont {
+                TextStyle {
                     font_size: 18.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_SECONDARY),
+                Color(colors::TEXT_SECONDARY),
             ));
         });
         
         // Tooltip
         control.spawn((
             Text::new(tooltip),
-            TextFont {
+            TextStyle {
                 font_size: 14.0,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
         ));
         
         // Slider track
@@ -304,7 +304,7 @@ fn spawn_slider_control(
 
 /// Create a dropdown control
 fn spawn_dropdown_control(
-    parent: &mut _,
+    parent: &mut ChildBuilder,
     label: &str,
     tooltip: &str,
     current: &str,
@@ -322,21 +322,21 @@ fn spawn_dropdown_control(
         // Label
         control.spawn((
             Text::new(label),
-            TextFont {
+            TextStyle {
                 font_size: 18.0,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            Color(colors::TEXT_PRIMARY),
         ));
         
         // Tooltip
         control.spawn((
             Text::new(tooltip),
-            TextFont {
+            TextStyle {
                 font_size: 14.0,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
         ));
         
         // Dropdown button
@@ -356,27 +356,27 @@ fn spawn_dropdown_control(
         .with_children(|dropdown| {
             dropdown.spawn((
                 Text::new(current),
-                TextFont {
+                TextStyle {
                     font_size: 16.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
             
             dropdown.spawn((
                 Text::new("▼"),
-                TextFont {
+                TextStyle {
                     font_size: 16.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_SECONDARY),
+                Color(colors::TEXT_SECONDARY),
             ));
         });
     });
 }
 
 /// Create the footer with action buttons
-fn spawn_footer(parent: &mut _) {
+fn spawn_footer(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -405,11 +405,11 @@ fn spawn_footer(parent: &mut _) {
         .with_children(|btn| {
             btn.spawn((
                 Text::new("Apply"),
-                TextFont {
+                TextStyle {
                     font_size: 20.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
         });
         
@@ -428,11 +428,11 @@ fn spawn_footer(parent: &mut _) {
         .with_children(|btn| {
             btn.spawn((
                 Text::new("Cancel"),
-                TextFont {
+                TextStyle {
                     font_size: 20.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_PRIMARY),
+                Color(colors::TEXT_PRIMARY),
             ));
         });
     });

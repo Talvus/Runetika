@@ -4,7 +4,7 @@
 //! user input, and visual animations.
 
 use bevy::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 use super::{CreditsState, CreditsContent, CreditEntry};
 
 /// Handles user input while viewing credits.
@@ -86,8 +86,8 @@ pub fn animate_credits_scroll(
 /// for a more polished presentation.
 pub fn animate_credits_elements(
     time: Res<Time>,
-    mut credit_entries: Query<(&mut CreditEntry, &mut TextColor, &Children)>,
-    mut child_texts: Query<&mut TextColor, Without<CreditEntry>>,
+    mut credit_entries: Query<(&mut CreditEntry, &mut Color, &Children)>,
+    mut child_texts: Query<&mut Color, Without<CreditEntry>>,
 ) {
     for (mut entry, mut text_color, children) in credit_entries.iter_mut() {
         // Update animation timer

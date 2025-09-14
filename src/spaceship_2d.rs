@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use avian2d::prelude::*;
-use crate::game_state::GameState;
+use crate::GameState;
 
 pub struct Spaceship2DPlugin;
 
