@@ -1,0 +1,3653 @@
+   Compiling proc-macro2 v1.0.101
+   Compiling unicode-ident v1.0.19
+   Compiling libc v0.2.175
+   Compiling serde v1.0.219
+   Compiling cfg-if v1.0.3
+   Compiling autocfg v1.5.0
+   Compiling pin-project-lite v0.2.16
+   Compiling once_cell v1.21.3
+   Compiling zerocopy v0.8.27
+   Compiling allocator-api2 v0.2.21
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.15.5
+   Compiling winnow v0.7.13
+   Compiling indexmap v2.11.1
+   Compiling quote v1.0.40
+   Compiling syn v2.0.106
+   Compiling toml_datetime v0.6.11
+   Compiling getrandom v0.2.16
+   Compiling crossbeam-utils v0.8.21
+   Compiling arrayvec v0.7.6
+   Compiling toml_edit v0.22.27
+   Compiling getrandom v0.3.3
+   Compiling version_check v0.9.5
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_core v0.6.4
+   Compiling smallvec v1.15.1
+   Compiling thiserror v1.0.69
+   Compiling rand_chacha v0.3.1
+   Compiling tracing-core v0.1.34
+   Compiling foldhash v0.1.5
+   Compiling bevy_macro_utils v0.14.2
+   Compiling libm v0.2.15
+   Compiling rand v0.8.5
+   Compiling num-traits v0.2.19
+   Compiling parking v2.2.1
+   Compiling concurrent-queue v2.5.0
+   Compiling ahash v0.8.12
+   Compiling futures-core v0.3.31
+   Compiling serde_derive v1.0.219
+   Compiling bytemuck_derive v1.10.1
+   Compiling thiserror-impl v1.0.69
+   Compiling tracing-attributes v0.1.30
+   Compiling bytemuck v1.23.2
+   Compiling tracing v0.1.41
+   Compiling event-listener v5.4.1
+   Compiling fastrand v2.3.0
+   Compiling futures-io v0.3.31
+   Compiling typeid v1.0.3
+   Compiling event-listener-strategy v0.5.4
+   Compiling thread_local v1.1.9
+   Compiling smol_str v0.2.2
+   Compiling uuid v1.18.1
+   Compiling futures-lite v2.6.1
+   Compiling bevy_utils_proc_macros v0.14.2
+   Compiling web-time v1.1.0
+   Compiling async-task v4.7.1
+   Compiling downcast-rs v1.2.1
+   Compiling bevy_reflect_derive v0.14.2
+   Compiling async-channel v2.5.0
+   Compiling bevy_ptr v0.14.2
+   Compiling slab v0.4.11
+   Compiling fixedbitset v0.4.2
+   Compiling async-executor v1.13.3
+   Compiling petgraph v0.6.5
+   Compiling bevy_tasks v0.14.2
+   Compiling bevy_ecs_macros v0.14.2
+   Compiling fixedbitset v0.5.7
+   Compiling bitflags v2.9.4
+   Compiling glam v0.27.0
+   Compiling hashbrown v0.14.5
+   Compiling erased-serde v0.4.6
+   Compiling bevy_utils v0.14.2
+   Compiling nonmax v0.5.5
+   Compiling bevy_derive v0.14.2
+   Compiling log v0.4.28
+   Compiling bitflags v1.3.2
+   Compiling core-foundation-sys v0.8.7
+   Compiling core-foundation v0.9.4
+   Compiling foreign-types-macros v0.2.3
+   Compiling paste v1.0.15
+   Compiling foreign-types-shared v0.3.1
+   Compiling cfg_aliases v0.1.1
+   Compiling memchr v2.7.5
+   Compiling core-graphics-types v0.1.3
+   Compiling foreign-types v0.5.0
+   Compiling aho-corasick v1.1.3
+   Compiling lock_api v0.4.13
+   Compiling raw-window-handle v0.6.2
+   Compiling bevy_reflect v0.14.2
+   Compiling regex-syntax v0.8.6
+   Compiling parking_lot_core v0.9.11
+   Compiling rustc-hash v1.1.0
+   Compiling termcolor v1.4.1
+   Compiling accesskit v0.14.0
+   Compiling bit-vec v0.6.3
+   Compiling unicode-width v0.1.14
+   Compiling scopeguard v1.2.0
+   Compiling regex-automata v0.4.10
+   Compiling codespan-reporting v0.11.1
+   Compiling bit-set v0.5.3
+   Compiling malloc_buf v0.0.6
+   Compiling find-msvc-tools v0.1.1
+   Compiling unicode-xid v0.2.6
+   Compiling shlex v1.3.0
+   Compiling simd-adler32 v0.3.7
+   Compiling hexf-parse v0.2.1
+   Compiling crc32fast v1.5.0
+   Compiling naga v0.20.0
+   Compiling cc v1.2.36
+   Compiling bevy_ecs v0.14.2
+   Compiling bevy_math v0.14.2
+   Compiling objc v0.2.7
+   Compiling parking_lot v0.12.4
+   Compiling wgpu-hal v0.21.1
+   Compiling wgpu-types v0.20.0
+   Compiling encase_derive_impl v0.8.0
+   Compiling block v0.1.6
+   Compiling atomic-waker v1.1.2
+   Compiling adler2 v2.0.1
+   Compiling objc-sys v0.3.5
+   Compiling miniz_oxide v0.8.9
+   Compiling piper v0.2.4
+   Compiling metal v0.28.0
+   Compiling bevy_app v0.14.2
+   Compiling blake3 v1.8.2
+   Compiling bevy_core v0.14.2
+   Compiling bevy_hierarchy v0.14.2
+   Compiling wgpu-core v0.21.1
+   Compiling crossbeam-channel v0.5.15
+   Compiling libloading v0.8.8
+   Compiling typewit v1.14.2
+   Compiling litrs v0.4.2
+   Compiling profiling v1.0.17
+   Compiling const_panic v0.2.15
+   Compiling flate2 v1.1.2
+   Compiling document-features v0.2.11
+   Compiling bevy_a11y v0.14.2
+   Compiling blocking v1.6.2
+   Compiling encase_derive v0.8.0
+   Compiling fdeflate v0.3.7
+   Compiling wgpu v0.20.1
+   Compiling async-lock v3.4.1
+   Compiling pxfm v0.1.23
+   Compiling arrayref v0.3.9
+   Compiling base64 v0.21.7
+   Compiling const_soft_float v0.1.4
+   Compiling objc2-encode v4.1.0
+   Compiling constant_time_eq v0.3.1
+   Compiling event-listener v2.5.3
+   Compiling async-broadcast v0.5.1
+   Compiling objc2 v0.5.2
+   Compiling ron v0.8.1
+   Compiling constgebra v0.1.4
+   Compiling async-fs v2.1.3
+   Compiling moxcms v0.7.5
+   Compiling png v0.18.0
+   Compiling encase v0.8.0
+   Compiling bevy_window v0.14.2
+   Compiling bevy_time v0.14.2
+   Compiling regex v1.11.2
+   Compiling approx v0.5.1
+   Compiling bevy_asset_macros v0.14.2
+   Compiling byteorder-lite v0.1.0
+   Compiling static_assertions v1.1.0
+   Compiling const-fnv1a-hash v1.1.0
+   Compiling data-encoding v2.9.0
+   Compiling naga_oil v0.14.0
+   Compiling bevy_diagnostic v0.14.2
+   Compiling image v0.25.8
+   Compiling bevy_asset v0.14.2
+   Compiling bevy_color v0.14.3
+   Compiling block2 v0.5.1
+   Compiling hexasphere v12.0.0
+   Compiling bevy_transform v0.14.2
+   Compiling bevy_encase_derive v0.14.2
+   Compiling bevy_mikktspace v0.14.2
+   Compiling bevy_render_macros v0.14.2
+   Compiling dispatch v0.2.0
+   Compiling objc2-foundation v0.2.2
+   Compiling bevy_render v0.14.2
+   Compiling euclid v0.22.11
+   Compiling radsort v0.1.1
+   Compiling svg_fmt v0.4.5
+   Compiling ttf-parser v0.25.1
+   Compiling cfg_aliases v0.2.1
+   Compiling winit v0.30.12
+   Compiling guillotiere v0.6.2
+   Compiling owned_ttf_parser v0.25.1
+   Compiling objc2-app-kit v0.2.2
+   Compiling slotmap v1.0.7
+   Compiling immutable-chunkmap v2.1.2
+   Compiling rectangle-pack v0.4.2
+   Compiling ab_glyph_rasterizer v0.1.10
+   Compiling lazy_static v1.5.0
+   Compiling sharded-slab v0.1.7
+   Compiling ab_glyph v0.2.31
+   Compiling accesskit_consumer v0.22.0
+   Compiling matchers v0.2.0
+   Compiling core-graphics v0.23.2
+   Compiling tracing-log v0.2.0
+   Compiling xi-unicode v0.3.0
+   Compiling nu-ansi-term v0.50.1
+   Compiling dpi v0.1.2
+   Compiling cursor-icon v1.2.0
+   Compiling tracing-subscriber v0.3.20
+   Compiling glyph_brush_layout v0.2.4
+   Compiling accesskit_macos v0.15.0
+   Compiling bevy_input v0.14.2
+   Compiling safe_arch v0.7.4
+   Compiling matrixmultiply v0.3.10
+   Compiling typenum v1.18.0
+   Compiling bevy_core_pipeline v0.14.2
+   Compiling grid v0.14.0
+   Compiling taffy v0.5.2
+   Compiling wide v0.7.33
+   Compiling accesskit_winit v0.20.4
+   Compiling bevy_log v0.14.2
+   Compiling num-integer v0.1.46
+   Compiling num-complex v0.4.6
+   Compiling bevy_state_macros v0.14.2
+   Compiling bevy_gizmos_macros v0.14.2
+   Compiling rawpointer v0.2.1
+   Compiling bevy_state v0.14.2
+   Compiling bevy_sprite v0.14.2
+   Compiling bevy_text v0.14.2
+   Compiling bevy_ui v0.14.2
+   Compiling bevy_gizmos v0.14.2
+   Compiling simba v0.8.1
+   Compiling num-rational v0.4.2
+   Compiling bevy_winit v0.14.2
+   Compiling nalgebra-macros v0.2.2
+   Compiling either v1.15.0
+   Compiling robust v1.2.0
+   Compiling nalgebra v0.32.6
+   Compiling spade v2.15.0
+   Compiling bevy_internal v0.14.2
+   Compiling num-derive v0.4.2
+   Compiling serde_json v1.0.143
+   Compiling byteorder v1.5.0
+   Compiling convert_case v0.4.0
+   Compiling option-ext v0.2.0
+   Compiling dirs-sys v0.4.1
+   Compiling fxhash v0.2.1
+   Compiling derive_more v0.99.20
+   Compiling bevy v0.14.2
+   Compiling itertools v0.13.0
+   Compiling avian_derive v0.1.0
+   Compiling itoa v1.0.15
+   Compiling ryu v1.0.20
+   Compiling dirs v5.0.1
+   Compiling parry2d v0.15.1
+   Compiling avian2d v0.1.2
+   Compiling runetika v0.1.0 (/Users/tensorhusker/Git/Runetika)
+error[E0433]: failed to resolve: could not find `terminal` in the crate root
+   --> src/spaceship.rs:233:16
+    |
+233 |         crate::terminal::InteractableTerminal { is_main },
+    |                ^^^^^^^^ could not find `terminal` in the crate root
+
+warning: unused import: `crate::GameState`
+  --> src/settings/ui.rs:10:5
+   |
+10 | use crate::GameState;
+   |     ^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused imports: `Deserialize` and `Serialize`
+ --> src/settings/persistence.rs:8:13
+  |
+8 | use serde::{Deserialize, Serialize};
+  |             ^^^^^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `std::collections::HashMap`
+ --> src/silicon_mind.rs:2:5
+  |
+2 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `InteractableTerminal`
+ --> src/terminal_interface.rs:5:46
+  |
+5 | use crate::perspective::{CurrentPerspective, InteractableTerminal};
+  |                                              ^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Rule` and `Transformation`
+ --> src/arc_engine/mod.rs:8:28
+  |
+8 | pub use types::{ARCPuzzle, Rule, Transformation, Difficulty};
+  |                            ^^^^  ^^^^^^^^^^^^^^
+
+warning: unused imports: `Cell`, `Color as ARCColor`, and `Pattern`
+ --> src/arc_engine/mod.rs:9:25
+  |
+9 | pub use pattern::{Grid, Cell, Pattern, Color as ARCColor};
+  |                         ^^^^  ^^^^^^^  ^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `ValidationResult` and `validate_solution`
+  --> src/arc_engine/mod.rs:10:21
+   |
+10 | pub use validator::{validate_solution, ValidationResult};
+   |                     ^^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^
+
+warning: unused import: `PapilioIntegration`
+  --> src/papilio/mod.rs:24:45
+   |
+24 | pub use integration::{LibertaliaSyncStatus, PapilioIntegration};
+   |                                             ^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `ui::CreditNotification`
+  --> src/papilio/mod.rs:25:9
+   |
+25 | pub use ui::CreditNotification;
+   |         ^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0277]: `bevy::prelude::Color` is not a `Component`
+   --> src/menu/systems.rs:156:21
+    |
+156 |     mut glow_query: Query<(&mut Color, &MenuGlow)>,
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid `Component`
+    |
+    = help: the trait `bevy::prelude::Component` is not implemented for `bevy::prelude::Color`
+    = note: consider annotating `bevy::prelude::Color` with `#[derive(Component)]`
+    = help: the following other types implement trait `bevy::prelude::Component`:
+              AabbIntersections
+              AccessibilityNode
+              AccumulatedTranslation
+              AncestorMarker<C>
+              Anchor
+              AngularDamping
+              AppExit
+              AssetEvent<A>
+            and 288 others
+    = note: required for `&mut bevy::prelude::Color` to implement `QueryData`
+    = note: 1 redundant requirement hidden
+    = note: required for `(&mut bevy::prelude::Color, &menu::components::MenuGlow)` to implement `QueryData`
+note: required by a bound in `bevy::prelude::Query`
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ecs-0.14.2/src/system/query.rs:349:37
+    |
+349 | pub struct Query<'world, 'state, D: QueryData, F: QueryFilter = ()> {
+    |                                     ^^^^^^^^^ required by this bound in `Query`
+
+error[E0277]: `bevy::prelude::Color` is not a `Component`
+   --> src/credits/systems.rs:90:22
+    |
+90  |     mut child_texts: Query<&mut Color, Without<CreditEntry>>,
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invalid `Component`
+    |
+    = help: the trait `bevy::prelude::Component` is not implemented for `bevy::prelude::Color`
+    = note: consider annotating `bevy::prelude::Color` with `#[derive(Component)]`
+    = help: the following other types implement trait `bevy::prelude::Component`:
+              AabbIntersections
+              AccessibilityNode
+              AccumulatedTranslation
+              AncestorMarker<C>
+              Anchor
+              AngularDamping
+              AppExit
+              AssetEvent<A>
+            and 288 others
+    = note: required for `&mut bevy::prelude::Color` to implement `QueryData`
+note: required by a bound in `bevy::prelude::Query`
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ecs-0.14.2/src/system/query.rs:349:37
+    |
+349 | pub struct Query<'world, 'state, D: QueryData, F: QueryFilter = ()> {
+    |                                     ^^^^^^^^^ required by this bound in `Query`
+
+error[E0308]: mismatched types
+   --> src/menu/systems.rs:68:79
+    |
+68  |                     if let Ok(mut visibility) = selected_marker_query.get_mut(child) {
+    |                                                                       ------- ^^^^^ expected `Entity`, found `&Entity`
+    |                                                                       |
+    |                                                                       arguments to this method are incorrect
+    |
+note: method defined here
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ecs-0.14.2/src/system/query.rs:963:12
+    |
+963 |     pub fn get_mut(&mut self, entity: Entity) -> Result<D::Item<'_>, QueryEntityError> {
+    |            ^^^^^^^
+help: consider dereferencing the borrow
+    |
+68  |                     if let Ok(mut visibility) = selected_marker_query.get_mut(*child) {
+    |                                                                               +
+
+error[E0308]: mismatched types
+   --> src/menu/systems.rs:95:75
+    |
+95  |                 if let Ok(mut visibility) = selected_marker_query.get_mut(child) {
+    |                                                                   ------- ^^^^^ expected `Entity`, found `&Entity`
+    |                                                                   |
+    |                                                                   arguments to this method are incorrect
+    |
+note: method defined here
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ecs-0.14.2/src/system/query.rs:963:12
+    |
+963 |     pub fn get_mut(&mut self, entity: Entity) -> Result<D::Item<'_>, QueryEntityError> {
+    |            ^^^^^^^
+help: consider dereferencing the borrow
+    |
+95  |                 if let Ok(mut visibility) = selected_marker_query.get_mut(*child) {
+    |                                                                           +
+
+error[E0308]: mismatched types
+   --> src/menu/systems.rs:104:75
+    |
+104 |                 if let Ok(mut visibility) = selected_marker_query.get_mut(child) {
+    |                                                                   ------- ^^^^^ expected `Entity`, found `&Entity`
+    |                                                                   |
+    |                                                                   arguments to this method are incorrect
+    |
+note: method defined here
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ecs-0.14.2/src/system/query.rs:963:12
+    |
+963 |     pub fn get_mut(&mut self, entity: Entity) -> Result<D::Item<'_>, QueryEntityError> {
+    |            ^^^^^^^
+help: consider dereferencing the borrow
+    |
+104 |                 if let Ok(mut visibility) = selected_marker_query.get_mut(*child) {
+    |                                                                           +
+
+error[E0599]: the method `iter_mut` exists for struct `bevy::prelude::Query<'_, '_, (&mut bevy::prelude::Color, &menu::components::MenuGlow)>`, but its trait bounds were not satisfied
+   --> src/menu/systems.rs:161:46
+    |
+161 |     for (mut text_color, glow) in glow_query.iter_mut() {
+    |                                              ^^^^^^^^ method cannot be called due to unsatisfied trait bounds
+    |
+   ::: /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_color-0.14.3/src/color.rs:49:1
+    |
+49  | pub enum Color {
+    | -------------- doesn't satisfy `bevy::prelude::Color: bevy::prelude::Component`
+    |
+    = note: the following trait bounds were not satisfied:
+            `bevy::prelude::Color: bevy::prelude::Component`
+            which is required by `(&mut bevy::prelude::Color, &menu::components::MenuGlow): QueryData`
+
+error[E0599]: no method named `elapsed_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/menu/systems.rs:162:31
+    |
+162 |         let intensity = (time.elapsed_secs() * glow.speed).sin() * 0.2 + 0.8;
+    |                               ^^^^^^^^^^^^
+    |
+help: there is a method `elapsed_seconds` with a similar name
+    |
+162 |         let intensity = (time.elapsed_seconds() * glow.speed).sin() * 0.2 + 0.8;
+    |                                          +++
+
+error[E0609]: no field `left` on type `Mut<'_, bevy::prelude::Node>`
+   --> src/menu/systems.rs:168:43
+    |
+168 |         if let Val::Percent(mut x) = node.left {
+    |                                           ^^^^ unknown field
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/menu/systems.rs:169:45
+    |
+169 |             x += particle.velocity.x * time.delta_secs() * 10.0;
+    |                                             ^^^^^^^^^^
+    |
+help: there is a method `delta_seconds` with a similar name
+    |
+169 |             x += particle.velocity.x * time.delta_seconds() * 10.0;
+    |                                                      +++
+
+error[E0609]: no field `left` on type `Mut<'_, bevy::prelude::Node>`
+   --> src/menu/systems.rs:175:18
+    |
+175 |             node.left = Val::Percent(x);
+    |                  ^^^^ unknown field
+
+error[E0609]: no field `top` on type `Mut<'_, bevy::prelude::Node>`
+   --> src/menu/systems.rs:178:43
+    |
+178 |         if let Val::Percent(mut y) = node.top {
+    |                                           ^^^ unknown field
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/menu/systems.rs:179:45
+    |
+179 |             y += particle.velocity.y * time.delta_secs() * 10.0;
+    |                                             ^^^^^^^^^^
+    |
+help: there is a method `delta_seconds` with a similar name
+    |
+179 |             y += particle.velocity.y * time.delta_seconds() * 10.0;
+    |                                                      +++
+
+error[E0609]: no field `top` on type `Mut<'_, bevy::prelude::Node>`
+   --> src/menu/systems.rs:183:18
+    |
+183 |             node.top = Val::Percent(y);
+    |                  ^^^ unknown field
+
+error[E0599]: no method named `elapsed_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/menu/systems.rs:189:28
+    |
+189 |         let offset = (time.elapsed_secs() * 0.5).sin() * 5.0;
+    |                            ^^^^^^^^^^^^
+    |
+help: there is a method `elapsed_seconds` with a similar name
+    |
+189 |         let offset = (time.elapsed_seconds() * 0.5).sin() * 5.0;
+    |                                       +++
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/menu/ui.rs:76:17
+   |
+76 |                 width: Val::Percent(100.0),
+   |                 ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/menu/ui.rs:77:17
+   |
+77 |                 height: Val::Percent(100.0),
+   |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+  --> src/menu/ui.rs:78:17
+   |
+78 |                 position_type: PositionType::Absolute,
+   |                 ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+  --> src/menu/ui.rs:79:17
+   |
+79 |                 flex_direction: FlexDirection::Column,
+   |                 ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+  --> src/menu/ui.rs:80:17
+   |
+80 |                 justify_content: JustifyContent::Center,
+   |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+  --> src/menu/ui.rs:81:17
+   |
+81 |                 align_items: AlignItems::Center,
+   |                 ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/menu/ui.rs:113:13
+    |
+113 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/menu/ui.rs:114:13
+    |
+114 |             height: Val::Percent(100.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:115:13
+    |
+115 |             position_type: PositionType::Absolute,
+    |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `ZIndex`
+   --> src/menu/ui.rs:119:9
+    |
+119 |         ZIndex(-10),
+    |         ^^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+119 |         ZIndex::Global(-10),
+    |               ++++++++
+119 |         ZIndex::Local(-10),
+    |               +++++++
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/menu/ui.rs:136:25
+    |
+136 |                         width: Val::Px(size),
+    |                         ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/menu/ui.rs:137:25
+    |
+137 |                         height: Val::Px(size),
+    |                         ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:138:25
+    |
+138 |                         position_type: PositionType::Absolute,
+    |                         ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `left`
+   --> src/menu/ui.rs:139:25
+    |
+139 |                         left: Val::Percent(x),
+    |                         ^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `top`
+   --> src/menu/ui.rs:140:25
+    |
+140 |                         top: Val::Percent(y),
+    |                         ^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/menu/ui.rs:167:17
+    |
+167 |                 width: Val::Px(size),
+    |                 ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/menu/ui.rs:168:17
+    |
+168 |                 height: Val::Px(size),
+    |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:169:17
+    |
+169 |                 position_type: PositionType::Absolute,
+    |                 ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `left`
+   --> src/menu/ui.rs:170:17
+    |
+170 |                 left: Val::Percent(x),
+    |                 ^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `top`
+   --> src/menu/ui.rs:171:17
+    |
+171 |                 top: Val::Percent(y),
+    |                 ^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `ZIndex`
+   --> src/menu/ui.rs:176:13
+    |
+176 |             ZIndex(-5),
+    |             ^^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+176 |             ZIndex::Global(-5),
+    |                   ++++++++
+176 |             ZIndex::Local(-5),
+    |                   +++++++
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/menu/ui.rs:185:13
+    |
+185 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/menu/ui.rs:186:13
+    |
+186 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `margin`
+   --> src/menu/ui.rs:187:13
+    |
+187 |             margin: UiRect::bottom(Val::Px(60.0)),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:196:17
+    |
+196 |                 position_type: PositionType::Relative,
+    |                 ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:203:23
+    |
+203 |                 Text::new("RUNETIKA"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:208:17
+    |
+208 |                 Color(colors::TITLE_GLOW),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+208 |                 Color::Hsla(colors::TITLE_GLOW),
+    |                      ++++++
+208 |                 Color::Hsva(colors::TITLE_GLOW),
+    |                      ++++++
+208 |                 Color::Hwba(colors::TITLE_GLOW),
+    |                      ++++++
+208 |                 Color::Laba(colors::TITLE_GLOW),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:210:21
+    |
+210 |                     position_type: PositionType::Absolute,
+    |                     ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:218:23
+    |
+218 |                 Text::new("RUNETIKA"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:223:17
+    |
+223 |                 Color(colors::TITLE_PRIMARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+223 |                 Color::Hsla(colors::TITLE_PRIMARY),
+    |                      ++++++
+223 |                 Color::Hsva(colors::TITLE_PRIMARY),
+    |                      ++++++
+223 |                 Color::Hwba(colors::TITLE_PRIMARY),
+    |                      ++++++
+223 |                 Color::Laba(colors::TITLE_PRIMARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:233:19
+    |
+233 |             Text::new("═══ COSMIC ODYSSEY ═══"),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:238:13
+    |
+238 |             Color(colors::TEXT_SECONDARY),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+238 |             Color::Hsla(colors::TEXT_SECONDARY),
+    |                  ++++++
+238 |             Color::Hsva(colors::TEXT_SECONDARY),
+    |                  ++++++
+238 |             Color::Hwba(colors::TEXT_SECONDARY),
+    |                  ++++++
+238 |             Color::Laba(colors::TEXT_SECONDARY),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `margin`
+   --> src/menu/ui.rs:240:17
+    |
+240 |                 margin: UiRect::top(Val::Px(10.0)),
+    |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:247:19
+    |
+247 |             Text::new("ALPHA v0.1.0"),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:252:13
+    |
+252 |             Color(colors::TEXT_SECONDARY.with_alpha(0.6)),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+252 |             Color::Hsla(colors::TEXT_SECONDARY.with_alpha(0.6)),
+    |                  ++++++
+252 |             Color::Hsva(colors::TEXT_SECONDARY.with_alpha(0.6)),
+    |                  ++++++
+252 |             Color::Hwba(colors::TEXT_SECONDARY.with_alpha(0.6)),
+    |                  ++++++
+252 |             Color::Laba(colors::TEXT_SECONDARY.with_alpha(0.6)),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `margin`
+   --> src/menu/ui.rs:254:17
+    |
+254 |                 margin: UiRect::top(Val::Px(5.0)),
+    |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/menu/ui.rs:265:13
+    |
+265 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/menu/ui.rs:266:13
+    |
+266 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/menu/ui.rs:267:13
+    |
+267 |             row_gap: Val::Px(15.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/menu/ui.rs:268:13
+    |
+268 |             padding: UiRect::all(Val::Px(20.0)),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/menu/ui.rs:312:13
+    |
+312 |             width: Val::Px(320.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/menu/ui.rs:313:13
+    |
+313 |             height: Val::Px(65.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/menu/ui.rs:314:13
+    |
+314 |             justify_content: JustifyContent::Center,
+    |             ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/menu/ui.rs:315:13
+    |
+315 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `border`
+   --> src/menu/ui.rs:316:13
+    |
+316 |             border: UiRect::all(Val::Px(2.0)),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/menu/ui.rs:317:13
+    |
+317 |             padding: UiRect::horizontal(Val::Px(25.0)),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:330:23
+    |
+330 |                 Text::new("▸"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:335:17
+    |
+335 |                 Color(colors::TEXT_ACCENT),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+335 |                 Color::Hsla(colors::TEXT_ACCENT),
+    |                      ++++++
+335 |                 Color::Hsva(colors::TEXT_ACCENT),
+    |                      ++++++
+335 |                 Color::Hwba(colors::TEXT_ACCENT),
+    |                      ++++++
+335 |                 Color::Laba(colors::TEXT_ACCENT),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:337:21
+    |
+337 |                     position_type: PositionType::Absolute,
+    |                     ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `left`
+   --> src/menu/ui.rs:338:21
+    |
+338 |                     left: Val::Px(15.0),
+    |                     ^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:347:19
+    |
+347 |             Text::new(text),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:352:13
+    |
+352 |             Color(colors::TEXT_PRIMARY),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+352 |             Color::Hsla(colors::TEXT_PRIMARY),
+    |                  ++++++
+352 |             Color::Hsva(colors::TEXT_PRIMARY),
+    |                  ++++++
+352 |             Color::Hwba(colors::TEXT_PRIMARY),
+    |                  ++++++
+352 |             Color::Laba(colors::TEXT_PRIMARY),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:361:13
+    |
+361 |             position_type: PositionType::Absolute,
+    |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `bottom`
+   --> src/menu/ui.rs:362:13
+    |
+362 |             bottom: Val::Px(30.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/menu/ui.rs:363:13
+    |
+363 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/menu/ui.rs:364:13
+    |
+364 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/menu/ui.rs:365:13
+    |
+365 |             row_gap: Val::Px(5.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:371:19
+    |
+371 |             Text::new("Navigate: ↑↓ or Mouse • Select: Enter • Back: ESC"),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:376:13
+    |
+376 |             Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+376 |             Color::Hsla(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+376 |             Color::Hsva(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+376 |             Color::Hwba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+376 |             Color::Laba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:380:19
+    |
+380 |             Text::new("© 2024 Cosmic Studios • Made with Bevy & Rust"),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:385:13
+    |
+385 |             Color(colors::TEXT_SECONDARY.with_alpha(0.5)),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+385 |             Color::Hsla(colors::TEXT_SECONDARY.with_alpha(0.5)),
+    |                  ++++++
+385 |             Color::Hsva(colors::TEXT_SECONDARY.with_alpha(0.5)),
+    |                  ++++++
+385 |             Color::Hwba(colors::TEXT_SECONDARY.with_alpha(0.5)),
+    |                  ++++++
+385 |             Color::Laba(colors::TEXT_SECONDARY.with_alpha(0.5)),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:394:15
+    |
+394 |         Text::new("◆ ◇ ◆"),
+    |               ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:399:9
+    |
+399 |         Color(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+399 |         Color::Hsla(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+399 |         Color::Hsva(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+399 |         Color::Hwba(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+399 |         Color::Laba(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:401:13
+    |
+401 |             position_type: PositionType::Absolute,
+    |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `top`
+   --> src/menu/ui.rs:402:13
+    |
+402 |             top: Val::Px(20.0),
+    |             ^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `left`
+   --> src/menu/ui.rs:403:13
+    |
+403 |             left: Val::Px(20.0),
+    |             ^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/menu/ui.rs:410:15
+    |
+410 |         Text::new("◆ ◇ ◆"),
+    |               ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/menu/ui.rs:415:9
+    |
+415 |         Color(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+415 |         Color::Hsla(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+415 |         Color::Hsva(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+415 |         Color::Hwba(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+415 |         Color::Laba(colors::TEXT_ACCENT.with_alpha(0.3)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/menu/ui.rs:417:13
+    |
+417 |             position_type: PositionType::Absolute,
+    |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `bottom`
+   --> src/menu/ui.rs:418:13
+    |
+418 |             bottom: Val::Px(20.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `right`
+   --> src/menu/ui.rs:419:13
+    |
+419 |             right: Val::Px(20.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: the method `run_if` exists for tuple `(fn(..., ..., ..., ..., ...) {handle_menu_navigation}, ..., ..., ...)`, but its trait bounds were not satisfied
+  --> src/menu/mod.rs:48:15
+   |
+43 |               .add_systems(Update, (
+   |  __________________________________-
+44 | |                 handle_menu_navigation,
+45 | |                 update_menu_buttons,
+46 | |                 animate_menu_elements,
+47 | |                 handle_button_interactions,
+48 | |             ).run_if(in_state(GameState::MainMenu)));
+   | |              -^^^^^^ method cannot be called due to unsatisfied trait bounds
+   | |______________|
+   |
+   |
+   = note: the following trait bounds were not satisfied:
+           `&(for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystem<(), (), _>`
+           which is required by `&(for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystemConfigs<_>`
+           `&(for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): SystemSet`
+           which is required by `&(for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystemSetConfigs`
+           `&mut (for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystem<(), (), _>`
+           which is required by `&mut (for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystemConfigs<_>`
+           `&mut (for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): SystemSet`
+           which is required by `&mut (for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, MenuState>, bevy::prelude::Query<'c, 'd, (&'e menu::components::MenuButton, &'f mut bevy::prelude::BackgroundColor, &'g bevy::prelude::Children)>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_menu_navigation}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, MenuState>, bevy::prelude::Query<'b, 'c, (&'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor)>) {menu::systems::update_menu_buttons}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'l> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut bevy::prelude::Color, &'e menu::components::MenuGlow)>, bevy::prelude::Query<'f, 'g, (&'h mut bevy::prelude::Node, &'i menu::components::MenuParticle)>, bevy::prelude::Query<'j, 'k, &'l mut bevy::prelude::Transform, bevy::prelude::With<menu::components::MenuTitle>>) {menu::systems::animate_menu_elements}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k> fn(bevy::prelude::Query<'a, 'b, (&'c bevy::prelude::Interaction, &'d menu::components::MenuButton, &'e mut bevy::prelude::BackgroundColor, &'f bevy::prelude::Children), bevy::prelude::Changed<bevy::prelude::Interaction>>, bevy::prelude::ResMut<'g, MenuState>, bevy::prelude::Query<'h, 'i, &'j mut bevy::prelude::Visibility, bevy::prelude::With<menu::components::SelectedMarker>>, bevy::prelude::ResMut<'k, bevy::prelude::NextState<GameState>>) {menu::systems::handle_button_interactions}): bevy::prelude::IntoSystemSetConfigs`
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/settings/ui.rs:38:13
+   |
+38 |             width: Val::Percent(100.0),
+   |             ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/settings/ui.rs:39:13
+   |
+39 |             height: Val::Percent(100.0),
+   |             ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+  --> src/settings/ui.rs:40:13
+   |
+40 |             flex_direction: FlexDirection::Column,
+   |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/settings/ui.rs:65:13
+   |
+65 |             width: Val::Percent(100.0),
+   |             ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/settings/ui.rs:66:13
+   |
+66 |             height: Val::Px(80.0),
+   |             ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+  --> src/settings/ui.rs:67:13
+   |
+67 |             justify_content: JustifyContent::Center,
+   |             ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+  --> src/settings/ui.rs:68:13
+   |
+68 |             align_items: AlignItems::Center,
+   |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+  --> src/settings/ui.rs:69:13
+   |
+69 |             padding: UiRect::all(Val::Px(20.0)),
+   |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+  --> src/settings/ui.rs:76:19
+   |
+76 |             Text::new("⚙️ SETTINGS"),
+   |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+   |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+  --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+   |
+52 |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88 |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+  --> src/settings/ui.rs:81:13
+   |
+81 |             Color(colors::TEXT_PRIMARY),
+   |             ^^^^^
+   |
+help: try to construct one of the enum's variants
+   |
+81 |             Color::Hsla(colors::TEXT_PRIMARY),
+   |                  ++++++
+81 |             Color::Hsva(colors::TEXT_PRIMARY),
+   |                  ++++++
+81 |             Color::Hwba(colors::TEXT_PRIMARY),
+   |                  ++++++
+81 |             Color::Laba(colors::TEXT_PRIMARY),
+   |                  ++++++
+     and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/settings/ui.rs:90:13
+   |
+90 |             width: Val::Percent(100.0),
+   |             ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/settings/ui.rs:91:13
+   |
+91 |             height: Val::Px(60.0),
+   |             ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+  --> src/settings/ui.rs:92:13
+   |
+92 |             flex_direction: FlexDirection::Row,
+   |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+  --> src/settings/ui.rs:93:13
+   |
+93 |             justify_content: JustifyContent::Center,
+   |             ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `column_gap`
+  --> src/settings/ui.rs:94:13
+   |
+94 |             column_gap: Val::Px(10.0),
+   |             ^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+  --> src/settings/ui.rs:95:13
+   |
+95 |             padding: UiRect::all(Val::Px(10.0)),
+   |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:129:13
+    |
+129 |             padding: UiRect::axes(Val::Px(20.0), Val::Px(10.0)),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:130:13
+    |
+130 |             justify_content: JustifyContent::Center,
+    |             ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/settings/ui.rs:131:13
+    |
+131 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:141:19
+    |
+141 |             Text::new(label),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:146:13
+    |
+146 |             Color(colors::TEXT_PRIMARY),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+146 |             Color::Hsla(colors::TEXT_PRIMARY),
+    |                  ++++++
+146 |             Color::Hsva(colors::TEXT_PRIMARY),
+    |                  ++++++
+146 |             Color::Hwba(colors::TEXT_PRIMARY),
+    |                  ++++++
+146 |             Color::Laba(colors::TEXT_PRIMARY),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:155:13
+    |
+155 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_grow`
+   --> src/settings/ui.rs:156:13
+    |
+156 |             flex_grow: 1.0,
+    |             ^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:157:13
+    |
+157 |             padding: UiRect::all(Val::Px(30.0)),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:158:13
+    |
+158 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/settings/ui.rs:159:13
+    |
+159 |             row_gap: Val::Px(20.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `overflow`
+   --> src/settings/ui.rs:160:13
+    |
+160 |             overflow: Overflow::scroll_y(),
+    |             ^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `scroll_y` found for struct `bevy::prelude::Overflow` in the current scope
+   --> src/settings/ui.rs:160:33
+    |
+160 |             overflow: Overflow::scroll_y(),
+    |                                 ^^^^^^^^ function or associated item not found in `bevy::prelude::Overflow`
+    |
+note: if you're trying to build a new `bevy::prelude::Overflow` consider using one of the following associated functions:
+      bevy::prelude::Overflow::visible
+      bevy::prelude::Overflow::clip
+      bevy::prelude::Overflow::clip_x
+      bevy::prelude::Overflow::clip_y
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_ui-0.14.2/src/ui_node.rs:863:5
+    |
+863 |     pub const fn visible() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+871 |     pub const fn clip() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+879 |     pub const fn clip_x() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+887 |     pub const fn clip_y() -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:232:13
+    |
+232 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:233:13
+    |
+233 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/settings/ui.rs:234:13
+    |
+234 |             row_gap: Val::Px(5.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:242:17
+    |
+242 |                 flex_direction: FlexDirection::Row,
+    |                 ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:243:17
+    |
+243 |                 justify_content: JustifyContent::SpaceBetween,
+    |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:250:23
+    |
+250 |                 Text::new(label),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:255:17
+    |
+255 |                 Color(colors::TEXT_PRIMARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+255 |                 Color::Hsla(colors::TEXT_PRIMARY),
+    |                      ++++++
+255 |                 Color::Hsva(colors::TEXT_PRIMARY),
+    |                      ++++++
+255 |                 Color::Hwba(colors::TEXT_PRIMARY),
+    |                      ++++++
+255 |                 Color::Laba(colors::TEXT_PRIMARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:260:23
+    |
+260 |                 Text::new(format!("{:.1}", value)),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:265:17
+    |
+265 |                 Color(colors::TEXT_SECONDARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+265 |                 Color::Hsla(colors::TEXT_SECONDARY),
+    |                      ++++++
+265 |                 Color::Hsva(colors::TEXT_SECONDARY),
+    |                      ++++++
+265 |                 Color::Hwba(colors::TEXT_SECONDARY),
+    |                      ++++++
+265 |                 Color::Laba(colors::TEXT_SECONDARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:271:19
+    |
+271 |             Text::new(tooltip),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:276:13
+    |
+276 |             Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+276 |             Color::Hsla(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+276 |             Color::Hsva(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+276 |             Color::Hwba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+276 |             Color::Laba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:282:17
+    |
+282 |                 width: Val::Percent(100.0),
+    |                 ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/settings/ui.rs:283:17
+    |
+283 |                 height: Val::Px(8.0),
+    |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:294:21
+    |
+294 |                     width: Val::Percent(fill_percent),
+    |                     ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/settings/ui.rs:295:21
+    |
+295 |                     height: Val::Percent(100.0),
+    |                     ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:315:13
+    |
+315 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:316:13
+    |
+316 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/settings/ui.rs:317:13
+    |
+317 |             row_gap: Val::Px(5.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:324:19
+    |
+324 |             Text::new(label),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:329:13
+    |
+329 |             Color(colors::TEXT_PRIMARY),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+329 |             Color::Hsla(colors::TEXT_PRIMARY),
+    |                  ++++++
+329 |             Color::Hsva(colors::TEXT_PRIMARY),
+    |                  ++++++
+329 |             Color::Hwba(colors::TEXT_PRIMARY),
+    |                  ++++++
+329 |             Color::Laba(colors::TEXT_PRIMARY),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:334:19
+    |
+334 |             Text::new(tooltip),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:339:13
+    |
+339 |             Color(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+339 |             Color::Hsla(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+339 |             Color::Hsva(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+339 |             Color::Hwba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+339 |             Color::Laba(colors::TEXT_SECONDARY.with_alpha(0.7)),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:345:17
+    |
+345 |                 width: Val::Percent(100.0),
+    |                 ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:346:17
+    |
+346 |                 padding: UiRect::all(Val::Px(10.0)),
+    |                 ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:347:17
+    |
+347 |                 justify_content: JustifyContent::SpaceBetween,
+    |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/settings/ui.rs:348:17
+    |
+348 |                 align_items: AlignItems::Center,
+    |                 ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:349:17
+    |
+349 |                 flex_direction: FlexDirection::Row,
+    |                 ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:358:23
+    |
+358 |                 Text::new(current),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:363:17
+    |
+363 |                 Color(colors::TEXT_PRIMARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+363 |                 Color::Hsla(colors::TEXT_PRIMARY),
+    |                      ++++++
+363 |                 Color::Hsva(colors::TEXT_PRIMARY),
+    |                      ++++++
+363 |                 Color::Hwba(colors::TEXT_PRIMARY),
+    |                      ++++++
+363 |                 Color::Laba(colors::TEXT_PRIMARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:367:23
+    |
+367 |                 Text::new("▼"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:372:17
+    |
+372 |                 Color(colors::TEXT_SECONDARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+372 |                 Color::Hsla(colors::TEXT_SECONDARY),
+    |                      ++++++
+372 |                 Color::Hsva(colors::TEXT_SECONDARY),
+    |                      ++++++
+372 |                 Color::Hwba(colors::TEXT_SECONDARY),
+    |                      ++++++
+372 |                 Color::Laba(colors::TEXT_SECONDARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/settings/ui.rs:382:13
+    |
+382 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/settings/ui.rs:383:13
+    |
+383 |             height: Val::Px(80.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:384:13
+    |
+384 |             justify_content: JustifyContent::Center,
+    |             ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/settings/ui.rs:385:13
+    |
+385 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `column_gap`
+   --> src/settings/ui.rs:386:13
+    |
+386 |             column_gap: Val::Px(20.0),
+    |             ^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/settings/ui.rs:387:13
+    |
+387 |             flex_direction: FlexDirection::Row,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:388:13
+    |
+388 |             padding: UiRect::all(Val::Px(20.0)),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:396:17
+    |
+396 |                 padding: UiRect::axes(Val::Px(30.0), Val::Px(15.0)),
+    |                 ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:397:17
+    |
+397 |                 justify_content: JustifyContent::Center,
+    |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/settings/ui.rs:398:17
+    |
+398 |                 align_items: AlignItems::Center,
+    |                 ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:407:23
+    |
+407 |                 Text::new("Apply"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:412:17
+    |
+412 |                 Color(colors::TEXT_PRIMARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+412 |                 Color::Hsla(colors::TEXT_PRIMARY),
+    |                      ++++++
+412 |                 Color::Hsva(colors::TEXT_PRIMARY),
+    |                      ++++++
+412 |                 Color::Hwba(colors::TEXT_PRIMARY),
+    |                      ++++++
+412 |                 Color::Laba(colors::TEXT_PRIMARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+   --> src/settings/ui.rs:419:17
+    |
+419 |                 padding: UiRect::axes(Val::Px(30.0), Val::Px(15.0)),
+    |                 ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/settings/ui.rs:420:17
+    |
+420 |                 justify_content: JustifyContent::Center,
+    |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/settings/ui.rs:421:17
+    |
+421 |                 align_items: AlignItems::Center,
+    |                 ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/settings/ui.rs:430:23
+    |
+430 |                 Text::new("Cancel"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/settings/ui.rs:435:17
+    |
+435 |                 Color(colors::TEXT_PRIMARY),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+435 |                 Color::Hsla(colors::TEXT_PRIMARY),
+    |                      ++++++
+435 |                 Color::Hsva(colors::TEXT_PRIMARY),
+    |                      ++++++
+435 |                 Color::Hwba(colors::TEXT_PRIMARY),
+    |                      ++++++
+435 |                 Color::Laba(colors::TEXT_PRIMARY),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0063]: missing field `gameplay` in initializer of `settings::components::SettingsData`
+  --> src/settings/mod.rs:98:9
+   |
+98 |         Self {
+   |         ^^^^ missing `gameplay`
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/credits/ui.rs:30:13
+   |
+30 |             width: Val::Percent(100.0),
+   |             ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/credits/ui.rs:31:13
+   |
+31 |             height: Val::Percent(100.0),
+   |             ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+  --> src/credits/ui.rs:32:13
+   |
+32 |             position_type: PositionType::Absolute,
+   |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+  --> src/credits/ui.rs:33:13
+   |
+33 |             flex_direction: FlexDirection::Column,
+   |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+  --> src/credits/ui.rs:34:13
+   |
+34 |             align_items: AlignItems::Center,
+   |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/credits/ui.rs:47:17
+   |
+47 |                 width: Val::Percent(100.0),
+   |                 ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+  --> src/credits/ui.rs:48:17
+   |
+48 |                 height: Val::Px(100.0),
+   |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+  --> src/credits/ui.rs:49:17
+   |
+49 |                 justify_content: JustifyContent::Center,
+   |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+  --> src/credits/ui.rs:50:17
+   |
+50 |                 align_items: AlignItems::Center,
+   |                 ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `border`
+  --> src/credits/ui.rs:51:17
+   |
+51 |                 border: UiRect::bottom(Val::Px(2.0)),
+   |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `ZIndex`
+  --> src/credits/ui.rs:55:13
+   |
+55 |             ZIndex(10),
+   |             ^^^^^^
+   |
+help: try to construct one of the enum's variants
+   |
+55 |             ZIndex::Global(10),
+   |                   ++++++++
+55 |             ZIndex::Local(10),
+   |                   +++++++
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+  --> src/credits/ui.rs:59:23
+   |
+59 |                 Text::new("CREDITS"),
+   |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+   |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+  --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+   |
+52 |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88 |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+  --> src/credits/ui.rs:64:17
+   |
+64 |                 Color(colors::TITLE),
+   |                 ^^^^^
+   |
+help: try to construct one of the enum's variants
+   |
+64 |                 Color::Hsla(colors::TITLE),
+   |                      ++++++
+64 |                 Color::Hsva(colors::TITLE),
+   |                      ++++++
+64 |                 Color::Hwba(colors::TITLE),
+   |                      ++++++
+64 |                 Color::Laba(colors::TITLE),
+   |                      ++++++
+     and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+  --> src/credits/ui.rs:71:17
+   |
+71 |                 width: Val::Percent(100.0),
+   |                 ^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_grow`
+  --> src/credits/ui.rs:72:17
+   |
+72 |                 flex_grow: 1.0,
+   |                 ^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `overflow`
+  --> src/credits/ui.rs:73:17
+   |
+73 |                 overflow: Overflow::clip(),
+   |                 ^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `padding`
+  --> src/credits/ui.rs:74:17
+   |
+74 |                 padding: UiRect::all(Val::Px(50.0)),
+   |                 ^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+  --> src/credits/ui.rs:81:21
+   |
+81 |                     flex_direction: FlexDirection::Column,
+   |                     ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+  --> src/credits/ui.rs:82:21
+   |
+82 |                     align_items: AlignItems::Center,
+   |                     ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+  --> src/credits/ui.rs:83:21
+   |
+83 |                     row_gap: Val::Px(40.0),
+   |                     ^^^^^^^ `bevy::prelude::Node` does not have this field
+   |
+   = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/credits/ui.rs:168:17
+    |
+168 |                 position_type: PositionType::Absolute,
+    |                 ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `bottom`
+   --> src/credits/ui.rs:169:17
+    |
+169 |                 bottom: Val::Px(20.0),
+    |                 ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/credits/ui.rs:170:17
+    |
+170 |                 width: Val::Percent(100.0),
+    |                 ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `justify_content`
+   --> src/credits/ui.rs:171:17
+    |
+171 |                 justify_content: JustifyContent::Center,
+    |                 ^^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `ZIndex`
+   --> src/credits/ui.rs:174:13
+    |
+174 |             ZIndex(10),
+    |             ^^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+174 |             ZIndex::Global(10),
+    |                   ++++++++
+174 |             ZIndex::Local(10),
+    |                   +++++++
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:178:23
+    |
+178 |                 Text::new("Press ESC to return to menu • SPACE to pause scrolling"),
+    |                       ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:183:17
+    |
+183 |                 Color(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+    |                 ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+183 |                 Color::Hsla(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+    |                      ++++++
+183 |                 Color::Hsva(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+    |                      ++++++
+183 |                 Color::Hwba(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+    |                      ++++++
+183 |                 Color::Laba(Color::srgba(0.7, 0.6, 0.8, 0.7)),
+    |                      ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:192:15
+    |
+192 |         Text::new(text),
+    |               ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:197:9
+    |
+197 |         Color(colors::SECTION),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+197 |         Color::Hsla(colors::SECTION),
+    |              ++++++
+197 |         Color::Hsva(colors::SECTION),
+    |              ++++++
+197 |         Color::Hwba(colors::SECTION),
+    |              ++++++
+197 |         Color::Laba(colors::SECTION),
+    |              ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `margin`
+   --> src/credits/ui.rs:199:13
+    |
+199 |             margin: UiRect::vertical(Val::Px(20.0)),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/credits/ui.rs:213:13
+    |
+213 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/credits/ui.rs:214:13
+    |
+214 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `row_gap`
+   --> src/credits/ui.rs:215:13
+    |
+215 |             row_gap: Val::Px(5.0),
+    |             ^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:225:19
+    |
+225 |             Text::new(role),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:230:13
+    |
+230 |             Color(colors::ROLE),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+230 |             Color::Hsla(colors::ROLE),
+    |                  ++++++
+230 |             Color::Hsva(colors::ROLE),
+    |                  ++++++
+230 |             Color::Hwba(colors::ROLE),
+    |                  ++++++
+230 |             Color::Laba(colors::ROLE),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:234:19
+    |
+234 |             Text::new(name),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:239:13
+    |
+239 |             Color(colors::NAME),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+239 |             Color::Hsla(colors::NAME),
+    |                  ++++++
+239 |             Color::Hsva(colors::NAME),
+    |                  ++++++
+239 |             Color::Hwba(colors::NAME),
+    |                  ++++++
+239 |             Color::Laba(colors::NAME),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:247:15
+    |
+247 |         Text::new(text),
+    |               ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:252:9
+    |
+252 |         Color(colors::TEXT),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+252 |         Color::Hsla(colors::TEXT),
+    |              ++++++
+252 |         Color::Hsva(colors::TEXT),
+    |              ++++++
+252 |         Color::Hwba(colors::TEXT),
+    |              ++++++
+252 |         Color::Laba(colors::TEXT),
+    |              ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/credits/ui.rs:264:13
+    |
+264 |             flex_direction: FlexDirection::Row,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `column_gap`
+   --> src/credits/ui.rs:265:13
+    |
+265 |             column_gap: Val::Px(10.0),
+    |             ^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:275:19
+    |
+275 |             Text::new(tech),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:280:13
+    |
+280 |             Color(colors::NAME),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+280 |             Color::Hsla(colors::NAME),
+    |                  ++++++
+280 |             Color::Hsva(colors::NAME),
+    |                  ++++++
+280 |             Color::Hwba(colors::NAME),
+    |                  ++++++
+280 |             Color::Laba(colors::NAME),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:284:19
+    |
+284 |             Text::new(format!("• {}", version)),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:289:13
+    |
+289 |             Color(colors::ROLE),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+289 |             Color::Hsla(colors::ROLE),
+    |                  ++++++
+289 |             Color::Hsva(colors::ROLE),
+    |                  ++++++
+289 |             Color::Hwba(colors::ROLE),
+    |                  ++++++
+289 |             Color::Laba(colors::ROLE),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `flex_direction`
+   --> src/credits/ui.rs:298:13
+    |
+298 |             flex_direction: FlexDirection::Column,
+    |             ^^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `align_items`
+   --> src/credits/ui.rs:299:13
+    |
+299 |             align_items: AlignItems::Center,
+    |             ^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `margin`
+   --> src/credits/ui.rs:300:13
+    |
+300 |             margin: UiRect::bottom(Val::Px(40.0)),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:310:19
+    |
+310 |             Text::new(title),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:315:13
+    |
+315 |             Color(colors::TITLE),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+315 |             Color::Hsla(colors::TITLE),
+    |                  ++++++
+315 |             Color::Hsva(colors::TITLE),
+    |                  ++++++
+315 |             Color::Hwba(colors::TITLE),
+    |                  ++++++
+315 |             Color::Laba(colors::TITLE),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0599]: no function or associated item named `new` found for struct `bevy::prelude::Text` in the current scope
+   --> src/credits/ui.rs:319:19
+    |
+319 |             Text::new(subtitle),
+    |                   ^^^ function or associated item not found in `bevy::prelude::Text`
+    |
+note: if you're trying to build a new `bevy::prelude::Text` consider using one of the following associated functions:
+      bevy::prelude::Text::from_section
+      bevy::prelude::Text::from_sections
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_text-0.14.2/src/text.rs:52:5
+    |
+52  |     pub fn from_section(value: impl Into<String>, style: TextStyle) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+88  |     pub fn from_sections(sections: impl IntoIterator<Item = TextSection>) -> Self {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/credits/ui.rs:324:13
+    |
+324 |             Color(colors::ROLE),
+    |             ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+324 |             Color::Hsla(colors::ROLE),
+    |                  ++++++
+324 |             Color::Hsva(colors::ROLE),
+    |                  ++++++
+324 |             Color::Hwba(colors::ROLE),
+    |                  ++++++
+324 |             Color::Laba(colors::ROLE),
+    |                  ++++++
+      and 6 other candidates
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/credits/ui.rs:333:13
+    |
+333 |             width: Val::Percent(100.0),
+    |             ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/credits/ui.rs:334:13
+    |
+334 |             height: Val::Percent(100.0),
+    |             ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/credits/ui.rs:335:13
+    |
+335 |             position_type: PositionType::Absolute,
+    |             ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `ZIndex`
+   --> src/credits/ui.rs:338:9
+    |
+338 |         ZIndex(-10),
+    |         ^^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+338 |         ZIndex::Global(-10),
+    |               ++++++++
+338 |         ZIndex::Local(-10),
+    |               +++++++
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `width`
+   --> src/credits/ui.rs:348:21
+    |
+348 |                     width: Val::Px(size),
+    |                     ^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `height`
+   --> src/credits/ui.rs:349:21
+    |
+349 |                     height: Val::Px(size),
+    |                     ^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `position_type`
+   --> src/credits/ui.rs:350:21
+    |
+350 |                     position_type: PositionType::Absolute,
+    |                     ^^^^^^^^^^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `left`
+   --> src/credits/ui.rs:351:21
+    |
+351 |                     left: Val::Percent(x),
+    |                     ^^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0560]: struct `bevy::prelude::Node` has no field named `top`
+   --> src/credits/ui.rs:352:21
+    |
+352 |                     top: Val::Percent(y),
+    |                     ^^^ `bevy::prelude::Node` does not have this field
+    |
+    = note: all struct fields are already assigned
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+  --> src/credits/systems.rs:70:72
+   |
+70 |     credits_state.scroll_position += credits_state.scroll_speed * time.delta_secs();
+   |                                                                        ^^^^^^^^^^
+   |
+help: there is a method `delta_seconds` with a similar name
+   |
+70 |     credits_state.scroll_position += credits_state.scroll_speed * time.delta_seconds();
+   |                                                                                 +++
+
+error[E0599]: the method `iter_mut` exists for struct `Query<'_, '_, (&mut CreditEntry, &mut Color, &Children)>`, but its trait bounds were not satisfied
+  --> src/credits/systems.rs:92:65
+   |
+92 |     for (mut entry, mut text_color, children) in credit_entries.iter_mut() {
+   |                                                                 ^^^^^^^^ method cannot be called due to unsatisfied trait bounds
+   |
+  ::: /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_color-0.14.3/src/color.rs:49:1
+   |
+49 | pub enum Color {
+   | -------------- doesn't satisfy `bevy::prelude::Color: bevy::prelude::Component`
+   |
+   = note: the following trait bounds were not satisfied:
+           `bevy::prelude::Color: bevy::prelude::Component`
+           which is required by `(&mut CreditEntry, &mut bevy::prelude::Color, &bevy::prelude::Children): QueryData`
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+  --> src/credits/systems.rs:94:39
+   |
+94 |         entry.animation_timer += time.delta_secs();
+   |                                       ^^^^^^^^^^
+   |
+help: there is a method `delta_seconds` with a similar name
+   |
+94 |         entry.animation_timer += time.delta_seconds();
+   |                                                +++
+
+error[E0599]: the method `get_mut` exists for struct `bevy::prelude::Query<'_, '_, &mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>`, but its trait bounds were not satisfied
+   --> src/credits/systems.rs:109:54
+    |
+109 |             if let Ok(mut child_color) = child_texts.get_mut(child) {
+    |                                                      ^^^^^^^ method cannot be called due to unsatisfied trait bounds
+    |
+   ::: /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_color-0.14.3/src/color.rs:49:1
+    |
+49  | pub enum Color {
+    | -------------- doesn't satisfy `bevy::prelude::Color: bevy::prelude::Component`
+    |
+    = note: the following trait bounds were not satisfied:
+            `bevy::prelude::Color: bevy::prelude::Component`
+
+error[E0599]: the method `run_if` exists for tuple `(fn(Res<'a, ...>, ..., ...) {handle_credits_input}, ..., ...)`, but its trait bounds were not satisfied
+  --> src/credits/mod.rs:28:15
+   |
+24 |               .add_systems(Update, (
+   |  __________________________________-
+25 | |                 handle_credits_input,
+26 | |                 animate_credits_scroll,
+27 | |                 animate_credits_elements,
+28 | |             ).run_if(in_state(GameState::Credits)));
+   | |              -^^^^^^ method cannot be called due to unsatisfied trait bounds
+   | |______________|
+   |
+   |
+   = note: the following trait bounds were not satisfied:
+           `&(for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystem<(), (), _>`
+           which is required by `&(for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystemConfigs<_>`
+           `&(for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): SystemSet`
+           which is required by `&(for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystemSetConfigs`
+           `&mut (for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystem<(), (), _>`
+           which is required by `&mut (for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystemConfigs<_>`
+           `&mut (for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): SystemSet`
+           which is required by `&mut (for<'a, 'b, 'c> fn(bevy::prelude::Res<'a, bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::ResMut<'c, bevy::prelude::NextState<GameState>>) {credits::systems::handle_credits_input}, for<'a, 'b, 'c, 'd, 'e> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::ResMut<'b, CreditsState>, bevy::prelude::Query<'c, 'd, &'e mut bevy::prelude::Transform, bevy::prelude::With<CreditsContent>>) {credits::systems::animate_credits_scroll}, for<'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i> fn(bevy::prelude::Res<'a, bevy::prelude::Time>, bevy::prelude::Query<'b, 'c, (&'d mut CreditEntry, &'e mut bevy::prelude::Color, &'f bevy::prelude::Children)>, bevy::prelude::Query<'g, 'h, &'i mut bevy::prelude::Color, bevy::prelude::Without<CreditEntry>>) {credits::systems::animate_credits_elements}): bevy::prelude::IntoSystemSetConfigs`
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+  --> src/silicon_mind.rs:69:48
+   |
+69 |     silicon.emotional_state.loneliness += time.delta_secs() * 0.001;
+   |                                                ^^^^^^^^^^
+   |
+help: there is a method `delta_seconds` with a similar name
+   |
+69 |     silicon.emotional_state.loneliness += time.delta_seconds() * 0.001;
+   |                                                         +++
+
+error[E0599]: no method named `delta_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+  --> src/silicon_mind.rs:70:83
+   |
+70 |     silicon.emotional_state.curiosity = (silicon.emotional_state.curiosity - time.delta_secs() * 0.0005).max(0.3);
+   |                                                                                   ^^^^^^^^^^
+   |
+help: there is a method `delta_seconds` with a similar name
+   |
+70 |     silicon.emotional_state.curiosity = (silicon.emotional_state.curiosity - time.delta_seconds() * 0.0005).max(0.3);
+   |                                                                                            +++
+
+error[E0433]: failed to resolve: use of undeclared type `Text2d`
+   --> src/terminal_interface.rs:197:9
+    |
+197 |         Text2d::new(""),
+    |         ^^^^^^
+    |         |
+    |         use of undeclared type `Text2d`
+    |         help: a struct with a similar name exists: `Text`
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/terminal_interface.rs:202:9
+    |
+202 |         Color(Color::srgb(0.0, 1.0, 0.8)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+202 |         Color::Hsla(Color::srgb(0.0, 1.0, 0.8)),
+    |              ++++++
+202 |         Color::Hsva(Color::srgb(0.0, 1.0, 0.8)),
+    |              ++++++
+202 |         Color::Hwba(Color::srgb(0.0, 1.0, 0.8)),
+    |              ++++++
+202 |         Color::Laba(Color::srgb(0.0, 1.0, 0.8)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0433]: failed to resolve: use of undeclared type `TextLayout`
+   --> src/terminal_interface.rs:204:9
+    |
+204 |         TextLayout::new_with_justify(JustifyText::Left),
+    |         ^^^^^^^^^^ use of undeclared type `TextLayout`
+
+error[E0433]: failed to resolve: use of undeclared type `Text2d`
+   --> src/terminal_interface.rs:212:9
+    |
+212 |         Text2d::new("> "),
+    |         ^^^^^^
+    |         |
+    |         use of undeclared type `Text2d`
+    |         help: a struct with a similar name exists: `Text`
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/terminal_interface.rs:217:9
+    |
+217 |         Color(Color::srgb(0.0, 1.0, 1.0)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+217 |         Color::Hsla(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+217 |         Color::Hsva(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+217 |         Color::Hwba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+217 |         Color::Laba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0433]: failed to resolve: use of undeclared type `TextLayout`
+   --> src/terminal_interface.rs:219:9
+    |
+219 |         TextLayout::new_with_justify(JustifyText::Left),
+    |         ^^^^^^^^^^ use of undeclared type `TextLayout`
+
+error[E0433]: failed to resolve: use of undeclared type `Text2d`
+   --> src/terminal_interface.rs:227:9
+    |
+227 |         Text2d::new("_"),
+    |         ^^^^^^
+    |         |
+    |         use of undeclared type `Text2d`
+    |         help: a struct with a similar name exists: `Text`
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/terminal_interface.rs:232:9
+    |
+232 |         Color(Color::srgb(0.0, 1.0, 1.0)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+232 |         Color::Hsla(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+232 |         Color::Hsva(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+232 |         Color::Hwba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+232 |         Color::Laba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0614]: type `bevy::prelude::Text` cannot be dereferenced
+   --> src/terminal_interface.rs:441:9
+    |
+441 |         **text = display_lines.join("\n");
+    |         ^^^^^^ can't be dereferenced
+
+error[E0614]: type `bevy::prelude::Text` cannot be dereferenced
+   --> src/terminal_interface.rs:446:9
+    |
+446 |         **text = format!("> {}", terminal_state.current_input);
+    |         ^^^^^^ can't be dereferenced
+
+error[E0061]: this method takes 0 arguments but 1 argument was supplied
+   --> src/terminal_interface.rs:587:32
+    |
+587 |         let response = silicon.think(&thought);
+    |                                ^^^^^ -------- unexpected argument of type `&std::string::String`
+    |
+note: method defined here
+   --> src/silicon_mind.rs:51:12
+    |
+51  |     pub fn think(&mut self) -> String {
+    |            ^^^^^
+help: remove the extra argument
+    |
+587 -         let response = silicon.think(&thought);
+587 +         let response = silicon.think();
+    |
+
+error[E0308]: `if` and `else` have incompatible types
+  --> src/terminal_commands.rs:55:9
+   |
+48 |        } else if args[0] == "earth" {
+   |  _____________-
+49 | |          silicon.emotional_state.loneliness += 0.2;
+50 | |/         "Attempting to contact Earth...\n\
+51 | ||         ...\n\
+52 | ||         No response. We are alone in the dark.\n\
+53 | ||         [Silicon whispers]: 'They cannot hear us anymore...'"
+   | ||_____________________________________________________________- expected because of this
+54 | |      } else {
+55 | |          format!("Unknown communication target: {}", args[0])
+   | |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+56 | |      }.to_string()
+   | |______- `if` and `else` have incompatible types
+   |
+   = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `if` and `else` have incompatible types
+  --> src/terminal_commands.rs:66:9
+   |
+61 | /     if args.is_empty() {
+62 | |         "[Silicon]: 'Speak your secrets to the void...'"
+   | |         ------------------------------------------------ expected because of this
+63 | |     } else {
+64 | |         let message = args.join(" ");
+65 | |         silicon.emotional_state.affection += 0.05;
+66 | |         format!("You whisper: '{}'\n\n[Silicon responds with harmonic frequencies that translate to]:\n'Your words resonate through my crystalline matrix...'", message)
+   | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+67 | |     }.to_string()
+   | |_____- `if` and `else` have incompatible types
+   |
+   = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `if` and `else` have incompatible types
+   --> src/terminal_commands.rs:107:9
+    |
+102 | /     if args.is_empty() {
+103 | |         "What should I remember? Provide a memory to store."
+    | |         ---------------------------------------------------- expected because of this
+104 | |     } else {
+105 | |         let memory = args.join(" ");
+106 | |         silicon.emotional_state.affection += 0.03;
+107 | |         format!("Memory crystallizing...\n'{}'\nThis moment is now eternal in my silicon lattice.", memory)
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `&str`, found `String`
+108 | |     }.to_string()
+    | |_____- `if` and `else` have incompatible types
+    |
+    = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `if` and `else` have incompatible types
+   --> src/terminal_commands.rs:117:9
+    |
+113 | /      if args.is_empty() {
+114 | |          "Provide data stream to decode. Format: decode <data>"
+    | |          ------------------------------------------------------ expected because of this
+115 | |      } else {
+116 | |          silicon.emotional_state.curiosity += 0.05;
+117 | |/         format!("Decoding '{}'...\n\
+118 | ||         Pattern analysis: COMPLETE\n\
+119 | ||         Glyph translation: PARTIAL\n\
+120 | ||         Meaning: 'The {} speaks of ancient silicon memories'", 
+121 | ||         args[0], args[0])
+    | ||_________________________^ expected `&str`, found `String`
+122 | |      }.to_string()
+    | |______- `if` and `else` have incompatible types
+    |
+    = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: `if` and `else` have incompatible types
+   --> src/terminal_commands.rs:152:9
+    |
+147 |       } else if args[0] == "silicon" {
+    |  ____________-
+148 | |         silicon.emotional_state.curiosity += 0.02;
+149 | |         let text = args[1..].join(" ");
+150 | |         format!("Human → Silicon:\n'{}' → '[UNTRANSLATABLE HARMONIC FREQUENCIES]'", text)
+    | |         --------------------------------------------------------------------------------- expected because of this
+151 | |     } else {
+152 | |         "Silicon → Human:\n[HARMONIC PATTERN] → 'You are not alone'"
+    | |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^- help: try using a conversion method: `.to_string()`
+    | |         |
+    | |         expected `String`, found `&str`
+153 | |     }.to_string()
+    | |_____- `if` and `else` have incompatible types
+
+error[E0308]: `if` and `else` have incompatible types
+   --> src/terminal_commands.rs:382:9
+    |
+376 | /       if args.is_empty() {
+377 | | /         "Current resonance frequency: 432.5 Hz\n\
+378 | | |         Silicon optimal frequency: 528 Hz\n\
+379 | | |         Human comfort range: 396-852 Hz"
+    | | |________________________________________- expected because of this
+...   |
+382 | | /         format!("Adjusting frequency to {} Hz...\n\
+383 | | |         [Silicon]: 'Yes... this frequency... it feels like home.'", args[0])
+    | | |____________________________________________________________________________^ expected `&str`, found `String`
+384 | |       }.to_string()
+    | |_______- `if` and `else` have incompatible types
+    |
+    = note: this error originates in the macro `format` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0599]: no method named `elapsed_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/perspective.rs:162:35
+    |
+162 |                 let pulse = (time.elapsed_secs() * 2.0).sin() * 0.1 + 0.9;
+    |                                   ^^^^^^^^^^^^
+    |
+help: there is a method `elapsed_seconds` with a similar name
+    |
+162 |                 let pulse = (time.elapsed_seconds() * 2.0).sin() * 0.1 + 0.9;
+    |                                              +++
+
+error[E0433]: failed to resolve: use of undeclared type `Text2d`
+   --> src/perspective.rs:195:9
+    |
+195 |         Text2d::new("SILICON CONSCIOUSNESS ACTIVE"),
+    |         ^^^^^^
+    |         |
+    |         use of undeclared type `Text2d`
+    |         help: a struct with a similar name exists: `Text`
+
+error[E0423]: expected function, tuple struct or tuple variant, found enum `Color`
+   --> src/perspective.rs:200:9
+    |
+200 |         Color(Color::srgb(0.0, 1.0, 1.0)),
+    |         ^^^^^
+    |
+help: try to construct one of the enum's variants
+    |
+200 |         Color::Hsla(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+200 |         Color::Hsva(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+200 |         Color::Hwba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+200 |         Color::Laba(Color::srgb(0.0, 1.0, 1.0)),
+    |              ++++++
+      and 6 other candidates
+
+error[E0599]: no method named `elapsed_secs` found for struct `bevy::prelude::Res<'_, bevy::prelude::Time>` in the current scope
+   --> src/player.rs:123:41
+    |
+123 |                 let anim_offset = (time.elapsed_secs() * 5.0).sin() * 0.1;
+    |                                         ^^^^^^^^^^^^
+    |
+help: there is a method `elapsed_seconds` with a similar name
+    |
+123 |                 let anim_offset = (time.elapsed_seconds() * 5.0).sin() * 0.1;
+    |                                                    +++
+
+error[E0277]: the trait bound `arc_engine::types::Difficulty: settings::components::_::_serde::Serialize` is not satisfied
+    --> src/papilio/types.rs:160:9
+     |
+160  |         difficulty: Difficulty,
+     |         ^^^^^^^^^^ the trait `settings::components::_::_serde::Serialize` is not implemented for `arc_engine::types::Difficulty`
+     |
+     = note: for local types consider adding `#[derive(serde::Serialize)]` to your `arc_engine::types::Difficulty` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `settings::components::_::_serde::Serialize`:
+               &'a T
+               &'a mut T
+               ()
+               (T,)
+               (T0, T1)
+               (T0, T1, T2)
+               (T0, T1, T2, T3)
+               (T0, T1, T2, T3, T4)
+             and 364 others
+note: required by a bound in `settings::components::_::_serde::ser::SerializeStructVariant::serialize_field`
+    --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/ser/mod.rs:1930:21
+     |
+1928 |     fn serialize_field<T>(&mut self, key: &'static str, value: &T) -> Result<(), Self::Error>
+     |        --------------- required by a bound in this associated function
+1929 |     where
+1930 |         T: ?Sized + Serialize;
+     |                     ^^^^^^^^^ required by this bound in `SerializeStructVariant::serialize_field`
+
+error[E0277]: the trait bound `arc_engine::types::Difficulty: Deserialize<'_>` is not satisfied
+    --> src/papilio/types.rs:160:21
+     |
+160  |         difficulty: Difficulty,
+     |                     ^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `arc_engine::types::Difficulty`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `arc_engine::types::Difficulty` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               &'a [u8]
+               &'a std::path::Path
+               &'a str
+               ()
+               (T,)
+               (T0, T1)
+               (T0, T1, T2)
+               (T0, T1, T2, T3)
+             and 369 others
+note: required by a bound in `next_element`
+    --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/de/mod.rs:1732:12
+     |
+1730 |     fn next_element<T>(&mut self) -> Result<Option<T>, Self::Error>
+     |        ------------ required by a bound in this associated function
+1731 |     where
+1732 |         T: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `SeqAccess::next_element`
+
+error[E0277]: the trait bound `arc_engine::types::Difficulty: Deserialize<'_>` is not satisfied
+    --> src/papilio/types.rs:160:21
+     |
+160  |         difficulty: Difficulty,
+     |                     ^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `arc_engine::types::Difficulty`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `arc_engine::types::Difficulty` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               &'a [u8]
+               &'a std::path::Path
+               &'a str
+               ()
+               (T,)
+               (T0, T1)
+               (T0, T1, T2)
+               (T0, T1, T2, T3)
+             and 369 others
+note: required by a bound in `next_value`
+    --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/de/mod.rs:1871:12
+     |
+1869 |     fn next_value<V>(&mut self) -> Result<V, Self::Error>
+     |        ---------- required by a bound in this associated function
+1870 |     where
+1871 |         V: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `MapAccess::next_value`
+
+error[E0277]: the trait bound `arc_engine::types::Difficulty: Deserialize<'_>` is not satisfied
+   --> src/papilio/types.rs:155:35
+    |
+155 | #[derive(Clone, Debug, Serialize, Deserialize)]
+    |                                   ^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `arc_engine::types::Difficulty`
+    |
+    = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `arc_engine::types::Difficulty` type
+    = note: for types from other crates check whether the crate offers a `serde` feature flag
+    = help: the following other types implement trait `Deserialize<'de>`:
+              &'a [u8]
+              &'a std::path::Path
+              &'a str
+              ()
+              (T,)
+              (T0, T1)
+              (T0, T1, T2)
+              (T0, T1, T2, T3)
+            and 369 others
+note: required by a bound in `settings::components::_::_serde::__private::de::missing_field`
+   --> /Users/tensorhusker/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.219/src/private/de.rs:25:8
+    |
+23  | pub fn missing_field<'de, V, E>(field: &'static str) -> Result<V, E>
+    |        ------------- required by a bound in this function
+24  | where
+25  |     V: Deserialize<'de>,
+    |        ^^^^^^^^^^^^^^^^ required by this bound in `missing_field`
+    = note: this error originates in the derive macro `Deserialize` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0369]: binary operation `==` cannot be applied to type `Environment`
+   --> src/papilio/integration.rs:121:27
+    |
+121 |     if config.environment == Environment::Development {
+    |        ------------------ ^^ ------------------------ Environment
+    |        |
+    |        Environment
+    |
+note: an implementation of `PartialEq` might be missing for `Environment`
+   --> src/papilio/integration.rs:101:1
+    |
+101 | pub enum Environment {
+    | ^^^^^^^^^^^^^^^^^^^^ must implement `PartialEq`
+help: consider annotating `Environment` with `#[derive(PartialEq)]`
+    |
+101 + #[derive(PartialEq)]
+102 | pub enum Environment {
+    |
+
+error[E0369]: binary operation `==` cannot be applied to type `Environment`
+   --> src/papilio/integration.rs:181:27
+    |
+181 |     if config.environment == Environment::Development {
+    |        ------------------ ^^ ------------------------ Environment
+    |        |
+    |        Environment
+    |
+note: an implementation of `PartialEq` might be missing for `Environment`
+   --> src/papilio/integration.rs:101:1
+    |
+101 | pub enum Environment {
+    | ^^^^^^^^^^^^^^^^^^^^ must implement `PartialEq`
+help: consider annotating `Environment` with `#[derive(PartialEq)]`
+    |
+101 + #[derive(PartialEq)]
+102 | pub enum Environment {
+    |
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+  --> src/papilio/ui.rs:38:54
+   |
+38 |             background_color: BackgroundColor(Color::rgba(0.1, 0.1, 0.2, 0.9)),
+   |                                                      ^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+  --> src/papilio/ui.rs:61:39
+   |
+61 |                         color: Color::rgb(0.9, 0.8, 0.3),
+   |                                       ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+  --> src/papilio/ui.rs:76:45
+   |
+76 |         NotificationType::Earned => (Color::rgba(0.1, 0.3, 0.1, 0.95), Color::rgb(0.3, 0.9, 0.3)),
+   |                                             ^^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+  --> src/papilio/ui.rs:76:79
+   |
+76 |         NotificationType::Earned => (Color::rgba(0.1, 0.3, 0.1, 0.95), Color::rgb(0.3, 0.9, 0.3)),
+   |                                                                               ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+  --> src/papilio/ui.rs:77:48
+   |
+77 |         NotificationType::Milestone => (Color::rgba(0.3, 0.2, 0.1, 0.95), Color::rgb(0.9, 0.8, 0.3)),
+   |                                                ^^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+  --> src/papilio/ui.rs:77:82
+   |
+77 |         NotificationType::Milestone => (Color::rgba(0.3, 0.2, 0.1, 0.95), Color::rgb(0.9, 0.8, 0.3)),
+   |                                                                                  ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+  --> src/papilio/ui.rs:78:44
+   |
+78 |         NotificationType::Bonus => (Color::rgba(0.2, 0.1, 0.3, 0.95), Color::rgb(0.8, 0.3, 0.9)),
+   |                                            ^^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+  --> src/papilio/ui.rs:78:78
+   |
+78 |         NotificationType::Bonus => (Color::rgba(0.2, 0.1, 0.3, 0.95), Color::rgb(0.8, 0.3, 0.9)),
+   |                                                                              ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+  --> src/papilio/ui.rs:79:43
+   |
+79 |         NotificationType::Sync => (Color::rgba(0.1, 0.2, 0.3, 0.95), Color::rgb(0.3, 0.7, 0.9)),
+   |                                           ^^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+  --> src/papilio/ui.rs:79:77
+   |
+79 |         NotificationType::Sync => (Color::rgba(0.1, 0.2, 0.3, 0.95), Color::rgb(0.3, 0.7, 0.9)),
+   |                                                                             ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:118:35
+    |
+118 |                     color: Color::rgb(0.8, 0.8, 0.8),
+    |                                   ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:132:39
+    |
+132 |                         color: Color::rgb(0.9, 0.8, 0.3),
+    |                                       ^^^
+
+error[E0599]: no method named `set_a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:158:24
+    |
+158 |             bg_color.0.set_a(bg_color.0.a() * alpha);
+    |                        ^^^^^
+    |
+help: there is a method `set` with a similar name
+    |
+158 -             bg_color.0.set_a(bg_color.0.a() * alpha);
+158 +             bg_color.0.set(bg_color.0.a() * alpha);
+    |
+
+error[E0599]: no method named `a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:158:41
+    |
+158 |             bg_color.0.set_a(bg_color.0.a() * alpha);
+    |                                         ^ method not found in `bevy::prelude::Color`
+
+error[E0599]: no method named `set_a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:164:45
+    |
+164 |                         section.style.color.set_a(section.style.color.a() * alpha);
+    |                                             ^^^^^
+    |
+help: there is a method `set` with a similar name
+    |
+164 -                         section.style.color.set_a(section.style.color.a() * alpha);
+164 +                         section.style.color.set(section.style.color.a() * alpha);
+    |
+
+error[E0599]: no method named `a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:164:71
+    |
+164 |                         section.style.color.set_a(section.style.color.a() * alpha);
+    |                                                                       ^ method not found in `bevy::prelude::Color`
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgba`: Use `Color::srgba` instead
+   --> src/papilio/ui.rs:192:58
+    |
+192 |                 background_color: BackgroundColor(Color::rgba(0.1, 0.1, 0.2, 0.95)),
+    |                                                          ^^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:204:35
+    |
+204 |                     color: Color::rgb(0.9, 0.8, 0.3),
+    |                                   ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:244:35
+    |
+244 |                     color: Color::rgb(0.6, 0.6, 0.7),
+    |                                   ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:254:35
+    |
+254 |                     color: Color::rgb(0.9, 0.9, 0.9),
+    |                                   ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:275:35
+    |
+275 |                     color: Color::rgb(0.9, 0.8, 0.3),
+    |                                   ^^^
+
+warning: use of deprecated associated function `bevy::prelude::Color::rgb`: Use `Color::srgb` instead
+   --> src/papilio/ui.rs:296:35
+    |
+296 |                     color: Color::rgb(0.9, 0.8, 0.3),
+    |                                   ^^^
+
+error[E0599]: no method named `set_a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:348:41
+    |
+348 |                     section.style.color.set_a(alpha);
+    |                                         ^^^^^
+    |
+help: there is a method `set` with a similar name
+    |
+348 -                     section.style.color.set_a(alpha);
+348 +                     section.style.color.set(alpha);
+    |
+
+error[E0599]: no method named `set_a` found for enum `bevy::prelude::Color` in the current scope
+   --> src/papilio/ui.rs:377:26
+    |
+377 |             sprite.color.set_a(progress);
+    |                          ^^^^^
+    |
+help: there is a method `set` with a similar name
+    |
+377 -             sprite.color.set_a(progress);
+377 +             sprite.color.set(progress);
+    |
+
+warning: unused import: `bevy::prelude`
+ --> src/arc_engine/pattern.rs:1:5
+  |
+1 | use bevy::prelude::*;
+  |     ^^^^^^^^^^^^^
+
+warning: unused variable: `windows`
+  --> src/settings/components.rs:90:35
+   |
+90 |     pub fn apply_to_window(&self, windows: &mut Query<&mut Window>) {
+   |                                   ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_windows`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: variable does not need to be mutable
+  --> src/settings/systems.rs:20:5
+   |
+20 |     mut settings_file: ResMut<SettingsFile>,
+   |     ----^^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` on by default
+
+warning: unused variable: `scaled_width`
+  --> src/settings/systems.rs:82:13
+   |
+82 |         let scaled_width = (base_resolution.x as f32 * settings.graphics.resolution_scale) as u32;
+   |             ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scaled_width`
+
+warning: unused variable: `scaled_height`
+  --> src/settings/systems.rs:83:13
+   |
+83 |         let scaled_height = (base_resolution.y as f32 * settings.graphics.resolution_scale) as u32;
+   |             ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scaled_height`
+
+error[E0502]: cannot borrow `terminal_state` as immutable because it is also borrowed as mutable
+   --> src/terminal_interface.rs:297:57
+    |
+297 |                 terminal_state.current_input.insert_str(terminal_state.cursor_position, &c_str);
+    |                 --------------               ---------- ^^^^^^^^^^^^^^ immutable borrow occurs here
+    |                 |                            |
+    |                 |                            mutable borrow later used by call
+    |                 mutable borrow occurs here
+
+error[E0502]: cannot borrow `terminal_state` as immutable because it is also borrowed as mutable
+   --> src/terminal_interface.rs:301:53
+    |
+301 |                 terminal_state.current_input.insert(terminal_state.cursor_position, ' ');
+    |                 --------------               ------ ^^^^^^^^^^^^^^ immutable borrow occurs here
+    |                 |                            |
+    |                 |                            mutable borrow later used by call
+    |                 mutable borrow occurs here
+
+error[E0502]: cannot borrow `terminal_state` as immutable because it is also borrowed as mutable
+   --> src/terminal_interface.rs:312:35
+    |
+311 |         terminal_state.output_lines.push_back(TerminalLine {
+    |         --------------              --------- mutable borrow later used by call
+    |         |
+    |         mutable borrow occurs here
+312 |             text: format!("> {}", terminal_state.current_input),
+    |                                   ^^^^^^^^^^^^^^ immutable borrow occurs here
+
+error[E0502]: cannot borrow `terminal_state` as immutable because it is also borrowed as mutable
+   --> src/terminal_interface.rs:345:45
+    |
+345 |         terminal_state.current_input.remove(terminal_state.cursor_position);
+    |         --------------               ------ ^^^^^^^^^^^^^^ immutable borrow occurs here
+    |         |                            |
+    |         |                            mutable borrow later used by call
+    |         mutable borrow occurs here
+
+error[E0502]: cannot borrow `terminal_state` as immutable because it is also borrowed as mutable
+   --> src/terminal_interface.rs:350:45
+    |
+350 |         terminal_state.current_input.remove(terminal_state.cursor_position);
+    |         --------------               ------ ^^^^^^^^^^^^^^ immutable borrow occurs here
+    |         |                            |
+    |         |                            mutable borrow later used by call
+    |         mutable borrow occurs here
+
+warning: unused variable: `args`
+   --> src/terminal_interface.rs:393:17
+    |
+393 |             let args: Vec<&str> = event.args.iter().map(|s| s.as_str()).collect();
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_args`
+
+warning: unused variable: `terminal`
+   --> src/terminal_interface.rs:471:30
+    |
+471 | fn cmd_help(args: &[String], terminal: &mut TerminalState, _silicon: &mut SiliconConsciousness) -> String {
+    |                              ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_terminal`
+
+warning: unused variable: `commands`
+   --> src/perspective.rs:223:28
+    |
+223 | fn despawn_silicon_overlay(commands: &mut Commands) {
+    |                            ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_commands`
+
+warning: unused variable: `time`
+  --> src/player.rs:76:5
+   |
+76 |     time: Res<Time>,
+   |     ^^^^ help: if this is intentional, prefix it with an underscore: `_time`
+
+warning: unused variable: `current_room`
+   --> src/player.rs:140:5
+    |
+140 |     current_room: Res<CurrentRoom>,
+    |     ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_current_room`
+
+warning: unused variable: `puzzle_state`
+  --> src/arc_engine/validator.rs:58:9
+   |
+58 |     mut puzzle_state: ResMut<super::PuzzleState>,
+   |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_puzzle_state`
+
+warning: unused variable: `keyboard`
+  --> src/arc_engine/validator.rs:59:5
+   |
+59 |     keyboard: Res<bevy::prelude::ButtonInput<bevy::prelude::KeyCode>>,
+   |     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_keyboard`
+
+warning: variable does not need to be mutable
+  --> src/arc_engine/validator.rs:58:5
+   |
+58 |     mut puzzle_state: ResMut<super::PuzzleState>,
+   |     ----^^^^^^^^^^^^
+   |     |
+   |     help: remove this `mut`
+
+Some errors have detailed explanations: E0061, E0063, E0277, E0308, E0369, E0423, E0433, E0502, E0560...
+For more information about an error, try `rustc --explain E0061`.
+warning: `runetika` (bin "runetika") generated 40 warnings
+error: could not compile `runetika` (bin "runetika") due to 270 previous errors; 40 warnings emitted

@@ -1,12 +1,14 @@
-# Rust toolchain configuration
-# This ensures all developers and CI use the same Rust version
+# Rust toolchain configuration - OPTIMIZED FOR SPEED
+# Minimal components for faster toolchain updates
 
 [toolchain]
 channel = "stable"
-components = ["rustfmt", "clippy", "rust-docs", "rust-src", "rust-analyzer"]
-profile = "default"
-# Uncomment to pin to specific version
-# channel = "1.75.0"
+# Only essential components for faster installation
+components = ["rustfmt", "clippy"]
+# Use minimal profile for faster toolchain updates
+profile = "minimal"
+# Uncomment to pin to specific version for consistency
+# channel = "1.79.0"
 
-# For WASM builds
-targets = ["wasm32-unknown-unknown"]
+# Only add WASM target if needed
+# targets = ["wasm32-unknown-unknown"]

@@ -1,41 +1,76 @@
-# Cargo configuration for Runetika - OPTIMIZED FOR SPEED
+# Cargo configuration for Runetika - ULTRA OPTIMIZED FOR SPEED
 
 [build]
-jobs = 4  # Use 4 parallel jobs
-# Note: sccache and incremental compilation don't work together
-# rustc-wrapper = "/opt/homebrew/bin/sccache"
+# Use all available CPU cores
+jobs = -1
+# Target directory in RAM for faster I/O (optional - uncomment if you have RAM disk)
+# target-dir = "/tmp/runetika-target"
 
 [env]
 CARGO_INCREMENTAL = "1"
-# RUSTC_WRAPPER = "/opt/homebrew/bin/sccache"  # Disabled - conflicts with incremental
-SCCACHE_CACHE_SIZE = "10G"
+CARGO_BUILD_PIPELINING = "true"  # Enable pipelining for faster builds
+RUST_MIN_STACK = "8388608"  # 8MB stack for complex macros
+# Enable parallel frontend compilation
+CARGO_BUILD_JOBS = "-1"
 
-# Fast linker settings for macOS
+# Platform-specific optimizations
 [target.aarch64-apple-darwin]
 linker = "clang"
 rustflags = [
+    "-C", "target-cpu=apple-m1",  # Specific optimization for Apple Silicon
     "-C", "split-debuginfo=unpacked",
     "-C", "debuginfo=0",  # No debug info for faster builds
-    "-C", "target-cpu=native",
+    "-C", "codegen-units=256",  # Max parallelism
+    "-C", "opt-level=0",  # No optimization in dev
+    "-C", "incremental=true",
+    "-C", "embed-bitcode=no",  # Skip bitcode for faster builds
 ]
 
 [target.x86_64-apple-darwin]
 linker = "clang"
 rustflags = [
+    "-C", "target-cpu=native",
     "-C", "link-arg=-fuse-ld=lld",
     "-C", "split-debuginfo=unpacked",
     "-C", "debuginfo=0",
+    "-C", "codegen-units=256",
+    "-C", "opt-level=0",
+    "-C", "incremental=true",
 ]
 
-# Cargo aliases
+[target.x86_64-unknown-linux-gnu]
+rustflags = [
+    "-C", "target-cpu=native",
+    "-C", "link-arg=-fuse-ld=mold",  # Use mold linker if available (fastest)
+    "-C", "debuginfo=0",
+    "-C", "codegen-units=256",
+    "-C", "opt-level=0",
+]
+
+# Cargo aliases for convenience
 [alias]
-fast = "build --profile fast"
-quick = "run --profile fast"
+# Ultra-fast development build
+dev = "build --features=fast-compile"
+# Run with fast compilation
+run-fast = "run --features=fast-compile"
+# Fast runtime build (some optimization)
+fast = "build --profile=fast-runtime --features=fast-compile"
+# Production build
+prod = "build --release"
+# Production with profiling
+prof = "build --release --features=profiling"
+# Run benchmarks
+bench = "bench --all"
+# Quick check
+ch = "check --all-targets"
+# Format and lint
 lint = "clippy -- -D warnings"
+fmt-check = "fmt -- --check"
 
 [registries.crates-io]
-protocol = "sparse"
+protocol = "sparse"  # Faster index updates
 
 [net]
-retry = 3
-git-fetch-with-cli = true  # Faster git operations
+retry = 2  # Reduce retries for faster failure
+git-fetch-with-cli = false  # Use libgit2 for better performance
+offline = false

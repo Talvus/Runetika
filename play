@@ -1,0 +1,23 @@
+#!/bin/bash
+# Ultra-fast Runetika launcher - Skip compilation if possible
+
+BINARY="./target/debug/runetika"
+FAST_BINARY="./target/dev-fast/runetika"
+
+# Check if fast binary exists and is newer than source
+if [ -f "$FAST_BINARY" ]; then
+    echo "🚀 Launching Runetika (cached fast build)..."
+    exec "$FAST_BINARY"
+elif [ -f "$BINARY" ]; then
+    echo "🎮 Launching Runetika (cached debug build)..."
+    exec "$BINARY"
+else
+    echo "🔨 First run - building Runetika (this may take a minute)..."
+    cargo build --profile dev-fast 2>/dev/null || cargo build
+    
+    if [ -f "$FAST_BINARY" ]; then
+        exec "$FAST_BINARY"
+    else
+        exec "$BINARY"
+    fi
+fi
