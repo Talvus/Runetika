@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use bevy::input::keyboard::{Key, KeyboardInput};
 use bevy::input::ButtonState;
 use std::collections::VecDeque;
-use crate::perspective::{CurrentPerspective, InteractableTerminal};
+use crate::perspective::CurrentPerspective;
 use crate::silicon_mind::SiliconConsciousness;
 
 pub struct TerminalInterfacePlugin;
@@ -245,7 +245,7 @@ fn handle_terminal_activation(
     // Check if we should open terminal
     if keyboard.just_pressed(KeyCode::KeyT) || 
        (keyboard.just_pressed(KeyCode::Space) && *current_perspective == CurrentPerspective::Silicon) {
-        if let Ok(Some(proximity)) = player_query.get_single() {
+        if let Ok(Some(proximity)) = player_query.single() {
             if proximity.in_range || *current_perspective == CurrentPerspective::Silicon {
                 terminal_state.active = !terminal_state.active;
                 
@@ -294,11 +294,13 @@ fn process_terminal_input(
             Key::Character(c) => {
                 // Add character at cursor position
                 let c_str = c.to_string();
-                terminal_state.current_input.insert_str(terminal_state.cursor_position, &c_str);
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert_str(cursor_pos, &c_str);
                 terminal_state.cursor_position += c_str.len();
             }
             Key::Space => {
-                terminal_state.current_input.insert(terminal_state.cursor_position, ' ');
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert(cursor_pos, ' ');
                 terminal_state.cursor_position += 1;
             }
             _ => {}
@@ -308,20 +310,21 @@ fn process_terminal_input(
     // Handle special keys
     if keyboard.just_pressed(KeyCode::Enter) && !terminal_state.current_input.is_empty() {
         // Add to output
+        let current_input = terminal_state.current_input.clone();
         terminal_state.output_lines.push_back(TerminalLine {
-            text: format!("> {}", terminal_state.current_input),
+            text: format!("> {}", current_input),
             line_type: LineType::Input,
             timestamp: 0.0,
         });
         
         // Parse command
-        let parts: Vec<String> = terminal_state.current_input.split_whitespace()
+        let parts: Vec<String> = current_input.split_whitespace()
             .map(|s| s.to_string())
             .collect();
         
         if !parts.is_empty() {
             // Add to history
-            command_history.commands.push_front(terminal_state.current_input.clone());
+            command_history.commands.push_front(current_input.clone());
             if command_history.commands.len() > 100 {
                 command_history.commands.pop_back();
             }
@@ -341,13 +344,15 @@ fn process_terminal_input(
     
     // Backspace
     if keyboard.just_pressed(KeyCode::Backspace) && terminal_state.cursor_position > 0 {
-        terminal_state.cursor_position -= 1;
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position - 1;
+        terminal_state.cursor_position = cursor_pos;
+        terminal_state.current_input.remove(cursor_pos);
     }
     
     // Delete
     if keyboard.just_pressed(KeyCode::Delete) && terminal_state.cursor_position < terminal_state.current_input.len() {
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position;
+        terminal_state.current_input.remove(cursor_pos);
     }
     
     // Arrow keys for cursor movement
@@ -422,7 +427,7 @@ fn update_terminal_display(
     }
     
     // Update output text
-    if let Ok(mut text) = output_query.get_single_mut() {
+    if let Ok(mut text) = output_query.single_mut() {
         let visible_lines = 30;
         let start = terminal_state.output_lines.len().saturating_sub(visible_lines);
         let display_lines: Vec<String> = terminal_state.output_lines
@@ -442,7 +447,7 @@ fn update_terminal_display(
     }
     
     // Update input text
-    if let Ok(mut text) = input_query.get_single_mut() {
+    if let Ok(mut text) = input_query.single_mut() {
         **text = format!("> {}", terminal_state.current_input);
     }
 }
@@ -456,7 +461,7 @@ fn animate_terminal_cursor(
         return;
     }
     
-    if let Ok((mut text, mut color)) = cursor_query.get_single_mut() {
+    if let Ok((mut text, mut color)) = cursor_query.single_mut() {
         // Blink cursor
         let alpha = (time.elapsed_secs() * 2.0).sin() * 0.5 + 0.5;
         color.0 = Color::srgba(0.0, 1.0, 1.0, alpha);
@@ -584,7 +589,7 @@ fn cmd_think(args: &[String], _terminal: &mut TerminalState, silicon: &mut Silic
         "Usage: think <thought to process>".to_string()
     } else {
         let thought = args.join(" ");
-        let response = silicon.think(&thought);
+        let response = silicon.think(Some(&thought));
         format!(
             "Processing: '{}'\n\
             \n\

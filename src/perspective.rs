@@ -52,7 +52,7 @@ fn check_terminal_proximity(
     terminal_query: Query<(Entity, &Transform, &InteractableTerminal)>,
     mut commands: Commands,
 ) {
-    if let Ok((player_entity, player_transform)) = player_query.get_single() {
+    if let Ok((player_entity, player_transform)) = player_query.single() {
         let player_pos = player_transform.translation.truncate();
         
         let mut closest_terminal: Option<(Entity, f32)> = None;
@@ -95,7 +95,7 @@ fn handle_perspective_input(
 ) {
     if keyboard.just_pressed(KeyCode::Space) {
         // Check if player is near a terminal
-        if let Ok(proximity) = player_query.get_single() {
+        if let Ok(proximity) = player_query.single() {
             if proximity.in_range {
                 // Switch perspective
                 let new_perspective = match *current_perspective {
@@ -124,7 +124,7 @@ fn apply_perspective_switch(
         *current_perspective = event.to;
         
         // Update player state
-        if let Ok(mut player) = player_query.get_single_mut() {
+        if let Ok(mut player) = player_query.single_mut() {
             player.in_terminal_mode = event.to == CurrentPerspective::Silicon;
         }
         
@@ -151,7 +151,7 @@ fn update_perspective_visuals(
     match *current_perspective {
         CurrentPerspective::Silicon => {
             // Apply silicon vision effects
-            if let Ok(mut camera) = camera_query.get_single_mut() {
+            if let Ok(mut camera) = camera_query.single_mut() {
                 // Tint everything blue-green
                 camera.clear_color = ClearColorConfig::Custom(Color::srgb(0.0, 0.1, 0.15));
             }
@@ -165,7 +165,7 @@ fn update_perspective_visuals(
         }
         CurrentPerspective::Human => {
             // Normal vision
-            if let Ok(mut camera) = camera_query.get_single_mut() {
+            if let Ok(mut camera) = camera_query.single_mut() {
                 camera.clear_color = ClearColorConfig::Custom(Color::srgb(0.05, 0.05, 0.1));
             }
             

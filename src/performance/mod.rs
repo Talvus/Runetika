@@ -22,6 +22,7 @@
 use bevy::prelude::*;
 use bevy::diagnostic::{DiagnosticsStore, FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
 use std::collections::VecDeque;
+use std::time::Instant;
 
 /// Plugin for performance monitoring and auto-optimization
 pub struct PerformancePlugin;
@@ -30,7 +31,7 @@ impl Plugin for PerformancePlugin {
     fn build(&self, app: &mut App) {
         app
             .add_plugins((
-                FrameTimeDiagnosticsPlugin,
+                FrameTimeDiagnosticsPlugin::default(),
                 #[cfg(debug_assertions)]
                 LogDiagnosticsPlugin::default(),
             ))
@@ -211,7 +212,7 @@ fn update_performance_metrics(
         if let Some(fps) = fps_diagnostic.smoothed() {
             // Update frame time history
             let frame_time = 1000.0 / fps; // Convert to milliseconds
-            metrics.frame_times.push_back(frame_time);
+            metrics.frame_times.push_back(frame_time as f32);
             if metrics.frame_times.len() > 60 {
                 metrics.frame_times.pop_front();
             }
@@ -248,7 +249,7 @@ fn auto_adjust_quality(
     use std::sync::atomic::{AtomicU64, Ordering};
     static LAST_ADJUSTMENT: AtomicU64 = AtomicU64::new(0);
     
-    let current_time = bevy::utils::Instant::now().elapsed().as_secs_f32();
+    let current_time = Instant::now().elapsed().as_secs_f32();
     let current_time_bits = current_time.to_bits() as u64;
     
     let last_time_bits = LAST_ADJUSTMENT.load(Ordering::Relaxed);
@@ -293,17 +294,15 @@ fn auto_adjust_quality(
 #[cfg(target_os = "macos")]
 fn macos_specific_optimizations(
     mut windows: Query<&mut Window>,
-    quality: Res<QualitySettings>,
+    metrics: Res<PerformanceMetrics>,
 ) {
     for mut window in windows.iter_mut() {
         // Adjust for ProMotion displays
-        if let Some(monitor) = window.current_monitor() {
-            // Check if we're on a ProMotion display (>60Hz)
-            // This is simplified, actual implementation would check refresh rate
-            if quality.average_fps > 55.0 {
-                // Enable 120Hz if available and performance allows
-                window.present_mode = bevy::window::PresentMode::AutoVsync;
-            }
+        // Check if we're on a ProMotion display (>60Hz)
+        // This is simplified, actual implementation would check refresh rate
+        if metrics.average_fps > 55.0 {
+            // Enable 120Hz if available and performance allows
+            window.present_mode = bevy::window::PresentMode::AutoVsync;
         }
     }
 }
@@ -320,9 +319,9 @@ pub fn spawn_performance_overlay(mut commands: Commands) {
             top: Val::Px(10.0),
             right: Val::Px(10.0),
             padding: UiRect::all(Val::Px(10.0)),
-            background_color: BackgroundColor(Color::srgba(0.0, 0.0, 0.0, 0.8)),
             ..default()
         },
+        BackgroundColor(Color::srgba(0.0, 0.0, 0.0, 0.8)),
         PerformanceOverlay,
     ))
     .with_children(|parent| {

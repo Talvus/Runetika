@@ -248,7 +248,7 @@ fn check_maze_entry(
     mut commands: Commands,
     maze_query: Query<Entity, With<MazeEntity>>,
 ) {
-    if let Ok(player_pos) = player_query.get_single() {
+    if let Ok(player_pos) = player_query.single() {
         let in_hallway = player_pos.translation.x > 400.0 
             && player_pos.translation.x < 800.0
             && player_pos.translation.y.abs() < 40.0;
@@ -287,11 +287,11 @@ fn check_maze_completion(
         return;
     }
     
-    if let (Ok(player_pos), Ok(goal_pos)) = (player_query.get_single(), goal_query.get_single()) {
+    if let (Ok(player_pos), Ok(goal_pos)) = (player_query.single(), goal_query.single()) {
         let distance = player_pos.translation.truncate().distance(goal_pos.translation.truncate());
         
         if distance < CELL_SIZE * 0.5 {
-            events.send(MazeCompletedEvent);
+            events.write(MazeCompletedEvent);
         }
     }
 }
@@ -308,7 +308,7 @@ fn handle_maze_completed(
         println!("🎉 Maze completed! Total completions: {}", maze_state.completions);
         
         // Teleport player back to start of hallway
-        if let Ok(mut player_transform) = player_query.get_single_mut() {
+        if let Ok(mut player_transform) = player_query.single_mut() {
             player_transform.translation = Vec3::new(450.0, 0.0, 1.0);
         }
         

@@ -172,7 +172,7 @@ fn player_movement(
     mut player_query: Query<(&Player2D, &mut LinearVelocity)>,
     time: Res<Time>,
 ) {
-    if let Ok((player, mut velocity)) = player_query.get_single_mut() {
+    if let Ok((player, mut velocity)) = player_query.single_mut() {
         let mut movement = Vec2::ZERO;
         
         // WASD movement in isometric space
@@ -217,8 +217,8 @@ fn camera_follow_player(
     player_query: Query<&Transform, (With<Player2D>, Without<IsometricCamera>)>,
     mut camera_query: Query<&mut Transform, With<IsometricCamera>>,
 ) {
-    if let Ok(player_transform) = player_query.get_single() {
-        if let Ok(mut camera_transform) = camera_query.get_single_mut() {
+    if let Ok(player_transform) = player_query.single() {
+        if let Ok(mut camera_transform) = camera_query.single_mut() {
             // Smooth camera follow
             let target = Vec3::new(
                 player_transform.translation.x,

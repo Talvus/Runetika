@@ -275,7 +275,7 @@ fn check_room_transitions(
     door_query: Query<(&Transform, &Door)>,
     mut current_room: ResMut<CurrentRoom>,
 ) {
-    if let Ok(player_transform) = player_query.get_single() {
+    if let Ok(player_transform) = player_query.single() {
         let player_pos = player_transform.translation.truncate();
         
         for (door_transform, door) in door_query.iter() {

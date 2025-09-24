@@ -44,6 +44,15 @@ ndk = "0.9"
 ndk-sys = "0.6"
 ndk-context = "0.1"
 
+# iOS support (only included when building for iOS)
+[target.'cfg(target_os = "ios")'.dependencies]
+objc = "0.2"
+objc-foundation = "0.1"
+core-foundation = "0.9"
+metal = "0.29"
+cocoa = "0.25"
+dispatch = "0.2"
+
 # FAST DEV BUILDS - Prioritize compilation speed
 [profile.dev]
 opt-level = 0           # No optimization
