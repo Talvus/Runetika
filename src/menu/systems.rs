@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 use super::components::*;
 use super::MenuState;
-use super::ui::colors::{BUTTON_NORMAL, BUTTON_HOVER, BUTTON_SELECTED};
+use super::ui::colors::{BUTTON_BG, BUTTON_SELECTED};
 use crate::game_state::GameState;
 
 pub fn handle_menu_navigation(
@@ -60,7 +60,7 @@ pub fn handle_button_interactions(
                 execute_menu_action(button.action, &mut next_state, &mut menu_state);
             }
             Interaction::Hovered => {
-                background.0 = BUTTON_HOVER;
+                background.0 = BUTTON_SELECTED;
                 menu_state.selected_index = button.index;
                 
                 // Update selected markers
@@ -74,7 +74,7 @@ pub fn handle_button_interactions(
                 if menu_state.selected_index == button.index {
                     background.0 = BUTTON_SELECTED;
                 } else {
-                    background.0 = BUTTON_NORMAL;
+                    background.0 = BUTTON_BG;
                 }
             }
         }
@@ -97,7 +97,7 @@ fn update_selection(
                 }
             }
         } else {
-            background.0 = BUTTON_NORMAL;
+            background.0 = BUTTON_BG;
             
             // Hide selected marker
             for child in children.iter() {
