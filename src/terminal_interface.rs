@@ -294,11 +294,13 @@ fn process_terminal_input(
             Key::Character(c) => {
                 // Add character at cursor position
                 let c_str = c.to_string();
-                terminal_state.current_input.insert_str(terminal_state.cursor_position, &c_str);
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert_str(cursor_pos, &c_str);
                 terminal_state.cursor_position += c_str.len();
             }
             Key::Space => {
-                terminal_state.current_input.insert(terminal_state.cursor_position, ' ');
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert(cursor_pos, ' ');
                 terminal_state.cursor_position += 1;
             }
             _ => {}
@@ -307,21 +309,24 @@ fn process_terminal_input(
     
     // Handle special keys
     if keyboard.just_pressed(KeyCode::Enter) && !terminal_state.current_input.is_empty() {
+        // Store current input to avoid borrowing issues
+        let current_input = terminal_state.current_input.clone();
+        
         // Add to output
         terminal_state.output_lines.push_back(TerminalLine {
-            text: format!("> {}", terminal_state.current_input),
+            text: format!("> {}", current_input),
             line_type: LineType::Input,
             timestamp: 0.0,
         });
         
         // Parse command
-        let parts: Vec<String> = terminal_state.current_input.split_whitespace()
+        let parts: Vec<String> = current_input.split_whitespace()
             .map(|s| s.to_string())
             .collect();
         
         if !parts.is_empty() {
             // Add to history
-            command_history.commands.push_front(terminal_state.current_input.clone());
+            command_history.commands.push_front(current_input.clone());
             if command_history.commands.len() > 100 {
                 command_history.commands.pop_back();
             }
@@ -342,12 +347,14 @@ fn process_terminal_input(
     // Backspace
     if keyboard.just_pressed(KeyCode::Backspace) && terminal_state.cursor_position > 0 {
         terminal_state.cursor_position -= 1;
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position;
+        terminal_state.current_input.remove(cursor_pos);
     }
     
     // Delete
     if keyboard.just_pressed(KeyCode::Delete) && terminal_state.cursor_position < terminal_state.current_input.len() {
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position;
+        terminal_state.current_input.remove(cursor_pos);
     }
     
     // Arrow keys for cursor movement

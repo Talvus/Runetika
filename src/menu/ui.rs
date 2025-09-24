@@ -4,7 +4,6 @@
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
-// Commands is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
 
@@ -86,28 +85,73 @@ pub fn setup_main_menu(
             MenuBackground,
         ))
         .with_children(|parent| {
-            // Animated starfield layer
-            spawn_enhanced_starfield(parent);
+            // Animated starfield layer - inline for now
+            parent.spawn((
+                Node {
+                    width: Val::Percent(100.0),
+                    height: Val::Percent(100.0),
+                    position_type: PositionType::Absolute,
+                    z_index: ZIndex::Local(-3),
+                    ..default()
+                },
+                BackgroundColor(Color::TRANSPARENT),
+                StarfieldLayer,
+            ));
             
-            // Nebula clouds for atmosphere
-            spawn_nebula_effects(parent);
-            
-            // Main title with enhanced effects
-            spawn_title_section(parent);
-            
-            // Menu buttons with improved styling
-            spawn_menu_buttons(parent, &mut menu_state);
-            
-            // Footer with version and instructions
-            spawn_footer_section(parent);
-            
-            // Decorative elements
-            spawn_decorative_elements(parent);
+            // Menu buttons section
+            parent.spawn((
+                Node {
+                    flex_direction: FlexDirection::Column,
+                    align_items: AlignItems::Center,
+                    row_gap: Val::Px(15.0),
+                    padding: UiRect::all(Val::Px(20.0)),
+                    ..default()
+                },
+            ))
+            .with_children(|buttons_parent| {
+                let button_configs = vec![
+                    ("⚡ NEW GAME", MenuAction::StartGame, "Begin your cosmic journey"),
+                    ("💻 TERMINAL", MenuAction::OpenTerminal, "Access the command interface"),
+                    ("⚙️ SETTINGS", MenuAction::Settings, "Configure your experience"),
+                    ("👥 CREDITS", MenuAction::Credits, "Meet the creators"),
+                    ("🚪 EXIT", MenuAction::Exit, "Leave the cosmos"),
+                ];
+                
+                for (index, (text, action, tooltip)) in button_configs.iter().enumerate() {
+                    let button_entity = buttons_parent.spawn((
+                        Button,
+                        Node {
+                            width: Val::Px(250.0),
+                            height: Val::Px(50.0),
+                            border: UiRect::all(Val::Px(2.0)),
+                            justify_content: JustifyContent::Center,
+                            align_items: AlignItems::Center,
+                            ..default()
+                        },
+                        BorderColor(colors::BUTTON_BORDER),
+                        BackgroundColor(colors::BUTTON_BG),
+                        MenuButton,
+                        action.clone(),
+                    ))
+                    .with_children(|button| {
+                        button.spawn((
+                            Text::new(text),
+                            TextFont {
+                                font_size: 16.0,
+                                ..default()
+                            },
+                            TextColor(colors::BUTTON_TEXT),
+                        ));
+                    }).id();
+                    
+                    menu_state.menu_items.push(button_entity);
+                }
+            });
         });
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut _) {
+fn spawn_enhanced_starfield(parent: &mut Commands) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -156,7 +200,7 @@ fn spawn_enhanced_starfield(parent: &mut _) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut _) {
+fn spawn_nebula_effects(parent: &mut ChildBuilder) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
@@ -179,7 +223,7 @@ fn spawn_nebula_effects(parent: &mut _) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut _) {
+fn spawn_title_section(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -259,7 +303,7 @@ fn spawn_title_section(parent: &mut _) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildBuilder, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -294,7 +338,7 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut _,
+    parent: &mut ChildBuilder,
     text: &str,
     action: MenuAction,
     tooltip: &str,
@@ -355,7 +399,7 @@ fn spawn_enhanced_button(
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut _) {
+fn spawn_footer_section(parent: &mut ChildBuilder) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -388,7 +432,7 @@ fn spawn_footer_section(parent: &mut _) {
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut _) {
+fn spawn_decorative_elements(parent: &mut ChildBuilder) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
