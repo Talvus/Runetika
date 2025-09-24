@@ -4,6 +4,7 @@
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
+use bevy::render::camera::ClearColorConfig;
 // Commands is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
@@ -58,7 +59,7 @@ pub mod animations {
 }
 
 /// Sets up the main menu UI hierarchy and visual elements.
-/// 
+///
 /// # Arguments
 /// * `commands` - Command buffer for spawning entities
 /// * `menu_state` - Mutable reference to the menu state resource
@@ -68,7 +69,17 @@ pub fn setup_main_menu(
 ) {
     menu_state.selected_index = 0;
     menu_state.menu_items.clear();
-    
+
+    // Spawn camera for UI rendering
+    commands.spawn((
+        Camera2d::default(),
+        Camera {
+            clear_color: ClearColorConfig::Custom(Color::BLACK),
+            ..default()
+        },
+        MenuCamera,
+    ));
+
     // Root container with gradient background
     commands
         .spawn((
@@ -426,8 +437,12 @@ fn spawn_decorative_elements(parent: &mut _) {
 pub fn cleanup_main_menu(
     mut commands: Commands,
     menu_query: Query<Entity, With<MainMenu>>,
+    camera_query: Query<Entity, With<MenuCamera>>,
 ) {
     for entity in menu_query.iter() {
-        commands.entity(entity).despawn();
+        commands.entity(entity).despawn_recursive();
+    }
+    for entity in camera_query.iter() {
+        commands.entity(entity).despawn_recursive();
     }
 }

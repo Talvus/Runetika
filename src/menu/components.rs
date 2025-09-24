@@ -4,6 +4,9 @@ use bevy::prelude::*;
 pub struct MainMenu;
 
 #[derive(Component)]
+pub struct MenuCamera;
+
+#[derive(Component)]
 pub struct MenuButton {
     pub index: usize,
     pub action: MenuAction,
