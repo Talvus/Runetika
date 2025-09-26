@@ -58,7 +58,7 @@ pub mod animations {
 }
 
 /// Sets up the main menu UI hierarchy and visual elements.
-/// 
+///
 /// # Arguments
 /// * `commands` - Command buffer for spawning entities
 /// * `menu_state` - Mutable reference to the menu state resource
@@ -68,7 +68,13 @@ pub fn setup_main_menu(
 ) {
     menu_state.selected_index = 0;
     menu_state.menu_items.clear();
-    
+
+    // Spawn camera for rendering the UI
+    commands.spawn((
+        Camera2d,
+        MenuCamera,
+    ));
+
     // Root container with gradient background
     commands
         .spawn((
@@ -426,8 +432,12 @@ fn spawn_decorative_elements(parent: &mut _) {
 pub fn cleanup_main_menu(
     mut commands: Commands,
     menu_query: Query<Entity, With<MainMenu>>,
+    camera_query: Query<Entity, With<MenuCamera>>,
 ) {
     for entity in menu_query.iter() {
+        commands.entity(entity).despawn();
+    }
+    for entity in camera_query.iter() {
         commands.entity(entity).despawn();
     }
 }
