@@ -301,6 +301,6 @@ fn cleanup_spaceship_level(
     level_query: Query<Entity, With<SpaceshipLevel>>,
 ) {
     for entity in level_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }

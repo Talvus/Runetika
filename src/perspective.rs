@@ -103,14 +103,14 @@ fn handle_perspective_input(
                     CurrentPerspective::Silicon => CurrentPerspective::Human,
                 };
                 
-                switch_events.send(PerspectiveSwitchEvent { to: new_perspective });
+                switch_events.write(PerspectiveSwitchEvent { to: new_perspective });
             }
         }
     }
     
     // ESC to exit silicon mode
     if keyboard.just_pressed(KeyCode::Escape) && *current_perspective == CurrentPerspective::Silicon {
-        switch_events.send(PerspectiveSwitchEvent { to: CurrentPerspective::Human });
+        switch_events.write(PerspectiveSwitchEvent { to: CurrentPerspective::Human });
     }
 }
 

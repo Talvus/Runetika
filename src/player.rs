@@ -161,9 +161,9 @@ fn despawn_player(
     camera_query: Query<Entity, With<PlayerCamera>>,
 ) {
     for entity in player_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
     for entity in camera_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }

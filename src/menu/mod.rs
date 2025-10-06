@@ -18,12 +18,17 @@
 
 pub mod components;
 pub mod systems;
-pub mod ui;
+pub mod input;
+// pub mod ui;
+// pub mod ui_simple;
+// pub mod ui_minimal;
+pub mod ui_ultra_minimal;
 
 use bevy::prelude::*;
 use crate::game_state::GameState;
 use self::systems::*;
-use self::ui::*;
+use self::ui_ultra_minimal::*;
+use self::input::*;
 
 /// Main menu plugin - Orchestrates all menu functionality
 /// 
@@ -41,10 +46,7 @@ impl Plugin for MainMenuPlugin {
             .add_systems(OnEnter(GameState::MainMenu), setup_main_menu)
             .add_systems(OnExit(GameState::MainMenu), cleanup_main_menu)
             .add_systems(Update, (
-                handle_menu_navigation,
-                update_menu_buttons,
-                animate_menu_elements,
-                handle_button_interactions,
+                handle_basic_input,
             ).run_if(in_state(GameState::MainMenu)));
     }
 }

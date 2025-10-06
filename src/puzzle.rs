@@ -144,7 +144,7 @@ fn check_power_puzzle(
                             
                             if circuit.nodes_activated >= circuit.nodes_required && !puzzle.solved {
                                 puzzle.solved = true;
-                                events.send(PuzzleSolvedEvent {
+                                events.write(PuzzleSolvedEvent {
                                     puzzle_id: PuzzleId::PowerRestoration,
                                 });
                             }

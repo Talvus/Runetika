@@ -330,7 +330,7 @@ fn process_terminal_input(
             }
             
             // Send command event
-            command_events.send(TerminalCommandEvent {
+            command_events.write(TerminalCommandEvent {
                 command: parts[0].clone(),
                 args: parts[1..].to_vec(),
             });
