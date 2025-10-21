@@ -21,6 +21,9 @@ impl Command for HelpCommand {
         output.push_str("  status    → System status report\n");
         output.push_str("  history   → Command history log\n");
         output.push_str("  exit      → Terminate session\n");
+        output.push_str("\nPROCEDURAL GENERATION:\n");
+        output.push_str("  generate_wfc_maze [w] [h] [seed]\n");
+        output.push_str("            → Generate WFC maze\n");
         output.push_str("\nNAVIGATION CONTROLS:\n");
         output.push_str("  ↑/↓       → Browse command history\n");
         output.push_str("  Tab       → Autocomplete command\n");
