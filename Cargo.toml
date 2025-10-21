@@ -3,6 +3,11 @@ name = "runetika"
 version = "0.1.0"
 edition = "2021"
 
+# Android library configuration
+[lib]
+name = "runetika"
+crate-type = ["cdylib", "rlib"]  # cdylib for Android JNI, rlib for Rust usage
+
 [dependencies]
 # Bevy with MINIMAL features for fast compilation
 bevy = { version = "0.16", default-features = false, features = [
@@ -29,14 +34,32 @@ rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dirs = "5.0"
-# Removed wasmer and wat - not needed for basic gameplay
+bevy_knossos = "0.8.1"
+
+# Android JNI support (only included when building for Android)
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.21"
+android_logger = "0.14"
+log = "0.4"
+ndk = "0.9"
+ndk-sys = "0.6"
+ndk-context = "0.1"
+
+# iOS support (only included when building for iOS)
+[target.'cfg(target_os = "ios")'.dependencies]
+objc = "0.2"
+objc-foundation = "0.1"
+core-foundation = "0.9"
+metal = "0.29"
+cocoa = "0.25"
+dispatch = "0.2"
 
 # FAST DEV BUILDS - Prioritize compilation speed
 [profile.dev]
 opt-level = 0           # No optimization
 debug = 0               # No debug info
 lto = false            # No link time optimization
-incremental = true     # Incremental compilation
+modelcontextprotocol/serversincremental = true     # Incremental compilation
 codegen-units = 256    # Max parallelism
 
 [profile.dev.package."*"]

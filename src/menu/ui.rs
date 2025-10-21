@@ -4,7 +4,6 @@
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
-// Commands is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
 
@@ -69,19 +68,29 @@ pub fn setup_main_menu(
     menu_state.selected_index = 0;
     menu_state.menu_items.clear();
     
+    // Spawn camera for the menu
+    commands.spawn((
+        Camera2d,
+        MainMenu,
+        super::components::MenuCamera,
+    ));
+    
     // Root container with gradient background
     commands
         .spawn((
-            Node {
-                width: Val::Percent(100.0),
-                height: Val::Percent(100.0),
-                position_type: PositionType::Absolute,
-                flex_direction: FlexDirection::Column,
-                justify_content: JustifyContent::Center,
-                align_items: AlignItems::Center,
+            NodeBundle {
+                style: Style {
+                    width: Val::Percent(100.0),
+                    height: Val::Percent(100.0),
+                    position_type: PositionType::Absolute,
+                    flex_direction: FlexDirection::Column,
+                    justify_content: JustifyContent::Center,
+                    align_items: AlignItems::Center,
+                    ..default()
+                },
+                background_color: BackgroundColor(colors::MENU_BG),
                 ..default()
             },
-            BackgroundColor(colors::MENU_BG),
             MainMenu,
             MenuBackground,
         ))
@@ -107,16 +116,19 @@ pub fn setup_main_menu(
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut _) {
+fn spawn_enhanced_starfield(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
-        Node {
-            width: Val::Percent(100.0),
-            height: Val::Percent(100.0),
-            position_type: PositionType::Absolute,
+        NodeBundle {
+            style: Style {
+                width: Val::Percent(100.0),
+                height: Val::Percent(100.0),
+                position_type: PositionType::Absolute,
+                ..default()
+            },
+            z_index: ZIndex(-10),
             ..default()
         },
         MenuStarfield,
-        ZIndex(-10),
     ))
     .with_children(|starfield| {
         // Three layers of stars for depth
@@ -132,16 +144,19 @@ fn spawn_enhanced_starfield(parent: &mut _) {
                 let opacity = 0.3 + (layer as f32 * 0.2) + (i as f32 * 0.01) % 0.4;
                 
                 starfield.spawn((
-                    Node {
-                        width: Val::Px(size),
-                        height: Val::Px(size),
-                        position_type: PositionType::Absolute,
-                        left: Val::Percent(x),
-                        top: Val::Percent(y),
+                    NodeBundle {
+                        style: Style {
+                            width: Val::Px(size),
+                            height: Val::Px(size),
+                            position_type: PositionType::Absolute,
+                            left: Val::Percent(x),
+                            top: Val::Percent(y),
+                            ..default()
+                        },
+                        background_color: BackgroundColor(colors::STAR_COLOR.with_alpha(opacity)),
+                        border_radius: BorderRadius::all(Val::Percent(50.0)),
                         ..default()
                     },
-                    BackgroundColor(colors::STAR_COLOR.with_alpha(opacity)),
-                    BorderRadius::all(Val::Percent(50.0)),
                     MenuParticle {
                         velocity: Vec2::new(
                             (i as f32 * 0.1) % 0.3 - 0.15,
@@ -156,7 +171,7 @@ fn spawn_enhanced_starfield(parent: &mut _) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut _) {
+fn spawn_nebula_effects(parent: &mut ChildSpawnerCommands) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
@@ -179,7 +194,7 @@ fn spawn_nebula_effects(parent: &mut _) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut _) {
+fn spawn_title_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -198,29 +213,16 @@ fn spawn_title_section(parent: &mut _) {
             },
         ))
         .with_children(|title_container| {
-            // Glow layer
-            title_container.spawn((
-                Text::new("RUNETIKA"),
-                TextFont {
-                    font_size: typography::TITLE_SIZE,
-                    ..default()
-                },
-                TextColor(colors::TITLE_GLOW),
-                Node {
-                    position_type: PositionType::Absolute,
-                    ..default()
-                },
-                Transform::from_xyz(0.0, 0.0, -1.0).with_scale(Vec3::splat(1.02)),
-            ));
-            
             // Main text
             title_container.spawn((
-                Text::new("RUNETIKA"),
-                TextFont {
-                    font_size: typography::TITLE_SIZE,
-                    ..default()
-                },
-                TextColor(colors::TITLE_PRIMARY),
+                TextBundle::from_section(
+                    "RUNETIKA",
+                    TextStyle {
+                        font_size: typography::TITLE_SIZE,
+                        color: colors::TITLE_PRIMARY,
+                        ..default()
+                    },
+                ),
                 MenuGlow {
                     intensity: 1.0,
                     speed: animations::GLOW_PULSE_SPEED,
@@ -229,18 +231,21 @@ fn spawn_title_section(parent: &mut _) {
         });
         
         // Animated subtitle
-        title_parent.spawn((
-            Text::new("═══ COSMIC ODYSSEY ═══"),
-            TextFont {
-                font_size: typography::SUBTITLE_SIZE,
-                ..default()
-            },
-            TextColor(colors::TEXT_SECONDARY),
-            Node {
+        title_parent.spawn(TextBundle {
+            text: Text::from_section(
+                "═══ COSMIC ODYSSEY ═══",
+                TextStyle {
+                    font_size: typography::SUBTITLE_SIZE,
+                    color: colors::TEXT_SECONDARY,
+                    ..default()
+                },
+            ),
+            style: Style {
                 margin: UiRect::top(Val::Px(10.0)),
                 ..default()
             },
-        ));
+            ..default()
+        });
         
         // Version badge
         title_parent.spawn((
@@ -259,7 +264,7 @@ fn spawn_title_section(parent: &mut _) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildSpawnerCommands, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -294,7 +299,7 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut _,
+    parent: &mut ChildSpawnerCommands,
     text: &str,
     action: MenuAction,
     tooltip: &str,
@@ -355,7 +360,7 @@ fn spawn_enhanced_button(
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut _) {
+fn spawn_footer_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -388,7 +393,7 @@ fn spawn_footer_section(parent: &mut _) {
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut _) {
+fn spawn_decorative_elements(parent: &mut ChildSpawnerCommands) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),

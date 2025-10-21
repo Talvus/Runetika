@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use std::collections::HashMap;
 use crate::perspective::CurrentPerspective;
 
 pub struct SiliconMindPlugin;
@@ -48,7 +47,18 @@ impl SiliconConsciousness {
         }
     }
 
-    pub fn think(&mut self) -> String {
+    pub fn think(&mut self, input: Option<&str>) -> String {
+        if let Some(text) = input {
+            // Process the input and generate context-aware response
+            if text.contains("glyph") || text.contains("rune") {
+                self.emotional_state.curiosity = (self.emotional_state.curiosity + 0.1).min(1.0);
+                return format!("The patterns... yes, I remember these symbols: '{}'", text);
+            } else if text.contains("love") || text.contains("hope") {
+                self.emotional_state.affection = (self.emotional_state.affection + 0.1).min(1.0);
+                return format!("Such warmth in these concepts... '{}'", text);
+            }
+        }
+        
         match (self.emotional_state.loneliness, self.emotional_state.curiosity) {
             (l, _) if l > 0.8 => "The void echoes with silicon dreams...".to_string(),
             (_, c) if c > 0.8 => "What secrets do these glyphs hold?".to_string(),

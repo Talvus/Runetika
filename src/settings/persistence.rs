@@ -5,7 +5,6 @@
 /// for debugging and manual editing. JSON provides this balance.
 
 use bevy::prelude::*;
-use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
 use super::SettingsData;

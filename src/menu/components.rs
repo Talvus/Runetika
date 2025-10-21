@@ -41,3 +41,6 @@ pub struct MenuGlow {
     pub intensity: f32,
     pub speed: f32,
 }
+
+#[derive(Component)]
+pub struct MenuCamera;

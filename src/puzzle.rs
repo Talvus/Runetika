@@ -114,7 +114,7 @@ fn check_power_puzzle(
         return;
     }
     
-    if let Ok(player_transform) = player_query.get_single() {
+    if let Ok(player_transform) = player_query.single() {
         let player_pos = player_transform.translation.truncate();
         
         // Check if player is near any power node
@@ -144,7 +144,7 @@ fn check_power_puzzle(
                             
                             if circuit.nodes_activated >= circuit.nodes_required && !puzzle.solved {
                                 puzzle.solved = true;
-                                events.send(PuzzleSolvedEvent {
+                                events.write(PuzzleSolvedEvent {
                                     puzzle_id: PuzzleId::PowerRestoration,
                                 });
                             }

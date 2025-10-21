@@ -1,7 +1,10 @@
 use bevy::prelude::*;
 use super::components::*;
 use super::MenuState;
-use super::ui::colors::{BUTTON_NORMAL, BUTTON_HOVER, BUTTON_SELECTED};
+// use super::ui::colors::{BUTTON_NORMAL, BUTTON_HOVER, BUTTON_SELECTED};
+const BUTTON_NORMAL: Color = Color::srgb(0.2, 0.2, 0.3);
+const BUTTON_HOVER: Color = Color::srgb(0.3, 0.3, 0.4);
+const BUTTON_SELECTED: Color = Color::srgb(0.4, 0.4, 0.5);
 use crate::game_state::GameState;
 
 pub fn handle_menu_navigation(
