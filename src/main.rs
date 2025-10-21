@@ -13,6 +13,7 @@ mod puzzle;
 mod silicon_mind;
 mod terminal_interface;
 mod terminal_commands;
+mod procedural;
 
 use bevy::prelude::*;
 use game_state::{GameStatePlugin, GameState};
@@ -39,6 +40,7 @@ fn main() {
             puzzle::PuzzlePlugin,
             silicon_mind::SiliconMindPlugin,
             terminal_interface::TerminalInterfacePlugin,
+            procedural::ProceduralPlugin,
         ))
         .add_systems(Update, handle_pause_input.run_if(in_state(GameState::InGame)))
         .run();
