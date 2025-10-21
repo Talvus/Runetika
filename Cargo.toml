@@ -34,6 +34,7 @@ rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dirs = "5.0"
+bevy_knossos = "0.8.1"
 
 # Android JNI support (only included when building for Android)
 [target.'cfg(target_os = "android")'.dependencies]
@@ -58,7 +59,7 @@ dispatch = "0.2"
 opt-level = 0           # No optimization
 debug = 0               # No debug info
 lto = false            # No link time optimization
-incremental = true     # Incremental compilation
+modelcontextprotocol/serversincremental = true     # Incremental compilation
 codegen-units = 256    # Max parallelism
 
 [profile.dev.package."*"]
