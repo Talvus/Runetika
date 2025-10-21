@@ -1,4 +1,4 @@
-use super::tiles::{Tile, TileId, TileSet};
+use super::tiles::{TileId, TileSet};
 use bevy::prelude::*;
 use std::collections::{HashMap, HashSet};
 

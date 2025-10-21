@@ -2,7 +2,7 @@ use bevy::prelude::*;
 use bevy::input::keyboard::{Key, KeyboardInput};
 use bevy::input::ButtonState;
 use std::collections::VecDeque;
-use crate::perspective::{CurrentPerspective, InteractableTerminal};
+use crate::perspective::CurrentPerspective;
 use crate::silicon_mind::SiliconConsciousness;
 
 pub struct TerminalInterfacePlugin;
@@ -294,11 +294,13 @@ fn process_terminal_input(
             Key::Character(c) => {
                 // Add character at cursor position
                 let c_str = c.to_string();
-                terminal_state.current_input.insert_str(terminal_state.cursor_position, &c_str);
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert_str(cursor_pos, &c_str);
                 terminal_state.cursor_position += c_str.len();
             }
             Key::Space => {
-                terminal_state.current_input.insert(terminal_state.cursor_position, ' ');
+                let cursor_pos = terminal_state.cursor_position;
+                terminal_state.current_input.insert(cursor_pos, ' ');
                 terminal_state.cursor_position += 1;
             }
             _ => {}
@@ -308,8 +310,9 @@ fn process_terminal_input(
     // Handle special keys
     if keyboard.just_pressed(KeyCode::Enter) && !terminal_state.current_input.is_empty() {
         // Add to output
+        let input_text = terminal_state.current_input.clone();
         terminal_state.output_lines.push_back(TerminalLine {
-            text: format!("> {}", terminal_state.current_input),
+            text: format!("> {}", input_text),
             line_type: LineType::Input,
             timestamp: 0.0,
         });
@@ -342,12 +345,14 @@ fn process_terminal_input(
     // Backspace
     if keyboard.just_pressed(KeyCode::Backspace) && terminal_state.cursor_position > 0 {
         terminal_state.cursor_position -= 1;
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position;
+        terminal_state.current_input.remove(cursor_pos);
     }
-    
+
     // Delete
     if keyboard.just_pressed(KeyCode::Delete) && terminal_state.cursor_position < terminal_state.current_input.len() {
-        terminal_state.current_input.remove(terminal_state.cursor_position);
+        let cursor_pos = terminal_state.cursor_position;
+        terminal_state.current_input.remove(cursor_pos);
     }
     
     // Arrow keys for cursor movement
@@ -584,7 +589,7 @@ fn cmd_think(args: &[String], _terminal: &mut TerminalState, silicon: &mut Silic
         "Usage: think <thought to process>".to_string()
     } else {
         let thought = args.join(" ");
-        let response = silicon.think(&thought);
+        let response = silicon.think();
         format!(
             "Processing: '{}'\n\
             \n\

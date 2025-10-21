@@ -4,7 +4,6 @@
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
-use bevy::hierarchy::ChildBuilder;
 // Commands is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
@@ -108,7 +107,7 @@ pub fn setup_main_menu(
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut ChildBuilder) {
+fn spawn_enhanced_starfield(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -157,7 +156,7 @@ fn spawn_enhanced_starfield(parent: &mut ChildBuilder) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut ChildBuilder) {
+fn spawn_nebula_effects(parent: &mut ChildSpawnerCommands) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
@@ -180,7 +179,7 @@ fn spawn_nebula_effects(parent: &mut ChildBuilder) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut ChildBuilder) {
+fn spawn_title_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -260,7 +259,7 @@ fn spawn_title_section(parent: &mut ChildBuilder) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut ChildBuilder, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildSpawnerCommands, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -295,7 +294,7 @@ fn spawn_menu_buttons(parent: &mut ChildBuilder, menu_state: &mut ResMut<MenuSta
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut ChildBuilder,
+    parent: &mut ChildSpawnerCommands,
     text: &str,
     action: MenuAction,
     tooltip: &str,
@@ -356,7 +355,7 @@ fn spawn_enhanced_button(
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut ChildBuilder) {
+fn spawn_footer_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -389,7 +388,7 @@ fn spawn_footer_section(parent: &mut ChildBuilder) {
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut ChildBuilder) {
+fn spawn_decorative_elements(parent: &mut ChildSpawnerCommands) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),

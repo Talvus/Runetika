@@ -22,7 +22,7 @@ mod persistence;
 use bevy::prelude::*;
 use crate::game_state::GameState;
 
-pub use components::{SettingsData, GraphicsSettings, AudioSettings, ControlSettings};
+pub use components::{SettingsData, GraphicsSettings, AudioSettings, ControlSettings, GameplaySettings};
 pub use persistence::SettingsFile;
 
 /// Plugin that manages all settings-related functionality
@@ -99,6 +99,7 @@ impl SettingsData {
             graphics: GraphicsSettings::apple_silicon_optimal(),
             audio: AudioSettings::default(),
             controls: ControlSettings::default(),
+            gameplay: GameplaySettings::default(),
         }
     }
     
