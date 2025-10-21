@@ -3,11 +3,13 @@ mod menu;
 mod game_state;
 mod credits;
 mod settings;
-mod spaceship;
-mod spaceship_2d;
+mod performance;
+// Work-in-progress modules (not yet integrated):
+// mod spaceship;
+// mod spaceship_2d;
 mod main_room;
 mod maze;
-mod player;
+// mod player;
 mod perspective;
 mod puzzle;
 mod silicon_mind;
@@ -29,6 +31,7 @@ fn main() {
         }))
         .add_plugins((
             GameStatePlugin,
+            performance::PerformancePlugin,
             menu::MainMenuPlugin,
             terminal::TerminalPlugin,
             credits::CreditsPlugin,
