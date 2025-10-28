@@ -30,6 +30,9 @@ pub struct ProceduralPlugin;
 impl Plugin for ProceduralPlugin {
     fn build(&self, app: &mut App) {
         app
+            // Sub-plugins
+            .add_plugins(wfc::renderer::WfcRendererPlugin)
+
             // Events
             .add_event::<CellCollapsedEvent>()
             .add_event::<ContradictionEvent>()
@@ -55,7 +58,7 @@ impl Plugin for ProceduralPlugin {
                 check_generation_complete,
             ).chain().run_if(resource_exists::<WfcGenerationState>));
 
-        info!("ProceduralPlugin initialized with WFC systems");
+        info!("ProceduralPlugin initialized with WFC systems and isometric renderer");
     }
 }
 
