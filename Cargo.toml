@@ -3,9 +3,13 @@ name = "runetika"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+default = []
+debug = ["bevy/bevy_gizmos", "bevy/bevy_ui"]
+
 [dependencies]
-# Bevy with MINIMAL features for fast compilation
-bevy = { version = "0.16", default-features = false, features = [
+# Bevy with essential features for our creative mechanics
+bevy = { version = "0.14", default-features = false, features = [
     "bevy_asset",
     "bevy_winit",
     "bevy_render",
@@ -18,29 +22,30 @@ bevy = { version = "0.16", default-features = false, features = [
     "x11",  # Linux
     "wayland",  # Linux  
     "bevy_color",
-    # NO audio, NO pbr, NO gltf, NO animations, NO debug tools
+    "bevy_gizmos",  # For visualization
+    "bevy_pbr",     # For 3D rendering
+    "bevy_core_pipeline",
 ] }
 
 # 2D Physics
-avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
+avian2d = { version = "0.1", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
-# Essential dependencies only
+# Essential dependencies
 rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dirs = "5.0"
-# Removed wasmer and wat - not needed for basic gameplay
 
 # FAST DEV BUILDS - Prioritize compilation speed
 [profile.dev]
-opt-level = 0           # No optimization
-debug = 0               # No debug info
+opt-level = 1           # Minimal optimization for playable framerates
+debug = 0               # No debug info for faster builds
 lto = false            # No link time optimization
 incremental = true     # Incremental compilation
 codegen-units = 256    # Max parallelism
 
 [profile.dev.package."*"]
-opt-level = 0          # Don't optimize deps either for fastest builds
+opt-level = 3          # Optimize dependencies
 debug = 0
 
 # Fast iteration profile
