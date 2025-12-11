@@ -18,6 +18,7 @@
 //! ```
 
 pub mod knossos;
+pub mod knossos_renderer;
 pub mod portals;
 pub mod ui;
 pub mod camera;
@@ -27,6 +28,7 @@ use avian2d::prelude::*;
 use rand::prelude::*;
 
 pub use knossos::{KnossosMazeConfig, KnossosMazeAlgorithm};
+pub use knossos_renderer::IsometricRenderConfig;
 pub use portals::{MazePortal, PortalType};
 pub use camera::MazeCameraBounds;
 
@@ -38,6 +40,7 @@ impl Plugin for MazePlugin {
         app.insert_resource(MazeState::default())
             .insert_resource(KnossosMazeConfig::default())
             .insert_resource(MazeCameraBounds::default())
+            .insert_resource(IsometricRenderConfig::default())
             .add_event::<MazeCompletedEvent>()
             .add_systems(Update, (
                 check_maze_entry,
@@ -149,21 +152,50 @@ pub fn spawn_hallway(commands: &mut Commands) -> Vec2 {
 }
 
 /// Generate a new maze with current configuration
+///
+/// When `render_config.enabled` is true, uses isometric 2.5D rendering
+/// for the Silicon Mind aesthetic. Otherwise, uses flat 2D rendering.
 pub fn generate_maze(
     commands: &mut Commands,
     config: &KnossosMazeConfig,
     offset: Vec2,
 ) {
+    generate_maze_with_rendering(commands, config, offset, &IsometricRenderConfig::default())
+}
+
+/// Generate maze with explicit rendering configuration
+pub fn generate_maze_with_rendering(
+    commands: &mut Commands,
+    config: &KnossosMazeConfig,
+    offset: Vec2,
+    render_config: &IsometricRenderConfig,
+) {
     match knossos::generate_knossos_maze(config) {
         Ok(maze) => {
-            knossos::spawn_knossos_maze_entities(commands, &maze, config, offset);
-            info!(
-                "Generated {}x{} maze using {} (difficulty {})",
-                config.width,
-                config.height,
-                config.algorithm.name(),
-                config.algorithm.difficulty()
-            );
+            if render_config.enabled {
+                // Use isometric WFC-style rendering
+                knossos_renderer::spawn_isometric_knossos_maze(
+                    commands, &maze, config, render_config, offset
+                );
+                info!(
+                    "Generated {}x{} isometric maze using {} (difficulty {}, theme {:?})",
+                    config.width,
+                    config.height,
+                    config.algorithm.name(),
+                    config.algorithm.difficulty(),
+                    render_config.theme
+                );
+            } else {
+                // Use standard flat rendering
+                knossos::spawn_knossos_maze_entities(commands, &maze, config, offset);
+                info!(
+                    "Generated {}x{} flat maze using {} (difficulty {})",
+                    config.width,
+                    config.height,
+                    config.algorithm.name(),
+                    config.algorithm.difficulty()
+                );
+            }
         }
         Err(e) => {
             error!("Failed to generate maze: {}", e);
@@ -236,6 +268,7 @@ fn check_maze_entry(
     mut maze_state: ResMut<MazeState>,
     mut config: ResMut<KnossosMazeConfig>,
     mut bounds: ResMut<MazeCameraBounds>,
+    render_config: Res<IsometricRenderConfig>,
     mut commands: Commands,
     maze_query: Query<Entity, With<MazeEntity>>,
     ui_query: Query<Entity, With<ui::MazeCompletionUI>>,
@@ -262,9 +295,9 @@ fn check_maze_entry(
         // Clear old maze if exists
         clear_maze(&mut commands, maze_query);
 
-        // Generate new maze
+        // Generate new maze with isometric rendering
         let maze_offset = Vec2::new(850.0, 200.0);
-        generate_maze(&mut commands, &config, maze_offset);
+        generate_maze_with_rendering(&mut commands, &config, maze_offset, &render_config);
 
         // Set camera bounds
         *bounds = MazeCameraBounds::from_config(&config, maze_offset);
@@ -273,10 +306,11 @@ fn check_maze_entry(
         ui::spawn_maze_ui(&mut commands);
 
         info!(
-            "Entered maze #{} (seed: {}, algorithm: {})",
+            "Entered maze #{} (seed: {}, algorithm: {}, isometric: {})",
             maze_state.completions + 1,
             maze_state.maze_seed,
-            config.algorithm.name()
+            config.algorithm.name(),
+            render_config.enabled
         );
     } else if !in_hallway && !in_maze_area && maze_state.in_maze {
         // Left maze area
