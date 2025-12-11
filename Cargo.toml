@@ -24,6 +24,9 @@ bevy = { version = "0.16", default-features = false, features = [
 # 2D Physics
 avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
+# Maze generation
+bevy_knossos = "0.8"
+
 # Essential dependencies only
 rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
