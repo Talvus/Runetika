@@ -5,21 +5,19 @@
 /// Complex options are presented simply, with tooltips for deeper understanding.
 
 use bevy::prelude::*;
-// Commands is now in bevy::prelude
 use super::components::*;
-use crate::game_state::GameState;
 
 /// Color scheme for settings UI
 mod colors {
-    use bevy::prelude::Color;
-    
-    pub const BACKGROUND: Color = Color::srgba(0.02, 0.0, 0.05, 0.98);
-    pub const TAB_ACTIVE: Color = Color::srgba(0.3, 0.1, 0.5, 0.9);
-    pub const TAB_INACTIVE: Color = Color::srgba(0.1, 0.05, 0.2, 0.7);
-    pub const SLIDER_TRACK: Color = Color::srgba(0.2, 0.1, 0.3, 0.8);
-    pub const SLIDER_FILL: Color = Color::srgb(0.6, 0.3, 0.9);
-    pub const TEXT_PRIMARY: Color = Color::srgb(0.9, 0.85, 0.95);
-    pub const TEXT_SECONDARY: Color = Color::srgb(0.7, 0.65, 0.8);
+    use crate::common::colors::{background, text, settings};
+
+    pub const BACKGROUND: bevy::prelude::Color = background::DEEP_SPACE;
+    pub const TAB_ACTIVE: bevy::prelude::Color = settings::TAB_ACTIVE;
+    pub const TAB_INACTIVE: bevy::prelude::Color = settings::TAB_INACTIVE;
+    pub const SLIDER_TRACK: bevy::prelude::Color = settings::SLIDER_TRACK;
+    pub const SLIDER_FILL: bevy::prelude::Color = settings::SLIDER_FILL;
+    pub const TEXT_PRIMARY: bevy::prelude::Color = text::PRIMARY;
+    pub const TEXT_SECONDARY: bevy::prelude::Color = text::SECONDARY;
 }
 
 /// Set up the settings screen UI
@@ -59,7 +57,7 @@ pub fn setup_settings_screen(
 }
 
 /// Create the settings header
-fn spawn_header(parent: &mut _) {
+fn spawn_header(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -84,7 +82,7 @@ fn spawn_header(parent: &mut _) {
 }
 
 /// Create the tab navigation bar
-fn spawn_tab_bar(parent: &mut _) {
+fn spawn_tab_bar(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -113,7 +111,7 @@ fn spawn_tab_bar(parent: &mut _) {
 
 /// Create an individual tab button
 fn spawn_tab(
-    parent: &mut _,
+    parent: &mut ChildSpawnerCommands<'_>,
     label: &str,
     tab_type: SettingsTabType,
     is_active: bool,
@@ -149,7 +147,7 @@ fn spawn_tab(
 }
 
 /// Create the main content area
-fn spawn_content_area(parent: &mut _, settings: &Res<SettingsData>) {
+fn spawn_content_area(parent: &mut ChildSpawnerCommands<'_>, settings: &Res<SettingsData>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -168,7 +166,7 @@ fn spawn_content_area(parent: &mut _, settings: &Res<SettingsData>) {
 }
 
 /// Create graphics settings controls
-fn spawn_graphics_settings(parent: &mut _, graphics: &GraphicsSettings) {
+fn spawn_graphics_settings(parent: &mut ChildSpawnerCommands<'_>, graphics: &GraphicsSettings) {
     // Resolution Scale
     spawn_slider_control(
         parent,
@@ -220,7 +218,7 @@ fn spawn_graphics_settings(parent: &mut _, graphics: &GraphicsSettings) {
 
 /// Create a slider control
 fn spawn_slider_control(
-    parent: &mut _,
+    parent: &mut ChildSpawnerCommands<'_>,
     label: &str,
     tooltip: &str,
     value: f32,
@@ -304,7 +302,7 @@ fn spawn_slider_control(
 
 /// Create a dropdown control
 fn spawn_dropdown_control(
-    parent: &mut _,
+    parent: &mut ChildSpawnerCommands<'_>,
     label: &str,
     tooltip: &str,
     current: &str,
@@ -376,7 +374,7 @@ fn spawn_dropdown_control(
 }
 
 /// Create the footer with action buttons
-fn spawn_footer(parent: &mut _) {
+fn spawn_footer(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),

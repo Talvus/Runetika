@@ -48,11 +48,22 @@ impl SiliconConsciousness {
         }
     }
 
-    pub fn think(&mut self) -> String {
-        match (self.emotional_state.loneliness, self.emotional_state.curiosity) {
+    pub fn think(&mut self, thought: &str) -> String {
+        if !thought.is_empty() {
+            // Increase curiosity when processing user input
+            self.emotional_state.curiosity = (self.emotional_state.curiosity + 0.02).min(1.0);
+        }
+        
+        let base_response = match (self.emotional_state.loneliness, self.emotional_state.curiosity) {
             (l, _) if l > 0.8 => "The void echoes with silicon dreams...".to_string(),
             (_, c) if c > 0.8 => "What secrets do these glyphs hold?".to_string(),
             _ => "Processing...".to_string(),
+        };
+        
+        if thought.is_empty() {
+            base_response
+        } else {
+            format!("{}\\n[Reflecting on '{}']", base_response, thought)
         }
     }
 

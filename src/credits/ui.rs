@@ -6,14 +6,14 @@ use super::{CreditsScreen, CreditsContent, CreditEntry, CreditsState};
 
 /// Color scheme for credits screen
 pub mod colors {
-    use bevy::prelude::Color;
-    
-    pub const BACKGROUND: Color = Color::srgba(0.02, 0.0, 0.06, 0.98);
-    pub const TITLE: Color = Color::srgb(0.9, 0.7, 1.0);
-    pub const ROLE: Color = Color::srgb(0.7, 0.5, 0.9);
-    pub const NAME: Color = Color::srgb(0.95, 0.9, 1.0);
-    pub const SECTION: Color = Color::srgb(0.6, 0.8, 1.0);
-    pub const TEXT: Color = Color::srgb(0.85, 0.8, 0.9);
+    use crate::common::colors::{background, text, credits as common_credits};
+
+    pub const BACKGROUND: bevy::prelude::Color = background::DEEP_SPACE;
+    pub const TITLE: bevy::prelude::Color = text::TITLE;
+    pub const ROLE: bevy::prelude::Color = common_credits::ROLE;
+    pub const NAME: bevy::prelude::Color = common_credits::NAME;
+    pub const SECTION: bevy::prelude::Color = common_credits::SECTION;
+    pub const TEXT: bevy::prelude::Color = text::PRIMARY;
 }
 
 /// Sets up the credits screen UI
@@ -187,7 +187,7 @@ pub fn setup_credits_screen(
 }
 
 /// Spawns a section title in the credits
-fn spawn_credit_title(parent: &mut _, text: &str, delay: f32) {
+fn spawn_credit_title(parent: &mut ChildSpawnerCommands<'_>, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
         TextFont {
@@ -207,7 +207,7 @@ fn spawn_credit_title(parent: &mut _, text: &str, delay: f32) {
 }
 
 /// Spawns a credit entry with role and name
-fn spawn_credit_entry(parent: &mut _, role: &str, name: &str, delay: f32) {
+fn spawn_credit_entry(parent: &mut ChildSpawnerCommands<'_>, role: &str, name: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -242,7 +242,7 @@ fn spawn_credit_entry(parent: &mut _, role: &str, name: &str, delay: f32) {
 }
 
 /// Spawns a simple text credit
-fn spawn_credit_text(parent: &mut _, text: &str, delay: f32) {
+fn spawn_credit_text(parent: &mut ChildSpawnerCommands<'_>, text: &str, delay: f32) {
     parent.spawn((
         Text::new(text),
         TextFont {
@@ -258,7 +258,7 @@ fn spawn_credit_text(parent: &mut _, text: &str, delay: f32) {
 }
 
 /// Spawns a technology credit
-fn spawn_technology_credit(parent: &mut _, tech: &str, version: &str, delay: f32) {
+fn spawn_technology_credit(parent: &mut ChildSpawnerCommands<'_>, tech: &str, version: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Row,
@@ -292,7 +292,7 @@ fn spawn_technology_credit(parent: &mut _, tech: &str, version: &str, delay: f32
 }
 
 /// Spawns the main game title section
-fn spawn_credit_section(parent: &mut _, title: &str, subtitle: &str, delay: f32) {
+fn spawn_credit_section(parent: &mut ChildSpawnerCommands<'_>, title: &str, subtitle: &str, delay: f32) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -327,7 +327,7 @@ fn spawn_credit_section(parent: &mut _, title: &str, subtitle: &str, delay: f32)
 }
 
 /// Creates animated starfield background for credits
-fn spawn_credits_starfield(parent: &mut _) {
+fn spawn_credits_starfield(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),

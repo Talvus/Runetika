@@ -1,3 +1,4 @@
+mod common;
 mod terminal;
 mod menu;
 mod game_state;
