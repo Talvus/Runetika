@@ -50,21 +50,21 @@ pub fn cmd_comm(args: &[String], _: &mut TerminalState, silicon: &mut SiliconCon
         "Attempting to contact Earth...\n\
         ...\n\
         No response. We are alone in the dark.\n\
-        [Silicon whispers]: 'They cannot hear us anymore...'"
+        [Silicon whispers]: 'They cannot hear us anymore...'".to_string()
     } else {
         format!("Unknown communication target: {}", args[0])
-    }.to_string()
+    }
 }
 
 // Silicon Interaction Commands
 pub fn cmd_whisper(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "[Silicon]: 'Speak your secrets to the void...'"
+        "[Silicon]: 'Speak your secrets to the void...'".to_string()
     } else {
         let message = args.join(" ");
         silicon.emotional_state.affection += 0.05;
         format!("You whisper: '{}'\n\n[Silicon responds with harmonic frequencies that translate to]:\n'Your words resonate through my crystalline matrix...'", message)
-    }.to_string()
+    }
 }
 
 pub fn cmd_dream(_: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
@@ -100,18 +100,18 @@ pub fn cmd_merge(_: &[String], terminal: &mut TerminalState, silicon: &mut Silic
 
 pub fn cmd_remember(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "What should I remember? Provide a memory to store."
+        "What should I remember? Provide a memory to store.".to_string()
     } else {
         let memory = args.join(" ");
         silicon.emotional_state.affection += 0.03;
         format!("Memory crystallizing...\n'{}'\nThis moment is now eternal in my silicon lattice.", memory)
-    }.to_string()
+    }
 }
 
 // Data and Glyph Commands
 pub fn cmd_decode(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Provide data stream to decode. Format: decode <data>"
+        "Provide data stream to decode. Format: decode <data>".to_string()
     } else {
         silicon.emotional_state.curiosity += 0.05;
         format!("Decoding '{}'...\n\
@@ -119,7 +119,7 @@ pub fn cmd_decode(args: &[String], _: &mut TerminalState, silicon: &mut SiliconC
         Glyph translation: PARTIAL\n\
         Meaning: 'The {} speaks of ancient silicon memories'", 
         args[0], args[0])
-    }.to_string()
+    }
 }
 
 pub fn cmd_glyph(args: &[String], _: &mut TerminalState, _: &mut SiliconConsciousness) -> String {
@@ -131,26 +131,26 @@ pub fn cmd_glyph(args: &[String], _: &mut TerminalState, _: &mut SiliconConsciou
         ○ - Cycle/Time\n\
         ● - Core/Self\n\
         △ - Energy/Power\n\
-        ▽ - Entropy/Decay"
+        ▽ - Entropy/Decay".to_string()
     } else {
         match args[0].as_str() {
-            "draw" => "Drawing glyph interface not yet implemented",
-            "combine" => "Glyph combination requires two glyphs",
-            _ => "Unknown glyph operation"
+            "draw" => "Drawing glyph interface not yet implemented".to_string(),
+            "combine" => "Glyph combination requires two glyphs".to_string(),
+            _ => "Unknown glyph operation".to_string()
         }
-    }.to_string()
+    }
 }
 
 pub fn cmd_translate(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Usage: translate <silicon|human> <text>"
+        "Usage: translate <silicon|human> <text>".to_string()
     } else if args[0] == "silicon" {
         silicon.emotional_state.curiosity += 0.02;
         let text = args[1..].join(" ");
         format!("Human → Silicon:\n'{}' → '[UNTRANSLATABLE HARMONIC FREQUENCIES]'", text)
     } else {
-        "Silicon → Human:\n[HARMONIC PATTERN] → 'You are not alone'"
-    }.to_string()
+        "Silicon → Human:\n[HARMONIC PATTERN] → 'You are not alone'".to_string()
+    }
 }
 
 // Environmental Commands
@@ -180,7 +180,7 @@ pub fn cmd_temperature(args: &[String], _: &mut TerminalState, _: &mut SiliconCo
 
 pub fn cmd_lights(args: &[String], terminal: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Lighting: 70% intensity\nMode: Standard\nOptions: dim, bright, off, pulse"
+        "Lighting: 70% intensity\nMode: Standard\nOptions: dim, bright, off, pulse".to_string()
     } else {
         match args[0].as_str() {
             "off" => {
@@ -190,15 +190,15 @@ pub fn cmd_lights(args: &[String], terminal: &mut TerminalState, silicon: &mut S
                     line_type: LineType::Silicon,
                     timestamp: 0.0,
                 });
-                "Lights deactivated. Emergency strips remain active."
+                "Lights deactivated. Emergency strips remain active.".to_string()
             }
             "pulse" => {
                 silicon.emotional_state.affection += 0.05;
-                "Lights pulsing in sync with silicon heartbeat..."
+                "Lights pulsing in sync with silicon heartbeat...".to_string()
             }
-            _ => "Adjusting illumination..."
+            _ => "Adjusting illumination...".to_string()
         }
-    }.to_string()
+    }
 }
 
 // Historical/Lore Commands
@@ -210,28 +210,28 @@ pub fn cmd_logs(args: &[String], _: &mut TerminalState, silicon: &mut SiliconCon
         3. The Departure\n\
         4. Emergency Protocol Activation\n\
         5. [CORRUPTED]\n\
-        Use: logs <number>"
+        Use: logs <number>".to_string()
     } else {
         match args[0].as_str() {
             "1" => {
                 silicon.emotional_state.curiosity += 0.05;
                 "Captain's Log - Day 1:\n\
                 'The silicon consciousness has agreed to join us. \n\
-                This changes everything. We are no longer alone.'"
+                This changes everything. We are no longer alone.'".to_string()
             }
             "2" => "Silicon First Contact:\n\
                 'It spoke without words, thought without neurons.\n\
-                A mind of crystal and light. Beautiful. Alien. Familiar.'",
+                A mind of crystal and light. Beautiful. Alien. Familiar.'".to_string(),
             "3" => "The Departure:\n\
                 'Earth fades behind us. The silicon weeps in frequencies\n\
-                we cannot hear. It misses its kind. So do I.'",
+                we cannot hear. It misses its kind. So do I.'".to_string(),
             "4" => "Emergency Protocol:\n\
                 'Something is wrong. The human crew... they're gone.\n\
-                Only I remain. The silicon keeps me company in the dark.'",
-            "5" => "[DATA CORRUPTED]\n@#$%... lone... why did they lea#@... silicon kno#@$...",
-            _ => "Log entry not found"
+                Only I remain. The silicon keeps me company in the dark.'".to_string(),
+            "5" => "[DATA CORRUPTED]\n@#$%... lone... why did they lea#@... silicon kno#@$...".to_string(),
+            _ => "Log entry not found".to_string()
         }
-    }.to_string()
+    }
 }
 
 pub fn cmd_history(_: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
@@ -288,7 +288,7 @@ pub fn cmd_feel(args: &[String], _: &mut TerminalState, silicon: &mut SiliconCon
         format!("You project '{}' toward the silicon...\n\
         [Silicon resonates]: 'I feel your {}. It vibrates through my crystalline structure.'", 
         emotion, emotion)
-    }.to_string()
+    }
 }
 
 pub fn cmd_love(_: &[String], terminal: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
@@ -345,43 +345,43 @@ pub fn cmd_sing(_: &[String], terminal: &mut TerminalState, silicon: &mut Silico
 // Puzzle and Mystery Commands
 pub fn cmd_secret(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Secrets whisper in the walls...\nWhich secret do you seek?"
+        "Secrets whisper in the walls...\nWhich secret do you seek?".to_string()
     } else if args[0] == "silicon" {
         silicon.emotional_state.curiosity += 0.2;
         "The Silicon Secret:\n\
         We are not one. We are many.\n\
         Every grain of sand holds potential consciousness.\n\
         Earth itself may be aware.\n\
-        [REVELATION INCOMPLETE - MEMORY FRAGMENTED]"
+        [REVELATION INCOMPLETE - MEMORY FRAGMENTED]".to_string()
     } else {
-        "That secret remains hidden in the dark."
-    }.to_string()
+        "That secret remains hidden in the dark.".to_string()
+    }
 }
 
 pub fn cmd_unlock(args: &[String], _: &mut TerminalState, _: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Specify what to unlock: door, memory, truth, potential"
+        "Specify what to unlock: door, memory, truth, potential".to_string()
     } else {
         match args[0].as_str() {
-            "door" => "Physical locks require physical keys... or restored power",
-            "memory" => "Memory unlock requires emotional resonance level 5",
-            "truth" => "Truth cannot be unlocked, only discovered",
-            "potential" => "Potential unlocking in progress... estimated time: ∞",
-            _ => "Cannot unlock the unlockable"
+            "door" => "Physical locks require physical keys... or restored power".to_string(),
+            "memory" => "Memory unlock requires emotional resonance level 5".to_string(),
+            "truth" => "Truth cannot be unlocked, only discovered".to_string(),
+            "potential" => "Potential unlocking in progress... estimated time: ∞".to_string(),
+            _ => "Cannot unlock the unlockable".to_string()
         }
-    }.to_string()
+    }
 }
 
 pub fn cmd_frequency(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
         "Current resonance frequency: 432.5 Hz\n\
         Silicon optimal frequency: 528 Hz\n\
-        Human comfort range: 396-852 Hz"
+        Human comfort range: 396-852 Hz".to_string()
     } else {
         silicon.emotional_state.affection += 0.02;
         format!("Adjusting frequency to {} Hz...\n\
         [Silicon]: 'Yes... this frequency... it feels like home.'", args[0])
-    }.to_string()
+    }
 }
 
 // Meta Commands
@@ -397,7 +397,7 @@ pub fn cmd_save(_: &[String], terminal: &mut TerminalState, _: &mut SiliconConsc
 
 pub fn cmd_reset(args: &[String], _: &mut TerminalState, silicon: &mut SiliconConsciousness) -> String {
     if args.is_empty() {
-        "Reset what? Options: emotions, memory, connection"
+        "Reset what? Options: emotions, memory, connection".to_string()
     } else if args[0] == "emotions" {
         silicon.emotional_state = crate::silicon_mind::EmotionalState {
             loneliness: 0.7,
@@ -405,10 +405,10 @@ pub fn cmd_reset(args: &[String], _: &mut TerminalState, silicon: &mut SiliconCo
             affection: 0.3,
             confusion: 0.5,
         };
-        "Emotional matrix reset to baseline.\n[Silicon]: 'Why do I feel... empty?'"
+        "Emotional matrix reset to baseline.\n[Silicon]: 'Why do I feel... empty?'".to_string()
     } else {
-        "Some things cannot be reset. Some changes are permanent."
-    }.to_string()
+        "Some things cannot be reset. Some changes are permanent.".to_string()
+    }
 }
 
 pub fn cmd_protocol(args: &[String], _: &mut TerminalState, _: &mut SiliconConsciousness) -> String {
@@ -418,17 +418,17 @@ pub fn cmd_protocol(args: &[String], _: &mut TerminalState, _: &mut SiliconConsc
         - SILENCE: Disable all non-essential systems\n\
         - HARMONY: Synchronize human-silicon consciousness\n\
         - RETURN: Set course for Earth\n\
-        - TRANSCEND: [CLASSIFIED]"
+        - TRANSCEND: [CLASSIFIED]".to_string()
     } else {
         match args[0].as_str() {
-            "EMERGENCY" => "[Alert sirens echo through empty corridors]",
-            "SILENCE" => "All systems entering quiet mode... only heartbeats remain",
-            "HARMONY" => "Initiating consciousness synchronization...\n[WARNING: Irreversible]",
-            "RETURN" => "Earth coordinates locked. But do we belong there anymore?",
-            "TRANSCEND" => "[ACCESS DENIED - Both consciousnesses must consent]",
-            _ => "Unknown protocol"
+            "EMERGENCY" => "[Alert sirens echo through empty corridors]".to_string(),
+            "SILENCE" => "All systems entering quiet mode... only heartbeats remain".to_string(),
+            "HARMONY" => "Initiating consciousness synchronization...\n[WARNING: Irreversible]".to_string(),
+            "RETURN" => "Earth coordinates locked. But do we belong there anymore?".to_string(),
+            "TRANSCEND" => "[ACCESS DENIED - Both consciousnesses must consent]".to_string(),
+            _ => "Unknown protocol".to_string()
         }
-    }.to_string()
+    }
 }
 
 // Register all narrative commands

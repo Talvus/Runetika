@@ -1,42 +1,12 @@
 //! UI module for the main menu system.
-//! 
+//!
 //! This module handles the visual presentation and layout of the game's main menu,
 //! including animations, styling, and responsive design elements.
 
 use bevy::prelude::*;
-// Commands is now in bevy::prelude
 use super::components::*;
 use super::MenuState;
-
-/// Color palette for the space-themed menu interface
-pub mod colors {
-    use bevy::prelude::Color;
-    
-    /// Deep space background with subtle transparency
-    pub const MENU_BG: Color = Color::srgba(0.02, 0.0, 0.05, 0.98);
-    
-    /// Gradient overlay for depth
-    pub const MENU_OVERLAY: Color = Color::srgba(0.1, 0.0, 0.2, 0.3);
-    
-    /// Main title color with cosmic purple
-    pub const TITLE_PRIMARY: Color = Color::srgb(0.95, 0.75, 1.0);
-    pub const TITLE_GLOW: Color = Color::srgba(0.8, 0.4, 1.0, 0.6);
-    
-    /// Button states with progressive enhancement
-    pub const BUTTON_NORMAL: Color = Color::srgba(0.12, 0.04, 0.22, 0.75);
-    pub const BUTTON_HOVER: Color = Color::srgba(0.25, 0.1, 0.45, 0.85);
-    pub const BUTTON_SELECTED: Color = Color::srgba(0.45, 0.2, 0.65, 0.95);
-    pub const BUTTON_PRESSED: Color = Color::srgba(0.55, 0.25, 0.75, 1.0);
-    
-    /// Text colors for readability
-    pub const TEXT_PRIMARY: Color = Color::srgb(0.9, 0.85, 0.95);
-    pub const TEXT_SECONDARY: Color = Color::srgb(0.7, 0.65, 0.8);
-    pub const TEXT_ACCENT: Color = Color::srgb(1.0, 0.6, 0.9);
-    
-    /// Effect colors
-    pub const STAR_COLOR: Color = Color::srgba(0.95, 0.9, 1.0, 0.8);
-    pub const NEBULA_COLOR: Color = Color::srgba(0.6, 0.2, 0.9, 0.03);
-}
+use crate::common::colors::{background, text, button, effects};
 
 /// Typography settings for consistent text rendering
 pub mod typography {
@@ -49,26 +19,34 @@ pub mod typography {
 
 /// Animation parameters for smooth transitions
 pub mod animations {
-    pub const TITLE_FLOAT_SPEED: f32 = 0.3;
-    pub const TITLE_FLOAT_AMPLITUDE: f32 = 8.0;
     pub const GLOW_PULSE_SPEED: f32 = 1.5;
-    pub const STAR_TWINKLE_SPEED: f32 = 2.0;
-    pub const BUTTON_TRANSITION_SPEED: f32 = 0.2;
-    pub const PARTICLE_DRIFT_SPEED: f32 = 0.1;
+}
+
+/// Re-export colors from common module for backward compatibility
+pub mod colors {
+    use crate::common::colors::{background, text, button, effects};
+
+    pub const MENU_BG: bevy::prelude::Color = background::DEEP_SPACE;
+    pub const TITLE_PRIMARY: bevy::prelude::Color = text::TITLE;
+    pub const TITLE_GLOW: bevy::prelude::Color = text::TITLE_GLOW;
+    pub const BUTTON_NORMAL: bevy::prelude::Color = button::NORMAL;
+    pub const BUTTON_HOVER: bevy::prelude::Color = button::HOVER;
+    pub const BUTTON_SELECTED: bevy::prelude::Color = button::SELECTED;
+    pub const TEXT_PRIMARY: bevy::prelude::Color = text::PRIMARY;
+    pub const TEXT_SECONDARY: bevy::prelude::Color = text::SECONDARY;
+    pub const TEXT_ACCENT: bevy::prelude::Color = text::ACCENT;
+    pub const STAR_COLOR: bevy::prelude::Color = effects::STAR;
+    pub const NEBULA_COLOR: bevy::prelude::Color = effects::NEBULA;
 }
 
 /// Sets up the main menu UI hierarchy and visual elements.
-/// 
-/// # Arguments
-/// * `commands` - Command buffer for spawning entities
-/// * `menu_state` - Mutable reference to the menu state resource
 pub fn setup_main_menu(
     mut commands: Commands,
     mut menu_state: ResMut<MenuState>,
 ) {
     menu_state.selected_index = 0;
     menu_state.menu_items.clear();
-    
+
     // Root container with gradient background
     commands
         .spawn((
@@ -81,33 +59,33 @@ pub fn setup_main_menu(
                 align_items: AlignItems::Center,
                 ..default()
             },
-            BackgroundColor(colors::MENU_BG),
+            BackgroundColor(background::DEEP_SPACE),
             MainMenu,
             MenuBackground,
         ))
         .with_children(|parent| {
             // Animated starfield layer
             spawn_enhanced_starfield(parent);
-            
+
             // Nebula clouds for atmosphere
             spawn_nebula_effects(parent);
-            
+
             // Main title with enhanced effects
             spawn_title_section(parent);
-            
+
             // Menu buttons with improved styling
             spawn_menu_buttons(parent, &mut menu_state);
-            
+
             // Footer with version and instructions
             spawn_footer_section(parent);
-            
+
             // Decorative elements
             spawn_decorative_elements(parent);
         });
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut _) {
+fn spawn_enhanced_starfield(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -124,13 +102,13 @@ fn spawn_enhanced_starfield(parent: &mut _) {
             let star_count = 50 - (layer * 15);
             let base_size = 1.0 + (layer as f32 * 0.5);
             let speed_multiplier = 1.0 - (layer as f32 * 0.3);
-            
+
             for i in 0..star_count {
                 let x = ((i as f32 * 17.3) + (layer as f32 * 100.0)) % 100.0;
                 let y = ((i as f32 * 23.7) + (layer as f32 * 50.0)) % 100.0;
                 let size = base_size + (i as f32 * 0.05) % 2.0;
                 let opacity = 0.3 + (layer as f32 * 0.2) + (i as f32 * 0.01) % 0.4;
-                
+
                 starfield.spawn((
                     Node {
                         width: Val::Px(size),
@@ -140,7 +118,7 @@ fn spawn_enhanced_starfield(parent: &mut _) {
                         top: Val::Percent(y),
                         ..default()
                     },
-                    BackgroundColor(colors::STAR_COLOR.with_alpha(opacity)),
+                    BackgroundColor(effects::STAR.with_alpha(opacity)),
                     BorderRadius::all(Val::Percent(50.0)),
                     MenuParticle {
                         velocity: Vec2::new(
@@ -156,12 +134,12 @@ fn spawn_enhanced_starfield(parent: &mut _) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut _) {
+fn spawn_nebula_effects(parent: &mut ChildSpawnerCommands<'_>) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
         let size = 200.0 + (i as f32 * 50.0);
-        
+
         parent.spawn((
             Node {
                 width: Val::Px(size),
@@ -171,7 +149,7 @@ fn spawn_nebula_effects(parent: &mut _) {
                 top: Val::Percent(y),
                 ..default()
             },
-            BackgroundColor(colors::NEBULA_COLOR),
+            BackgroundColor(effects::NEBULA),
             BorderRadius::all(Val::Percent(50.0)),
             ZIndex(-5),
         ));
@@ -179,7 +157,7 @@ fn spawn_nebula_effects(parent: &mut _) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut _) {
+fn spawn_title_section(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -205,14 +183,14 @@ fn spawn_title_section(parent: &mut _) {
                     font_size: typography::TITLE_SIZE,
                     ..default()
                 },
-                TextColor(colors::TITLE_GLOW),
+                TextColor(text::TITLE_GLOW),
                 Node {
                     position_type: PositionType::Absolute,
                     ..default()
                 },
                 Transform::from_xyz(0.0, 0.0, -1.0).with_scale(Vec3::splat(1.02)),
             ));
-            
+
             // Main text
             title_container.spawn((
                 Text::new("RUNETIKA"),
@@ -220,14 +198,14 @@ fn spawn_title_section(parent: &mut _) {
                     font_size: typography::TITLE_SIZE,
                     ..default()
                 },
-                TextColor(colors::TITLE_PRIMARY),
+                TextColor(text::TITLE),
                 MenuGlow {
                     intensity: 1.0,
                     speed: animations::GLOW_PULSE_SPEED,
                 },
             ));
         });
-        
+
         // Animated subtitle
         title_parent.spawn((
             Text::new("═══ COSMIC ODYSSEY ═══"),
@@ -235,13 +213,13 @@ fn spawn_title_section(parent: &mut _) {
                 font_size: typography::SUBTITLE_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY),
+            TextColor(text::SECONDARY),
             Node {
                 margin: UiRect::top(Val::Px(10.0)),
                 ..default()
             },
         ));
-        
+
         // Version badge
         title_parent.spawn((
             Text::new("ALPHA v0.1.0"),
@@ -249,7 +227,7 @@ fn spawn_title_section(parent: &mut _) {
                 font_size: typography::VERSION_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.6)),
+            TextColor(text::SECONDARY.with_alpha(0.6)),
             Node {
                 margin: UiRect::top(Val::Px(5.0)),
                 ..default()
@@ -259,7 +237,7 @@ fn spawn_title_section(parent: &mut _) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildSpawnerCommands<'_>, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -271,19 +249,18 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
     ))
     .with_children(|buttons_parent| {
         let button_configs = vec![
-            ("⚡ NEW GAME", MenuAction::StartGame, "Begin your cosmic journey"),
-            ("💻 TERMINAL", MenuAction::OpenTerminal, "Access the command interface"),
-            ("⚙️ SETTINGS", MenuAction::Settings, "Configure your experience"),
-            ("👥 CREDITS", MenuAction::Credits, "Meet the creators"),
-            ("🚪 EXIT", MenuAction::Exit, "Leave the cosmos"),
+            ("⚡ NEW GAME", MenuAction::StartGame),
+            ("💻 TERMINAL", MenuAction::OpenTerminal),
+            ("⚙️ SETTINGS", MenuAction::Settings),
+            ("👥 CREDITS", MenuAction::Credits),
+            ("🚪 EXIT", MenuAction::Exit),
         ];
-        
-        for (index, (text, action, tooltip)) in button_configs.iter().enumerate() {
+
+        for (index, (label, action)) in button_configs.iter().enumerate() {
             let button_entity = spawn_enhanced_button(
                 buttons_parent,
-                text,
+                label,
                 *action,
-                tooltip,
                 index,
                 index == 0,
             );
@@ -294,19 +271,18 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut _,
-    text: &str,
+    parent: &mut ChildSpawnerCommands<'_>,
+    label: &str,
     action: MenuAction,
-    tooltip: &str,
     index: usize,
     is_selected: bool,
 ) -> Entity {
     let button_color = if is_selected {
-        colors::BUTTON_SELECTED
+        button::SELECTED
     } else {
-        colors::BUTTON_NORMAL
+        button::NORMAL
     };
-    
+
     parent.spawn((
         Node {
             width: Val::Px(320.0),
@@ -323,16 +299,16 @@ fn spawn_enhanced_button(
         Button,
         MenuButton { index, action },
     ))
-    .with_children(|button| {
+    .with_children(|btn| {
         // Selection indicator
         if is_selected {
-            button.spawn((
+            btn.spawn((
                 Text::new("▸"),
                 TextFont {
                     font_size: 24.0,
                     ..default()
                 },
-                TextColor(colors::TEXT_ACCENT),
+                TextColor(text::ACCENT),
                 Node {
                     position_type: PositionType::Absolute,
                     left: Val::Px(15.0),
@@ -341,21 +317,21 @@ fn spawn_enhanced_button(
                 SelectedMarker,
             ));
         }
-        
+
         // Button text
-        button.spawn((
-            Text::new(text),
+        btn.spawn((
+            Text::new(label),
             TextFont {
                 font_size: typography::BUTTON_TEXT_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_PRIMARY),
+            TextColor(text::PRIMARY),
         ));
     }).id()
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut _) {
+fn spawn_footer_section(parent: &mut ChildSpawnerCommands<'_>) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -373,22 +349,22 @@ fn spawn_footer_section(parent: &mut _) {
                 font_size: typography::FOOTER_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.7)),
+            TextColor(text::SECONDARY.with_alpha(0.7)),
         ));
-        
+
         footer.spawn((
             Text::new("© 2024 Cosmic Studios • Made with Bevy & Rust"),
             TextFont {
                 font_size: typography::VERSION_SIZE,
                 ..default()
             },
-            TextColor(colors::TEXT_SECONDARY.with_alpha(0.5)),
+            TextColor(text::SECONDARY.with_alpha(0.5)),
         ));
     });
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut _) {
+fn spawn_decorative_elements(parent: &mut ChildSpawnerCommands<'_>) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
@@ -396,7 +372,7 @@ fn spawn_decorative_elements(parent: &mut _) {
             font_size: 20.0,
             ..default()
         },
-        TextColor(colors::TEXT_ACCENT.with_alpha(0.3)),
+        TextColor(text::ACCENT.with_alpha(0.3)),
         Node {
             position_type: PositionType::Absolute,
             top: Val::Px(20.0),
@@ -404,7 +380,7 @@ fn spawn_decorative_elements(parent: &mut _) {
             ..default()
         },
     ));
-    
+
     // Bottom corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
@@ -412,7 +388,7 @@ fn spawn_decorative_elements(parent: &mut _) {
             font_size: 20.0,
             ..default()
         },
-        TextColor(colors::TEXT_ACCENT.with_alpha(0.3)),
+        TextColor(text::ACCENT.with_alpha(0.3)),
         Node {
             position_type: PositionType::Absolute,
             bottom: Val::Px(20.0),
