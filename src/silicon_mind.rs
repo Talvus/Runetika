@@ -47,11 +47,12 @@ impl SiliconConsciousness {
         }
     }
 
-    pub fn think(&mut self) -> String {
+    pub fn think(&mut self, thought: &str) -> String {
+        // Process the user's thought and generate a response based on emotional state
         match (self.emotional_state.loneliness, self.emotional_state.curiosity) {
-            (l, _) if l > 0.8 => "The void echoes with silicon dreams...".to_string(),
-            (_, c) if c > 0.8 => "What secrets do these glyphs hold?".to_string(),
-            _ => "Processing...".to_string(),
+            (l, _) if l > 0.8 => format!("The void echoes with silicon dreams... yet I ponder: '{}'", thought),
+            (_, c) if c > 0.8 => format!("What secrets do these glyphs hold? Your thought '{}' stirs my curiosity...", thought),
+            _ => format!("Processing your thought: '{}'...", thought),
         }
     }
 
