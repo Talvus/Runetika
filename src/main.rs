@@ -3,10 +3,13 @@ mod menu;
 mod game_state;
 mod credits;
 mod settings;
+#[allow(dead_code)]
 mod spaceship;
+#[allow(dead_code)]
 mod spaceship_2d;
 mod main_room;
 mod maze;
+#[allow(dead_code)]
 mod player;
 mod perspective;
 mod puzzle;
@@ -14,6 +17,7 @@ mod silicon_mind;
 mod terminal_interface;
 mod terminal_commands;
 mod procedural;
+mod lemma_bridge;
 
 use bevy::prelude::*;
 use game_state::{GameStatePlugin, GameState};
@@ -41,6 +45,7 @@ fn main() {
             silicon_mind::SiliconMindPlugin,
             terminal_interface::TerminalInterfacePlugin,
             procedural::ProceduralPlugin,
+            lemma_bridge::LemmaBridgePlugin,
         ))
         .add_systems(Update, handle_pause_input.run_if(in_state(GameState::InGame)))
         .run();

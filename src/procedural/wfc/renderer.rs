@@ -31,8 +31,10 @@ const FLOOR_Z_OFFSET: f32 = -100.0;
 /// This component stores grid coordinates for depth sorting and debugging.
 #[derive(Component)]
 pub struct WfcTileSprite {
+    #[allow(dead_code)]
     pub grid_x: i32,
     pub grid_y: i32,
+    #[allow(dead_code)]
     pub tile_id: super::tiles::TileId,
 }
 
@@ -53,7 +55,8 @@ impl Plugin for WfcRendererPlugin {
         app
             // Systems run when WFC visualization is active
             .add_systems(Update, (
-                spawn_wfc_tiles_on_complete,
+                spawn_wfc_tiles_on_complete
+                    .run_if(resource_exists::<super::WfcGenerationState>),
                 update_wfc_depth_sorting,
             ).run_if(in_state(GameState::InGame)));
 

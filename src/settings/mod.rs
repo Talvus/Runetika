@@ -79,7 +79,8 @@ impl SettingsData {
     /// # Practical View
     /// This updates the game with the current settings - changes resolution,
     /// adjusts volume, remaps controls, etc.
-    pub fn apply_all(&self, 
+    #[allow(dead_code)]
+    pub fn apply_all(&self,
         windows: &mut Query<&mut Window>,
         commands: &mut Commands,
     ) {
@@ -93,6 +94,7 @@ impl SettingsData {
     /// # Abstraction
     /// This embodies the concept of "context-aware configuration" - settings that
     /// adapt to their environment rather than being fixed.
+    #[allow(dead_code)]
     #[cfg(target_os = "macos")]
     pub fn platform_optimal() -> Self {
         Self {
@@ -103,6 +105,7 @@ impl SettingsData {
         }
     }
     
+    #[allow(dead_code)]
     #[cfg(not(target_os = "macos"))]
     pub fn platform_optimal() -> Self {
         Self::default()

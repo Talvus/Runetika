@@ -443,6 +443,6 @@ pub fn cleanup_settings_screen(
     query: Query<Entity, With<SettingsScreen>>,
 ) {
     for entity in query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }

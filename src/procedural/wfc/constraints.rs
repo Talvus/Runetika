@@ -114,6 +114,7 @@ impl ConstraintGraph {
     ///
     /// # Returns
     /// `true` if the adjacency is allowed by constraints
+    #[allow(dead_code)]
     pub fn allows(&self, tile: TileId, direction: Direction, neighbor: TileId) -> bool {
         self.adjacency
             .get(&(tile, direction))
@@ -132,6 +133,7 @@ impl ConstraintGraph {
     /// Get the intersection of multiple allowed sets
     ///
     /// Used during propagation to constrain cells based on multiple neighbors
+    #[allow(dead_code)]
     pub fn intersect_allowed(
         &self,
         constraint_sets: Vec<HashSet<TileId>>,
@@ -148,6 +150,7 @@ impl ConstraintGraph {
     }
 
     /// Count total constraint rules
+    #[allow(dead_code)]
     pub fn rule_count(&self) -> usize {
         self.adjacency.len()
     }
@@ -186,7 +189,9 @@ impl ConstraintGraph {
 pub struct ConstraintStats {
     pub total_rules: usize,
     pub avg_neighbors: f32,
+    #[allow(dead_code)]
     pub max_neighbors: usize,
+    #[allow(dead_code)]
     pub min_neighbors: usize,
 }
 

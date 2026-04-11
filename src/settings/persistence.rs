@@ -5,7 +5,6 @@
 /// for debugging and manual editing. JSON provides this balance.
 
 use bevy::prelude::*;
-use serde::{Deserialize, Serialize};
 use std::fs;
 use std::path::PathBuf;
 use super::SettingsData;
@@ -125,11 +124,13 @@ impl SettingsFile {
     /// - User wants to start fresh
     /// - Settings corrupted
     /// - Major version upgrade
+    #[allow(dead_code)]
     pub fn reset(&mut self) -> Result<(), String> {
         self.save(&SettingsData::default())
     }
     
     /// Check if settings file exists
+    #[allow(dead_code)]
     pub fn exists(&self) -> bool {
         self.path.exists()
     }

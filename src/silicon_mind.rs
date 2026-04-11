@@ -29,8 +29,11 @@ pub struct EmotionalState {
 
 #[derive(Clone)]
 pub struct MemoryFragment {
+    #[allow(dead_code)]
     pub timestamp: f32,
+    #[allow(dead_code)]
     pub emotion: EmotionalState,
+    #[allow(dead_code)]
     pub data: Vec<u8>,
 }
 
@@ -55,6 +58,7 @@ impl SiliconConsciousness {
         }
     }
 
+    #[allow(dead_code)]
     pub fn remember(&mut self, data: Vec<u8>) {
         self.memories.push(MemoryFragment {
             timestamp: 0.0,

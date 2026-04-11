@@ -18,10 +18,13 @@ pub enum SocketType {
     /// Generic circuit connection - universal connector
     Circuit,
     /// Power line - must connect to Power or Circuit
+    #[allow(dead_code)]
     Power,
     /// Ground line - must connect to Ground or Circuit
+    #[allow(dead_code)]
     Ground,
     /// Data line - must connect only to Data
+    #[allow(dead_code)]
     Data,
 }
 
@@ -55,10 +58,13 @@ pub enum TileVariant {
     /// Empty space (no circuit)
     Empty,
     /// Capacitor component (decorative)
+    #[allow(dead_code)]
     Capacitor,
     /// Resistor component (decorative)
+    #[allow(dead_code)]
     Resistor,
     /// Junction node (connects all directions)
+    #[allow(dead_code)]
     Junction,
 }
 
@@ -69,9 +75,12 @@ pub enum TileVariant {
 /// valid tile combinations through observation - a core ARC reasoning skill.
 #[derive(Debug, Clone)]
 pub struct Tile {
+    #[allow(dead_code)]
     pub id: TileId,
+    #[allow(dead_code)]
     pub name: String,
     pub variant: TileVariant,
+    #[allow(dead_code)]
     pub sprite_path: String,
     /// Sockets in order: [North, East, South, West]
     pub sockets: [SocketType; 4],
@@ -92,10 +101,13 @@ pub enum MazeTheme {
     /// Silicon civilization tech aesthetic
     CircuitBoard,
     /// Biological/fractal patterns
+    #[allow(dead_code)]
     OrganicGrowth,
     /// Clean mathematical structures
+    #[allow(dead_code)]
     GeometricPure,
     /// Mixed aesthetic
+    #[allow(dead_code)]
     Hybrid,
 }
 
@@ -255,6 +267,7 @@ impl TileSet {
     }
 
     /// Get a tile by ID
+    #[allow(dead_code)]
     pub fn get_tile(&self, id: TileId) -> Option<&Tile> {
         self.tiles.get(&id)
     }

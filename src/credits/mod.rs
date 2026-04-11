@@ -47,6 +47,7 @@ pub struct CreditsState {
 
 impl CreditsState {
     /// Creates a new credits state with default values
+    #[allow(dead_code)]
     pub fn new() -> Self {
         Self {
             scroll_position: 0.0,

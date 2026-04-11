@@ -27,9 +27,8 @@ use bevy::prelude::*;
 use avian2d::prelude::*;
 use rand::prelude::*;
 
-pub use knossos::{KnossosMazeConfig, KnossosMazeAlgorithm};
+pub use knossos::KnossosMazeConfig;
 pub use knossos_renderer::IsometricRenderConfig;
-pub use portals::{MazePortal, PortalType};
 pub use camera::MazeCameraBounds;
 
 /// Plugin for maze generation and gameplay
@@ -96,7 +95,7 @@ const CELL_SIZE: f32 = 40.0;
 
 /// Spawn the hallway connecting main room to maze
 pub fn spawn_hallway(commands: &mut Commands) -> Vec2 {
-    let hallway_start = Vec2::new(400.0, 0.0);
+    let _hallway_start = Vec2::new(400.0, 0.0);
     let hallway_end = Vec2::new(800.0, 0.0);
     let wall_thickness = 5.0;
 

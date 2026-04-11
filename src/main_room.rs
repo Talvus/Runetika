@@ -100,7 +100,7 @@ fn player_movement(
     keyboard: Res<ButtonInput<KeyCode>>,
     mut query: Query<(&Player, &mut LinearVelocity)>,
 ) {
-    if let Ok((player, mut velocity)) = query.get_single_mut() {
+    if let Ok((player, mut velocity)) = query.single_mut() {
         let mut dir = Vec2::ZERO;
         
         if keyboard.pressed(KeyCode::KeyW) || keyboard.pressed(KeyCode::ArrowUp) { dir.y += 1.0; }
@@ -120,7 +120,7 @@ fn camera_follow(
     player: Query<&Transform, (With<Player>, Without<Camera2d>)>,
     mut camera: Query<&mut Transform, With<Camera2d>>,
 ) {
-    if let (Ok(p), Ok(mut c)) = (player.get_single(), camera.get_single_mut()) {
+    if let (Ok(p), Ok(mut c)) = (player.single(), camera.single_mut()) {
         let target = Vec3::new(p.translation.x * 0.3, p.translation.y * 0.3, c.translation.z);
         c.translation = c.translation.lerp(target, 0.08);
     }
@@ -130,7 +130,7 @@ fn debug_controls(
     keyboard: Res<ButtonInput<KeyCode>>,
     mut player: Query<&mut Transform, With<Player>>,
 ) {
-    if let Ok(mut t) = player.get_single_mut() {
+    if let Ok(mut t) = player.single_mut() {
         if keyboard.just_pressed(KeyCode::KeyR) {
             t.translation = Vec3::new(0.0, 0.0, 1.0);
             info!("Position reset");

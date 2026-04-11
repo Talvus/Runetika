@@ -12,16 +12,22 @@ use super::{MazeEntity, knossos::KnossosMazeConfig};
 /// Component: Isometric tile sprite for Knossos maze
 #[derive(Component)]
 pub struct KnossosTileSprite {
+    #[allow(dead_code)]
     pub grid_x: i32,
+    #[allow(dead_code)]
     pub grid_y: i32,
+    #[allow(dead_code)]
     pub variant: TileVariant,
 }
 
 /// Component: Wall sprite in isometric view
 #[derive(Component)]
 pub struct KnossosWallSprite {
+    #[allow(dead_code)]
     pub grid_x: i32,
+    #[allow(dead_code)]
     pub grid_y: i32,
+    #[allow(dead_code)]
     pub direction: WallDirection,
 }
 

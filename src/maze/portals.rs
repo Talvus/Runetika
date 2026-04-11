@@ -9,6 +9,7 @@ use super::MazeEntity;
 #[derive(Component)]
 pub struct MazePortal {
     pub portal_type: PortalType,
+    #[allow(dead_code)]
     pub animation_phase: f32,
 }
 

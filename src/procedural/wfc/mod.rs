@@ -14,9 +14,8 @@ pub mod constraints;
 pub mod algorithm;
 pub mod renderer;
 
-pub use tiles::{Tile, TileId, TileSet, TileVariant, SocketType, MazeTheme};
-pub use constraints::{ConstraintGraph, Direction};
+pub use tiles::TileSet;
+pub use constraints::ConstraintGraph;
 pub use algorithm::{
-    WfcCell, WfcGenerationState, CellCollapsedEvent, ContradictionEvent, GenerationCompleteEvent,
+    WfcCell, WfcGenerationState, GenerationCompleteEvent,
 };
-pub use renderer::{WfcRendererPlugin, WfcTileSprite, IsometricDepthSorted};

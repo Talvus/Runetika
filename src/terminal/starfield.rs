@@ -6,6 +6,7 @@ pub struct Star {
     pub speed: f32,
     pub brightness: f32,
     pub twinkle_speed: f32,
+    #[allow(dead_code)]
     pub size: f32,
 }
 
@@ -46,7 +47,7 @@ pub fn setup_starfield(
         let mut rng = rand::thread_rng();
         
         // Generate stars
-        for _ in 0..150 {
+        for _ in 0..60 {
             let x = rng.gen_range(0.0..100.0);
             let y = rng.gen_range(0.0..100.0);
             let size = rng.gen_range(1.0..4.0);
@@ -107,16 +108,40 @@ pub fn setup_starfield(
 
 pub fn animate_stars(
     time: Res<Time>,
-    mut star_query: Query<(&mut Node, &mut BackgroundColor, &Star)>,
+    mut frame: Local<u32>,
+    // Twinkle: immutable Node borrow avoids marking Node as changed
+    twinkle_query: Query<(&mut BackgroundColor, &Star)>,
+    // Drift: only used every 6th frame to avoid per-frame layout invalidation
+    drift_query: Query<(&mut Node, &Star)>,
 ) {
-    for (mut node, mut bg_color, star) in star_query.iter_mut() {
-        // Twinkle effect
-        let twinkle = (time.elapsed_secs() * star.twinkle_speed).sin() * 0.3 + 0.7;
+    *frame = frame.wrapping_add(1);
+
+    // Twinkle every frame (BackgroundColor doesn't trigger UI relayout)
+    animate_star_twinkle(time.elapsed_secs(), twinkle_query);
+
+    // Drift every 6th frame (Node mutation triggers full Taffy relayout)
+    if *frame % 6 == 0 {
+        animate_star_drift(time.delta_secs(), drift_query);
+    }
+}
+
+fn animate_star_twinkle(
+    elapsed: f32,
+    mut query: Query<(&mut BackgroundColor, &Star)>,
+) {
+    for (mut bg_color, star) in query.iter_mut() {
+        let twinkle = (elapsed * star.twinkle_speed).sin() * 0.3 + 0.7;
         bg_color.0.set_alpha(star.brightness * twinkle);
-        
-        // Slow drift
+    }
+}
+
+fn animate_star_drift(
+    delta: f32,
+    mut query: Query<(&mut Node, &Star)>,
+) {
+    for (mut node, star) in query.iter_mut() {
         if let Val::Percent(mut x) = node.left {
-            x += star.speed * time.delta_secs();
+            x += star.speed * delta * 6.0;
             if x > 100.0 {
                 x = -2.0;
             }

@@ -80,6 +80,7 @@ impl Plugin for TerminalPlugin {
 pub struct TerminalState {
     pub input_buffer: String,
     pub cursor_position: usize,
+    #[allow(dead_code)]
     pub is_active: bool,
     pub scroll_offset: usize,
 }
@@ -111,6 +112,7 @@ pub struct TerminalHistory {
 pub struct TerminalLine {
     pub text: String,
     pub line_type: LineType,
+    #[allow(dead_code)]
     pub timestamp: f64,
 }
 
@@ -126,6 +128,7 @@ pub struct TerminalLine {
 #[derive(Clone, Debug)]
 pub enum LineType {
     Input,
+    #[allow(dead_code)]
     Output,
     Error,
     System,
@@ -138,7 +141,7 @@ impl Default for TerminalHistory {
             lines: Vec::new(),
             command_history: Vec::new(),
             history_index: None,
-            max_lines: 1000,
+            max_lines: 200,
         }
     }
 }
@@ -169,7 +172,9 @@ pub struct CommandRegistry {
 /// New commands just implement this trait and register themselves.
 pub trait Command: Send + Sync {
     fn execute(&self, args: Vec<String>, terminal: &mut TerminalHistory) -> CommandResult;
+    #[allow(dead_code)]
     fn help(&self) -> String;
+    #[allow(dead_code)]
     fn autocomplete(&self, _partial: &str) -> Vec<String> {
         Vec::new()
     }

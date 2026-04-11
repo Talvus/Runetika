@@ -87,7 +87,8 @@ impl GraphicsSettings {
         }
     }
     
-    pub fn apply_to_window(&self, windows: &mut Query<&mut Window>) {
+    #[allow(dead_code)]
+    pub fn apply_to_window(&self, _windows: &mut Query<&mut Window>) {
         // Implementation would apply these settings
     }
 }
@@ -147,6 +148,7 @@ pub struct AudioSettings {
 }
 
 impl AudioSettings {
+    #[allow(dead_code)]
     pub fn apply_to_audio_system(&self) {
         // Would apply volume settings here
     }
@@ -178,6 +180,7 @@ pub struct ControlSettings {
 }
 
 impl ControlSettings {
+    #[allow(dead_code)]
     pub fn apply_to_input_system(&self, _commands: &mut Commands) {
         // Would reconfigure input mappings here
     }
@@ -222,6 +225,7 @@ impl Default for KeyBindings {
 
 impl KeyBindings {
     /// Convert string key names to Bevy KeyCodes
+    #[allow(dead_code)]
     pub fn get_keycode(&self, key_name: &str) -> Option<KeyCode> {
         match key_name {
             "W" => Some(KeyCode::KeyW),
@@ -277,6 +281,7 @@ pub struct SettingsScreen;
 
 #[derive(Component)]
 pub struct SettingsTab {
+    #[allow(dead_code)]
     pub tab_type: SettingsTabType,
 }
 

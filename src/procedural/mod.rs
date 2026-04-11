@@ -12,8 +12,7 @@
 pub mod wfc;
 pub mod terminal_commands;
 
-pub use wfc::{TileSet, ConstraintGraph, MazeTheme, WfcGenerationState};
-pub use terminal_commands::GenerateWfcMazeCommand;
+pub use wfc::{TileSet, ConstraintGraph, WfcGenerationState};
 
 use bevy::prelude::*;
 use wfc::algorithm::*;

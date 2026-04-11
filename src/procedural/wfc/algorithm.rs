@@ -149,6 +149,7 @@ pub struct WfcGenerationState {
     pub rng: StdRng,
 
     /// Generation seed
+    #[allow(dead_code)]
     pub seed: u64,
 
     /// Current generation step
@@ -189,7 +190,9 @@ impl WfcGenerationState {
 #[derive(Event)]
 pub struct CellCollapsedEvent {
     pub position: IVec2,
+    #[allow(dead_code)]
     pub tile: TileId,
+    #[allow(dead_code)]
     pub entropy_before: f32,
 }
 
@@ -295,7 +298,7 @@ pub fn wfc_collapse_step(
     if let Some((entity, position, entropy_before)) = min_cell_data {
         if let Ok(mut cell) = cells.get_mut(entity) {
             if let Some(chosen_tile) = cell.collapse(&tile_weights, &mut gen_state.rng) {
-                collapse_events.send(CellCollapsedEvent {
+                collapse_events.write(CellCollapsedEvent {
                     position,
                     tile: chosen_tile,
                     entropy_before,
@@ -370,7 +373,7 @@ pub fn wfc_propagate_step(
 
                     // Check for contradiction
                     if neighbor.possibilities.is_empty() {
-                        contradiction_events.send(ContradictionEvent {
+                        contradiction_events.write(ContradictionEvent {
                             position: neighbor_pos,
                         });
                         return;
@@ -407,7 +410,7 @@ pub fn check_generation_complete(
     if gen_state.complete {
         let all_collapsed = cells.iter().all(|cell| cell.collapsed);
         if all_collapsed {
-            complete_events.send(GenerationCompleteEvent {
+            complete_events.write(GenerationCompleteEvent {
                 steps: gen_state.step,
                 width: gen_state.width,
                 height: gen_state.height,

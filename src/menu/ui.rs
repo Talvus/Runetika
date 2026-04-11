@@ -16,6 +16,7 @@ pub mod colors {
     pub const MENU_BG: Color = Color::srgba(0.02, 0.0, 0.05, 0.98);
     
     /// Gradient overlay for depth
+    #[allow(dead_code)]
     pub const MENU_OVERLAY: Color = Color::srgba(0.1, 0.0, 0.2, 0.3);
     
     /// Main title color with cosmic purple
@@ -26,6 +27,7 @@ pub mod colors {
     pub const BUTTON_NORMAL: Color = Color::srgba(0.12, 0.04, 0.22, 0.75);
     pub const BUTTON_HOVER: Color = Color::srgba(0.25, 0.1, 0.45, 0.85);
     pub const BUTTON_SELECTED: Color = Color::srgba(0.45, 0.2, 0.65, 0.95);
+    #[allow(dead_code)]
     pub const BUTTON_PRESSED: Color = Color::srgba(0.55, 0.25, 0.75, 1.0);
     
     /// Text colors for readability
@@ -49,11 +51,16 @@ pub mod typography {
 
 /// Animation parameters for smooth transitions
 pub mod animations {
+    #[allow(dead_code)]
     pub const TITLE_FLOAT_SPEED: f32 = 0.3;
+    #[allow(dead_code)]
     pub const TITLE_FLOAT_AMPLITUDE: f32 = 8.0;
     pub const GLOW_PULSE_SPEED: f32 = 1.5;
+    #[allow(dead_code)]
     pub const STAR_TWINKLE_SPEED: f32 = 2.0;
+    #[allow(dead_code)]
     pub const BUTTON_TRANSITION_SPEED: f32 = 0.2;
+    #[allow(dead_code)]
     pub const PARTICLE_DRIFT_SPEED: f32 = 0.1;
 }
 
@@ -297,7 +304,7 @@ fn spawn_enhanced_button(
     parent: &mut ChildSpawnerCommands,
     text: &str,
     action: MenuAction,
-    tooltip: &str,
+    _tooltip: &str,
     index: usize,
     is_selected: bool,
 ) -> Entity {

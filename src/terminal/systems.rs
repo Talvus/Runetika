@@ -68,8 +68,9 @@ pub fn handle_terminal_input(
                     terminal_state.input_buffer.clear();
                     terminal_state.cursor_position = 0;
                     
-                    if terminal_history.lines.len() > terminal_history.max_lines {
-                        terminal_history.lines.drain(0..100);
+                    let excess = terminal_history.lines.len().saturating_sub(terminal_history.max_lines);
+                    if excess > 0 {
+                        terminal_history.lines.drain(0..excess);
                     }
                 }
             }
@@ -138,7 +139,9 @@ pub fn handle_terminal_input(
     }
     
     for mut text in input_text_query.iter_mut() {
-        text.0 = terminal_state.input_buffer.clone();
+        if text.0 != terminal_state.input_buffer {
+            text.0 = terminal_state.input_buffer.clone();
+        }
     }
 }
 

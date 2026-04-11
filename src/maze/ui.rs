@@ -75,7 +75,7 @@ pub fn despawn_maze_ui(
     ui_query: Query<Entity, With<MazeCompletionUI>>,
 ) {
     for entity in ui_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }
 

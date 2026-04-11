@@ -41,6 +41,7 @@ pub enum GameState {
     /// Credits screen - Acknowledgments and information
     Credits,
     /// Paused state - Gameplay frozen, pause menu shown
+    #[allow(dead_code)]
     Paused,
 }
 
