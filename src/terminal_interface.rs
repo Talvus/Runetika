@@ -601,7 +601,7 @@ fn cmd_think(args: &[String], _terminal: &mut TerminalState, silicon: &mut Silic
         "Usage: think <thought to process>".to_string()
     } else {
         let thought = args.join(" ");
-        let response = silicon.think();
+        let response = silicon.think(&thought);
         format!(
             "Processing: '{}'\n\
             \n\
