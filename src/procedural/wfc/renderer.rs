@@ -87,9 +87,7 @@ pub fn spawn_wfc_tiles_on_complete(
 ) {
     for event in complete_events.read() {
         info!(
-            "Spawning WFC tile sprites for {}x{} maze ({}
-
- steps)",
+            "Spawning WFC tile sprites for {}x{} maze ({} steps)",
             event.width, event.height, event.steps
         );
 
