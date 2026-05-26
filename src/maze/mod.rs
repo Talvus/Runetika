@@ -85,6 +85,10 @@ pub struct MazeState {
     pub maze_seed: u64,
     /// Total number of mazes completed
     pub completions: u32,
+    /// True while a `MazeCompletedEvent` is in flight but not yet handled.
+    /// Prevents the completion event from firing every frame while the
+    /// player is still within the goal radius.
+    pub completion_pending: bool,
 }
 
 /// Event fired when player completes a maze
@@ -328,10 +332,10 @@ fn check_maze_entry(
 fn check_maze_completion(
     player_query: Query<&Transform, With<crate::main_room::Player>>,
     goal_query: Query<&Transform, With<MazeGoal>>,
-    maze_state: Res<MazeState>,
+    mut maze_state: ResMut<MazeState>,
     mut events: EventWriter<MazeCompletedEvent>,
 ) {
-    if !maze_state.in_maze {
+    if !maze_state.in_maze || maze_state.completion_pending {
         return;
     }
 
@@ -349,6 +353,7 @@ fn check_maze_completion(
         .distance(goal_transform.translation.truncate());
 
     if distance < CELL_SIZE * 0.5 {
+        maze_state.completion_pending = true;
         events.write(MazeCompletedEvent);
     }
 }
@@ -365,6 +370,7 @@ fn handle_maze_completed(
 ) {
     for _ in events.read() {
         maze_state.completions += 1;
+        maze_state.completion_pending = false;
         info!("🎉 Maze completed! Total: {}", maze_state.completions);
 
         // Show notification

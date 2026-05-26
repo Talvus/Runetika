@@ -5,9 +5,10 @@
 
 use bevy::prelude::*;
 use bevy_knossos::maze::{OrthogonalMaze, Cell};
+use avian2d::prelude::*;
 use crate::procedural::wfc::tiles::{TileVariant, MazeTheme};
 use crate::procedural::wfc::renderer::{isometric_to_world, TILE_WIDTH, TILE_HEIGHT};
-use super::{MazeEntity, knossos::KnossosMazeConfig};
+use super::{MazeEntity, MazeGoal, knossos::KnossosMazeConfig};
 
 /// Component: Isometric tile sprite for Knossos maze
 #[derive(Component)]
@@ -165,6 +166,25 @@ pub fn spawn_isometric_knossos_maze(
         }
     }
 
+    // Spawn goal at bottom-right corner so the maze is completable in
+    // isometric mode (the flat path already does this in knossos::spawn_goal)
+    let goal_grid_x = (config.width.saturating_sub(2)) as f32;
+    let goal_grid_y = (config.height.saturating_sub(2)) as f32;
+    let goal_world = isometric_to_world(
+        goal_grid_x + offset.x / config.cell_size,
+        goal_grid_y + offset.y / config.cell_size,
+    );
+    commands.spawn((
+        MazeEntity,
+        MazeGoal,
+        Sprite {
+            color: Color::srgba(0.3, 1.0, 0.3, 0.85),
+            custom_size: Some(Vec2::new(TILE_WIDTH * 0.6, TILE_HEIGHT * 0.6)),
+            ..default()
+        },
+        Transform::from_translation(Vec3::new(goal_world.x, goal_world.y, -8.0)),
+    ));
+
     info!(
         "Spawned isometric maze {}x{} with theme {:?}",
         config.width, config.height, render_config.theme
@@ -225,6 +245,8 @@ fn spawn_isometric_wall(
             wall_pos.y,
             wall_z,
         )),
+        RigidBody::Static,
+        Collider::rectangle(size.x, size.y),
     ));
 }
 

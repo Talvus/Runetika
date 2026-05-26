@@ -160,6 +160,10 @@ pub struct WfcGenerationState {
 
     /// Did generation fail (contradiction)?
     pub failed: bool,
+
+    /// Has `GenerationCompleteEvent` already been emitted for this run?
+    /// Prevents the event from firing every frame after `complete` is set.
+    pub fired_complete: bool,
 }
 
 impl WfcGenerationState {
@@ -174,6 +178,7 @@ impl WfcGenerationState {
             step: 0,
             complete: false,
             failed: false,
+            fired_complete: false,
         }
     }
 
@@ -286,11 +291,15 @@ pub fn wfc_collapse_step(
     let mut min_cell_data: Option<(Entity, IVec2, f32)> = None;
     let mut min_entropy = f32::INFINITY;
 
-    for (entity, cell) in cells.iter().enumerate() {
+    // Look up the entity by the cell's stored grid position rather than by
+    // the ECS query's iteration index — query order is not guaranteed to
+    // match row-major grid order, so the previous `nth(loop_counter)` lookup
+    // would pair the wrong entity with the wrong cell during collapse.
+    for cell in cells.iter() {
         if !cell.collapsed && !cell.possibilities.is_empty() && cell.entropy < min_entropy {
-            min_entropy = cell.entropy;
-            if let Some(e) = gen_state.grid.iter().flatten().nth(entity) {
-                min_cell_data = Some((*e, cell.position, cell.entropy));
+            if let Some(e) = gen_state.get_entity(cell.position) {
+                min_entropy = cell.entropy;
+                min_cell_data = Some((e, cell.position, cell.entropy));
             }
         }
     }
@@ -401,25 +410,27 @@ pub fn handle_contradictions(
     }
 }
 
-/// Check for completion and emit event
+/// Check for completion and emit event exactly once per generation run.
 pub fn check_generation_complete(
-    gen_state: Res<WfcGenerationState>,
+    mut gen_state: ResMut<WfcGenerationState>,
     cells: Query<&WfcCell>,
     mut complete_events: EventWriter<GenerationCompleteEvent>,
 ) {
-    if gen_state.complete {
-        let all_collapsed = cells.iter().all(|cell| cell.collapsed);
-        if all_collapsed {
-            complete_events.write(GenerationCompleteEvent {
-                steps: gen_state.step,
-                width: gen_state.width,
-                height: gen_state.height,
-            });
-
-            info!(
-                "✅ WFC generation complete! Steps: {}, Size: {}x{}",
-                gen_state.step, gen_state.width, gen_state.height
-            );
-        }
+    if !gen_state.complete || gen_state.fired_complete {
+        return;
     }
+    let all_collapsed = cells.iter().all(|cell| cell.collapsed);
+    if !all_collapsed {
+        return;
+    }
+    complete_events.write(GenerationCompleteEvent {
+        steps: gen_state.step,
+        width: gen_state.width,
+        height: gen_state.height,
+    });
+    gen_state.fired_complete = true;
+    info!(
+        "✅ WFC generation complete! Steps: {}, Size: {}x{}",
+        gen_state.step, gen_state.width, gen_state.height
+    );
 }
