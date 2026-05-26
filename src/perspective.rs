@@ -121,16 +121,17 @@ fn apply_perspective_switch(
     mut events: EventReader<PerspectiveSwitchEvent>,
     mut current_perspective: ResMut<CurrentPerspective>,
     mut player_query: Query<&mut Player>,
+    silicon_overlay_query: Query<Entity, With<SiliconVision>>,
     mut commands: Commands,
 ) {
     for event in events.read() {
         *current_perspective = event.to;
-        
+
         // Update player state
         if let Ok(mut player) = player_query.single_mut() {
             player.in_terminal_mode = event.to == CurrentPerspective::Silicon;
         }
-        
+
         // Trigger visual transition
         match event.to {
             CurrentPerspective::Silicon => {
@@ -139,7 +140,9 @@ fn apply_perspective_switch(
             }
             CurrentPerspective::Human => {
                 info!("Returning to Human Perspective");
-                despawn_silicon_overlay(&mut commands);
+                for entity in silicon_overlay_query.iter() {
+                    commands.entity(entity).despawn();
+                }
             }
         }
     }
@@ -223,8 +226,3 @@ fn spawn_silicon_overlay(commands: &mut Commands) {
     }
 }
 
-fn despawn_silicon_overlay(_commands: &mut Commands) {
-    // Remove all silicon vision elements
-    // Note: In a real implementation, we'd query and despawn entities with SiliconVision component
-    // This is a placeholder for the actual implementation
-}

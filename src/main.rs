@@ -17,6 +17,7 @@ mod silicon_mind;
 mod terminal_interface;
 mod terminal_commands;
 mod procedural;
+#[cfg(feature = "lemma")]
 mod lemma_bridge;
 
 use bevy::prelude::*;
@@ -45,10 +46,26 @@ fn main() {
             silicon_mind::SiliconMindPlugin,
             terminal_interface::TerminalInterfacePlugin,
             procedural::ProceduralPlugin,
-            lemma_bridge::LemmaBridgePlugin,
         ))
+        .add_plugins(LemmaPlugins)
         .add_systems(Update, handle_pause_input.run_if(in_state(GameState::InGame)))
         .run();
+}
+
+#[cfg(feature = "lemma")]
+struct LemmaPlugins;
+#[cfg(feature = "lemma")]
+impl Plugin for LemmaPlugins {
+    fn build(&self, app: &mut App) {
+        app.add_plugins(lemma_bridge::LemmaBridgePlugin);
+    }
+}
+
+#[cfg(not(feature = "lemma"))]
+struct LemmaPlugins;
+#[cfg(not(feature = "lemma"))]
+impl Plugin for LemmaPlugins {
+    fn build(&self, _app: &mut App) {}
 }
 
 fn handle_pause_input(
