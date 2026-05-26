@@ -1,6 +1,22 @@
 # Runetika Maze Implementation and bevy_knossos Analysis
 
-## Executive Summary
+> **STATUS AS OF feature/knossos-maze (commit fce8bdc, May 2026):** This
+> document was originally written against an earlier state of the branch.
+> The two "critical" issues called out below have since been resolved.
+> The rest of the architectural analysis still applies and is useful as
+> historical context — but reviewers should *not* treat the build error
+> or unused-dependency claims as current.
+>
+> | Original claim | Current state |
+> |-|-|
+> | `despawn_silicon_overlay` signature mismatch in `perspective.rs` | Fixed in 44b9a3b — function deleted, despawn loop inlined into `apply_perspective_switch` with a `Query<Entity, With<SiliconVision>>` parameter |
+> | `bevy_knossos` declared but unused | Now used across `src/maze/knossos.rs`, `knossos_renderer.rs`, `mod.rs`, `camera.rs`, `ui.rs` |
+> | Old recursive `src/maze.rs` | Deleted (commit ef8200d); replaced by the `src/maze/` directory module |
+> | `get_single()` deprecation in `maze.rs:251` | Resolved by the Bevy 0.16 migration in 0b0d590 — no `get_single` remains in `src/` |
+>
+> The dual-maze-system tension (`src/maze/` knossos vs `src/procedural/wfc/`) is still real and intentional for now; see ARCHITECTURE notes.
+
+## Original Executive Summary (historical)
 
 The Runetika codebase has **two competing maze systems**:
 1. **Old Recursive Backtracking Maze** (`src/maze.rs`) - Simple but functional
