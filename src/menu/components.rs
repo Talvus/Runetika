@@ -18,6 +18,7 @@ pub struct MenuBackground;
 #[derive(Component)]
 pub struct MenuParticle {
     pub velocity: Vec2,
+    #[allow(dead_code)]
     pub lifetime: f32,
 }
 

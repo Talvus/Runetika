@@ -17,7 +17,7 @@ use crate::game_state::GameState;
 /// - Windows: %APPDATA%/Runetika/
 pub fn load_settings_from_disk(
     mut settings: ResMut<SettingsData>,
-    mut settings_file: ResMut<SettingsFile>,
+    settings_file: ResMut<SettingsFile>,
 ) {
     match settings_file.load() {
         Ok(loaded_settings) => {
@@ -79,8 +79,8 @@ pub fn apply_graphics_changes(
     for mut window in windows.iter_mut() {
         // Apply resolution scale
         let base_resolution = window.resolution.physical_size();
-        let scaled_width = (base_resolution.x as f32 * settings.graphics.resolution_scale) as u32;
-        let scaled_height = (base_resolution.y as f32 * settings.graphics.resolution_scale) as u32;
+        let _scaled_width = (base_resolution.x as f32 * settings.graphics.resolution_scale) as u32;
+        let _scaled_height = (base_resolution.y as f32 * settings.graphics.resolution_scale) as u32;
         
         // Note: Actual resolution change would require more complex handling
         // This is a simplified example

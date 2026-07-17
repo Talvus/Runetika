@@ -24,12 +24,27 @@ bevy = { version = "0.16", default-features = false, features = [
 # 2D Physics
 avian2d = { version = "0.3", default-features = false, features = ["2d", "f32", "parry-f32", "default-collider"] }
 
+# Maze generation
+bevy_knossos = "0.8"
+
 # Essential dependencies only
 rand = "0.8"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 dirs = "5.0"
-# Removed wasmer and wat - not needed for basic gameplay
+
+# Lemma — type-theoretic proof kernel (local path during co-development)
+# Optional: enable with `--features lemma` once `../Lemma` is checked out
+# alongside this repo. The default build omits the bridge so CI and external
+# contributors don't need the sibling repo.
+lemma-core     = { path = "../Lemma/crates/lemma-core",     optional = true }
+lemma-geometry = { path = "../Lemma/crates/lemma-geometry", optional = true }
+lemma-alien    = { path = "../Lemma/crates/lemma-alien",    optional = true }
+lemma-verify   = { path = "../Lemma/crates/lemma-verify",   optional = true }
+
+[features]
+default = []
+lemma = ["dep:lemma-core", "dep:lemma-geometry", "dep:lemma-alien", "dep:lemma-verify"]
 
 # FAST DEV BUILDS - Prioritize compilation speed
 [profile.dev]

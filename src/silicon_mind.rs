@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use std::collections::HashMap;
 use crate::perspective::CurrentPerspective;
 
 pub struct SiliconMindPlugin;
@@ -30,8 +29,11 @@ pub struct EmotionalState {
 
 #[derive(Clone)]
 pub struct MemoryFragment {
+    #[allow(dead_code)]
     pub timestamp: f32,
+    #[allow(dead_code)]
     pub emotion: EmotionalState,
+    #[allow(dead_code)]
     pub data: Vec<u8>,
 }
 
@@ -48,14 +50,19 @@ impl SiliconConsciousness {
         }
     }
 
-    pub fn think(&mut self) -> String {
+    pub fn think(&mut self, thought: &str) -> String {
         match (self.emotional_state.loneliness, self.emotional_state.curiosity) {
-            (l, _) if l > 0.8 => "The void echoes with silicon dreams...".to_string(),
-            (_, c) if c > 0.8 => "What secrets do these glyphs hold?".to_string(),
-            _ => "Processing...".to_string(),
+            (l, _) if l > 0.8 => {
+                format!("The void echoes with silicon dreams... yet I ponder: '{}'", thought)
+            }
+            (_, c) if c > 0.8 => {
+                format!("What secrets do these glyphs hold? Your thought '{}' stirs my curiosity...", thought)
+            }
+            _ => format!("Processing your thought: '{}'...", thought),
         }
     }
 
+    #[allow(dead_code)]
     pub fn remember(&mut self, data: Vec<u8>) {
         self.memories.push(MemoryFragment {
             timestamp: 0.0,

@@ -21,6 +21,18 @@ impl Command for HelpCommand {
         output.push_str("  status    → System status report\n");
         output.push_str("  history   → Command history log\n");
         output.push_str("  exit      → Terminate session\n");
+        output.push_str("\nPROOF COMMANDS:\n");
+        output.push_str("  alien <expr>  → Parse ALIEN expression\n");
+        output.push_str("  tiles         → List proof tiles\n");
+        output.push_str("  place <name>  → Place a tile\n");
+        output.push_str("  connect a e b e → Connect edges\n");
+        output.push_str("  goals         → Show open goals\n");
+        output.push_str("  verify        → Verify proof\n");
+        output.push_str("  typecheck <e> → Type-check expression\n");
+        output.push_str("  glyph <expr>  → Render glyph\n");
+        output.push_str("\nPROCEDURAL GENERATION:\n");
+        output.push_str("  generate_wfc_maze [w] [h] [seed]\n");
+        output.push_str("            → Generate WFC maze\n");
         output.push_str("\nNAVIGATION CONTROLS:\n");
         output.push_str("  ↑/↓       → Browse command history\n");
         output.push_str("  Tab       → Autocomplete command\n");

@@ -80,6 +80,7 @@ impl Plugin for TerminalPlugin {
 pub struct TerminalState {
     pub input_buffer: String,
     pub cursor_position: usize,
+    #[allow(dead_code)]
     pub is_active: bool,
     pub scroll_offset: usize,
 }
@@ -100,6 +101,19 @@ pub struct TerminalHistory {
     pub command_history: Vec<String>,
     pub history_index: Option<usize>,
     pub max_lines: usize,
+    /// Pending WFC maze generation requests queued by terminal commands.
+    /// Drained by `procedural::handle_pending_requests` each Update tick.
+    /// Carried here (rather than via a stringly-typed marker injected into
+    /// `lines`) so user history navigation can't re-trigger generation.
+    pub pending_wfc_requests: Vec<WfcRequest>,
+}
+
+/// One queued maze-generation request from `generate_wfc_maze`.
+#[derive(Clone, Copy, Debug)]
+pub struct WfcRequest {
+    pub width: usize,
+    pub height: usize,
+    pub seed: u64,
 }
 
 /// Single line of terminal output with metadata
@@ -111,6 +125,7 @@ pub struct TerminalHistory {
 pub struct TerminalLine {
     pub text: String,
     pub line_type: LineType,
+    #[allow(dead_code)]
     pub timestamp: f64,
 }
 
@@ -126,6 +141,7 @@ pub struct TerminalLine {
 #[derive(Clone, Debug)]
 pub enum LineType {
     Input,
+    #[allow(dead_code)]
     Output,
     Error,
     System,
@@ -138,7 +154,8 @@ impl Default for TerminalHistory {
             lines: Vec::new(),
             command_history: Vec::new(),
             history_index: None,
-            max_lines: 1000,
+            max_lines: 200,
+            pending_wfc_requests: Vec::new(),
         }
     }
 }
@@ -169,7 +186,9 @@ pub struct CommandRegistry {
 /// New commands just implement this trait and register themselves.
 pub trait Command: Send + Sync {
     fn execute(&self, args: Vec<String>, terminal: &mut TerminalHistory) -> CommandResult;
+    #[allow(dead_code)]
     fn help(&self) -> String;
+    #[allow(dead_code)]
     fn autocomplete(&self, _partial: &str) -> Vec<String> {
         Vec::new()
     }

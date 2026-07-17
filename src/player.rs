@@ -73,9 +73,9 @@ fn spawn_player(mut commands: Commands) {
 fn handle_player_movement(
     keyboard: Res<ButtonInput<KeyCode>>,
     mut player_query: Query<(&Player, &mut LinearVelocity), Without<PlayerCamera>>,
-    time: Res<Time>,
+    _time: Res<Time>,
 ) {
-    if let Ok((player, mut velocity)) = player_query.get_single_mut() {
+    if let Ok((player, mut velocity)) = player_query.single_mut() {
         // Don't move if in terminal mode
         if player.in_terminal_mode {
             velocity.0 = Vec2::ZERO;
@@ -112,7 +112,7 @@ fn update_player_animation(
     time: Res<Time>,
     mut player_query: Query<(&LinearVelocity, &mut Sprite, &mut AnimationTimer), With<Player>>,
 ) {
-    if let Ok((velocity, mut sprite, mut timer)) = player_query.get_single_mut() {
+    if let Ok((velocity, mut sprite, mut timer)) = player_query.single_mut() {
         timer.0.tick(time.delta());
         
         // Simple animation: change brightness based on movement
@@ -137,10 +137,10 @@ fn update_player_animation(
 fn camera_follow_player(
     player_query: Query<&Transform, (With<Player>, Without<PlayerCamera>)>,
     mut camera_query: Query<&mut Transform, With<PlayerCamera>>,
-    current_room: Res<CurrentRoom>,
+    _current_room: Res<CurrentRoom>,
 ) {
-    if let Ok(player_transform) = player_query.get_single() {
-        if let Ok(mut camera_transform) = camera_query.get_single_mut() {
+    if let Ok(player_transform) = player_query.single() {
+        if let Ok(mut camera_transform) = camera_query.single_mut() {
             // Smooth camera follow with room-based constraints
             let target_pos = player_transform.translation;
             
@@ -161,9 +161,9 @@ fn despawn_player(
     camera_query: Query<Entity, With<PlayerCamera>>,
 ) {
     for entity in player_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
     for entity in camera_query.iter() {
-        commands.entity(entity).despawn_recursive();
+        commands.entity(entity).despawn();
     }
 }

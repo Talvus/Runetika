@@ -30,12 +30,14 @@ pub struct PerspectiveSwitchEvent {
 
 #[derive(Component)]
 pub struct InteractableTerminal {
+    #[allow(dead_code)]
     pub is_main: bool,
 }
 
 #[derive(Component)]
 pub struct TerminalProximity {
     pub in_range: bool,
+    #[allow(dead_code)]
     pub terminal_entity: Option<Entity>,
 }
 
@@ -43,6 +45,7 @@ pub struct TerminalProximity {
 pub struct SiliconVision;
 
 #[derive(Component)]
+#[allow(dead_code)]
 pub struct HumanVision;
 
 const INTERACTION_RANGE: f32 = 50.0;
@@ -52,7 +55,7 @@ fn check_terminal_proximity(
     terminal_query: Query<(Entity, &Transform, &InteractableTerminal)>,
     mut commands: Commands,
 ) {
-    if let Ok((player_entity, player_transform)) = player_query.get_single() {
+    if let Ok((player_entity, player_transform)) = player_query.single() {
         let player_pos = player_transform.translation.truncate();
         
         let mut closest_terminal: Option<(Entity, f32)> = None;
@@ -95,7 +98,7 @@ fn handle_perspective_input(
 ) {
     if keyboard.just_pressed(KeyCode::Space) {
         // Check if player is near a terminal
-        if let Ok(proximity) = player_query.get_single() {
+        if let Ok(proximity) = player_query.single() {
             if proximity.in_range {
                 // Switch perspective
                 let new_perspective = match *current_perspective {
@@ -103,14 +106,14 @@ fn handle_perspective_input(
                     CurrentPerspective::Silicon => CurrentPerspective::Human,
                 };
                 
-                switch_events.send(PerspectiveSwitchEvent { to: new_perspective });
+                switch_events.write(PerspectiveSwitchEvent { to: new_perspective });
             }
         }
     }
     
     // ESC to exit silicon mode
     if keyboard.just_pressed(KeyCode::Escape) && *current_perspective == CurrentPerspective::Silicon {
-        switch_events.send(PerspectiveSwitchEvent { to: CurrentPerspective::Human });
+        switch_events.write(PerspectiveSwitchEvent { to: CurrentPerspective::Human });
     }
 }
 
@@ -118,16 +121,17 @@ fn apply_perspective_switch(
     mut events: EventReader<PerspectiveSwitchEvent>,
     mut current_perspective: ResMut<CurrentPerspective>,
     mut player_query: Query<&mut Player>,
+    silicon_overlay_query: Query<Entity, With<SiliconVision>>,
     mut commands: Commands,
 ) {
     for event in events.read() {
         *current_perspective = event.to;
-        
+
         // Update player state
-        if let Ok(mut player) = player_query.get_single_mut() {
+        if let Ok(mut player) = player_query.single_mut() {
             player.in_terminal_mode = event.to == CurrentPerspective::Silicon;
         }
-        
+
         // Trigger visual transition
         match event.to {
             CurrentPerspective::Silicon => {
@@ -136,7 +140,9 @@ fn apply_perspective_switch(
             }
             CurrentPerspective::Human => {
                 info!("Returning to Human Perspective");
-                despawn_silicon_overlay(&mut commands);
+                for entity in silicon_overlay_query.iter() {
+                    commands.entity(entity).despawn();
+                }
             }
         }
     }
@@ -151,7 +157,7 @@ fn update_perspective_visuals(
     match *current_perspective {
         CurrentPerspective::Silicon => {
             // Apply silicon vision effects
-            if let Ok(mut camera) = camera_query.get_single_mut() {
+            if let Ok(mut camera) = camera_query.single_mut() {
                 // Tint everything blue-green
                 camera.clear_color = ClearColorConfig::Custom(Color::srgb(0.0, 0.1, 0.15));
             }
@@ -165,7 +171,7 @@ fn update_perspective_visuals(
         }
         CurrentPerspective::Human => {
             // Normal vision
-            if let Ok(mut camera) = camera_query.get_single_mut() {
+            if let Ok(mut camera) = camera_query.single_mut() {
                 camera.clear_color = ClearColorConfig::Custom(Color::srgb(0.05, 0.05, 0.1));
             }
             
@@ -220,8 +226,3 @@ fn spawn_silicon_overlay(commands: &mut Commands) {
     }
 }
 
-fn despawn_silicon_overlay(commands: &mut Commands) {
-    // Remove all silicon vision elements
-    // Note: In a real implementation, we'd query and despawn entities with SiliconVision component
-    // This is a placeholder for the actual implementation
-}

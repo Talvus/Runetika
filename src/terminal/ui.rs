@@ -13,10 +13,12 @@ pub const HEADER_HEIGHT: f32 = 40.0;
 // Deep purple space theme colors
 pub const TERMINAL_BG_COLOR: Color = Color::srgba(0.08, 0.02, 0.15, 0.95);  // Deep space purple
 pub const TERMINAL_FG_COLOR: Color = Color::srgb(0.85, 0.75, 0.95);  // Soft lavender text
+#[allow(dead_code)]
 pub const PROMPT_COLOR: Color = Color::srgb(0.6, 0.3, 0.9);  // Bright purple
 pub const ERROR_COLOR: Color = Color::srgb(1.0, 0.3, 0.5);  // Hot pink error
 pub const SUCCESS_COLOR: Color = Color::srgb(0.3, 0.95, 0.8);  // Cyan success
 pub const SYSTEM_COLOR: Color = Color::srgb(0.5, 0.7, 1.0);  // Space blue
+#[allow(dead_code)]
 pub const GLOW_COLOR: Color = Color::srgba(0.8, 0.3, 1.0, 0.3);  // Purple glow
 pub const BORDER_GLOW: Color = Color::srgba(0.6, 0.2, 0.9, 0.8);  // Border purple glow
 
@@ -134,59 +136,70 @@ pub fn update_terminal_display(
     terminal_state: Res<TerminalState>,
     display_query: Query<Entity, With<TerminalDisplay>>,
     children_query: Query<&Children>,
+    mut line_query: Query<(&mut Text, &mut TextColor), With<TerminalOutputLine>>,
 ) {
     if !terminal_history.is_changed() && !terminal_state.is_changed() {
         return;
     }
-    
-    if let Ok(display_entity) = display_query.single() {
-        // Clear existing children by despawning them
-        if let Ok(children) = children_query.get(display_entity) {
-            for child in children.iter() {
-                commands.entity(child).despawn();
-            }
-        }
-        
-        let visible_lines = (TERMINAL_HEIGHT - 100.0) / LINE_HEIGHT;
-        let visible_lines = visible_lines as usize;
-        
-        let start_index = if terminal_history.lines.len() > visible_lines {
-            terminal_history.lines.len().saturating_sub(visible_lines + terminal_state.scroll_offset)
-        } else {
-            0
+
+    let Ok(display_entity) = display_query.single() else { return };
+
+    let visible_count = ((TERMINAL_HEIGHT - 100.0) / LINE_HEIGHT) as usize;
+    let total = terminal_history.lines.len();
+    let start = if total > visible_count {
+        total.saturating_sub(visible_count + terminal_state.scroll_offset)
+    } else {
+        0
+    };
+    let end = (start + visible_count).min(total);
+    let needed = end - start;
+
+    // Filter to only TerminalOutputLine children (ignores any other child types)
+    let existing: Vec<Entity> = children_query
+        .get(display_entity)
+        .map(|c| c.iter().filter(|e| line_query.contains(*e)).collect())
+        .unwrap_or_default();
+    let existing_count = existing.len();
+
+    // Update existing line entities in-place (avoids costly despawn/respawn cycle)
+    for (i, line) in terminal_history.lines[start..end].iter().enumerate() {
+        let color = match line.line_type {
+            LineType::Input => TERMINAL_FG_COLOR,
+            LineType::Output => TERMINAL_FG_COLOR,
+            LineType::Error => ERROR_COLOR,
+            LineType::System => SYSTEM_COLOR,
+            LineType::Success => SUCCESS_COLOR,
         };
-        
-        let end_index = (start_index + visible_lines).min(terminal_history.lines.len());
-        
-        commands.entity(display_entity).with_children(|parent| {
-            for (index, line) in terminal_history.lines[start_index..end_index].iter().enumerate() {
-                let color = match line.line_type {
-                    LineType::Input => TERMINAL_FG_COLOR,
-                    LineType::Output => TERMINAL_FG_COLOR,
-                    LineType::Error => ERROR_COLOR,
-                    LineType::System => SYSTEM_COLOR,
-                    LineType::Success => SUCCESS_COLOR,
-                };
-                
-                let prefix = match line.line_type {
-                    LineType::Input => "❯ ",
-                    LineType::System => "❖ ",
-                    LineType::Error => "⚠ ",
-                    LineType::Success => "✓ ",
-                    _ => "",
-                };
-                
-                parent.spawn((
-                    Text::new(format!("{}{}", prefix, line.text)),
-                    TextFont {
-                        font_size: FONT_SIZE,
-                        ..default()
-                    },
-                    TextColor(color),
-                    TerminalOutputLine { index },
-                ));
+        let prefix = match line.line_type {
+            LineType::Input => "❯ ",
+            LineType::System => "❖ ",
+            LineType::Error => "⚠ ",
+            LineType::Success => "✓ ",
+            _ => "",
+        };
+        let content = format!("{}{}", prefix, line.text);
+
+        if i < existing_count {
+            if let Ok((mut text, mut text_color)) = line_query.get_mut(existing[i]) {
+                if text.0 != content {
+                    text.0 = content;
+                    text_color.0 = color;
+                }
             }
-        });
+        } else {
+            let child = commands.spawn((
+                Text::new(content),
+                TextFont { font_size: FONT_SIZE, ..default() },
+                TextColor(color),
+                TerminalOutputLine { index: i },
+            )).id();
+            commands.entity(display_entity).add_child(child);
+        }
+    }
+
+    // Despawn excess entities only when line count shrinks (e.g. after clear)
+    for i in needed..existing_count {
+        commands.entity(existing[i]).despawn();
     }
 }
 

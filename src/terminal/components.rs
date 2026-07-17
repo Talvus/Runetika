@@ -11,6 +11,7 @@ pub struct TerminalInputLine;
 
 #[derive(Component)]
 pub struct TerminalOutputLine {
+    #[allow(dead_code)]
     pub index: usize,
 }
 
@@ -18,6 +19,7 @@ pub struct TerminalOutputLine {
 pub struct TerminalCursor;
 
 #[derive(Component)]
+#[allow(dead_code)]
 pub struct TerminalScrollbar;
 
 #[derive(Component)]

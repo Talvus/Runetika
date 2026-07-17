@@ -16,6 +16,7 @@ pub mod colors {
     pub const MENU_BG: Color = Color::srgba(0.02, 0.0, 0.05, 0.98);
     
     /// Gradient overlay for depth
+    #[allow(dead_code)]
     pub const MENU_OVERLAY: Color = Color::srgba(0.1, 0.0, 0.2, 0.3);
     
     /// Main title color with cosmic purple
@@ -26,6 +27,7 @@ pub mod colors {
     pub const BUTTON_NORMAL: Color = Color::srgba(0.12, 0.04, 0.22, 0.75);
     pub const BUTTON_HOVER: Color = Color::srgba(0.25, 0.1, 0.45, 0.85);
     pub const BUTTON_SELECTED: Color = Color::srgba(0.45, 0.2, 0.65, 0.95);
+    #[allow(dead_code)]
     pub const BUTTON_PRESSED: Color = Color::srgba(0.55, 0.25, 0.75, 1.0);
     
     /// Text colors for readability
@@ -49,11 +51,16 @@ pub mod typography {
 
 /// Animation parameters for smooth transitions
 pub mod animations {
+    #[allow(dead_code)]
     pub const TITLE_FLOAT_SPEED: f32 = 0.3;
+    #[allow(dead_code)]
     pub const TITLE_FLOAT_AMPLITUDE: f32 = 8.0;
     pub const GLOW_PULSE_SPEED: f32 = 1.5;
+    #[allow(dead_code)]
     pub const STAR_TWINKLE_SPEED: f32 = 2.0;
+    #[allow(dead_code)]
     pub const BUTTON_TRANSITION_SPEED: f32 = 0.2;
+    #[allow(dead_code)]
     pub const PARTICLE_DRIFT_SPEED: f32 = 0.1;
 }
 
@@ -107,7 +114,7 @@ pub fn setup_main_menu(
 }
 
 /// Creates an enhanced starfield with multiple layers and varied animations
-fn spawn_enhanced_starfield(parent: &mut _) {
+fn spawn_enhanced_starfield(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             width: Val::Percent(100.0),
@@ -156,7 +163,7 @@ fn spawn_enhanced_starfield(parent: &mut _) {
 }
 
 /// Creates nebula cloud effects for atmospheric depth
-fn spawn_nebula_effects(parent: &mut _) {
+fn spawn_nebula_effects(parent: &mut ChildSpawnerCommands) {
     for i in 0..5 {
         let x = 10.0 + (i as f32 * 20.0);
         let y = 10.0 + ((i as f32 * 30.0) % 80.0);
@@ -179,7 +186,7 @@ fn spawn_nebula_effects(parent: &mut _) {
 }
 
 /// Creates the main title section with logo and subtitle
-fn spawn_title_section(parent: &mut _) {
+fn spawn_title_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -259,7 +266,7 @@ fn spawn_title_section(parent: &mut _) {
 }
 
 /// Creates the menu button section with enhanced interactions
-fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
+fn spawn_menu_buttons(parent: &mut ChildSpawnerCommands, menu_state: &mut ResMut<MenuState>) {
     parent.spawn((
         Node {
             flex_direction: FlexDirection::Column,
@@ -294,10 +301,10 @@ fn spawn_menu_buttons(parent: &mut _, menu_state: &mut ResMut<MenuState>) {
 
 /// Creates an individual enhanced button with hover effects
 fn spawn_enhanced_button(
-    parent: &mut _,
+    parent: &mut ChildSpawnerCommands,
     text: &str,
     action: MenuAction,
-    tooltip: &str,
+    _tooltip: &str,
     index: usize,
     is_selected: bool,
 ) -> Entity {
@@ -355,7 +362,7 @@ fn spawn_enhanced_button(
 }
 
 /// Creates the footer section with instructions and credits
-fn spawn_footer_section(parent: &mut _) {
+fn spawn_footer_section(parent: &mut ChildSpawnerCommands) {
     parent.spawn((
         Node {
             position_type: PositionType::Absolute,
@@ -388,7 +395,7 @@ fn spawn_footer_section(parent: &mut _) {
 }
 
 /// Adds decorative elements to enhance visual appeal
-fn spawn_decorative_elements(parent: &mut _) {
+fn spawn_decorative_elements(parent: &mut ChildSpawnerCommands) {
     // Top corner decoration
     parent.spawn((
         Text::new("◆ ◇ ◆"),
