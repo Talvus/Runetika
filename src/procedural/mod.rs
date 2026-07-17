@@ -61,43 +61,31 @@ impl Plugin for ProceduralPlugin {
     }
 }
 
-/// Handle pending WFC generation requests from terminal
+/// Drain WFC generation requests queued by terminal commands and kick
+/// off generation by inserting a `WfcGenerationState` resource.
 ///
-/// Monitors terminal history for WFC request markers and triggers generation
+/// Previously this scanned `TerminalHistory.lines` for a stringly-typed
+/// `__WFC_REQUEST__:w:h:seed` marker, which was fragile: history
+/// navigation or replay could silently re-trigger generation. The
+/// structured `pending_wfc_requests` queue on `TerminalHistory` avoids
+/// that class of bug.
 fn handle_pending_requests(
     mut commands: Commands,
     mut terminal_history: ResMut<crate::terminal::TerminalHistory>,
 ) {
-    // Look for WFC request markers in terminal history
-    let mut request_indices = Vec::new();
-
-    for (index, line) in terminal_history.lines.iter().enumerate() {
-        if line.text.starts_with("__WFC_REQUEST__:") {
-            request_indices.push(index);
-        }
+    if terminal_history.pending_wfc_requests.is_empty() {
+        return;
     }
-
-    // Process requests and remove markers
-    for &index in request_indices.iter().rev() {
-        if let Some(line) = terminal_history.lines.get(index) {
-            let parts: Vec<&str> = line.text.split(':').collect();
-            if parts.len() == 4 {
-                if let (Ok(width), Ok(height), Ok(seed)) = (
-                    parts[1].parse::<usize>(),
-                    parts[2].parse::<usize>(),
-                    parts[3].parse::<u64>(),
-                ) {
-                    info!(
-                        "Starting WFC generation: {}x{} seed={}",
-                        width, height, seed
-                    );
-                    let gen_state = WfcGenerationState::new(width, height, seed);
-                    commands.insert_resource(gen_state);
-                }
-            }
-        }
-        // Remove the marker line
-        terminal_history.lines.remove(index);
+    // If the player rapidly fires multiple `generate_wfc_maze` commands
+    // in one frame, honour only the most recent request — earlier ones
+    // are discarded to avoid stomping a generation that is about to start.
+    let last = terminal_history.pending_wfc_requests.drain(..).last();
+    if let Some(req) = last {
+        info!(
+            "Starting WFC generation: {}x{} seed={}",
+            req.width, req.height, req.seed
+        );
+        commands.insert_resource(WfcGenerationState::new(req.width, req.height, req.seed));
     }
 }
 

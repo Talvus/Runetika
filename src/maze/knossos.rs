@@ -166,18 +166,22 @@ pub fn spawn_knossos_maze_entities(
         let variation = ((coords.0 + coords.1) % 4) as u8;
         spawn_floor_tile(commands, world_pos, cell_size, variation);
 
-        // Spawn walls based on cell boundaries
-        // Cell stores passages (open directions), so check for ABSENCE of passage = wall
-        if !cell.contains(Cell::NORTH) {
-            spawn_wall(commands, world_pos, cell_size, wall_thickness, WallDirection::North);
-        }
+        // Spawn walls based on cell boundaries. Each interior edge is shared
+        // between two cells, so we use a canonical-owner rule to avoid
+        // double-spawning a sprite + collider on every internal wall:
+        //   - every cell owns its SOUTH and EAST edges
+        //   - the top row (y==0) and left column (x==0) additionally own
+        //     their NORTH / WEST edges so the perimeter is closed
         if !cell.contains(Cell::SOUTH) {
             spawn_wall(commands, world_pos, cell_size, wall_thickness, WallDirection::South);
         }
         if !cell.contains(Cell::EAST) {
             spawn_wall(commands, world_pos, cell_size, wall_thickness, WallDirection::East);
         }
-        if !cell.contains(Cell::WEST) {
+        if coords.1 == 0 && !cell.contains(Cell::NORTH) {
+            spawn_wall(commands, world_pos, cell_size, wall_thickness, WallDirection::North);
+        }
+        if coords.0 == 0 && !cell.contains(Cell::WEST) {
             spawn_wall(commands, world_pos, cell_size, wall_thickness, WallDirection::West);
         }
     }

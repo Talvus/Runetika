@@ -101,6 +101,19 @@ pub struct TerminalHistory {
     pub command_history: Vec<String>,
     pub history_index: Option<usize>,
     pub max_lines: usize,
+    /// Pending WFC maze generation requests queued by terminal commands.
+    /// Drained by `procedural::handle_pending_requests` each Update tick.
+    /// Carried here (rather than via a stringly-typed marker injected into
+    /// `lines`) so user history navigation can't re-trigger generation.
+    pub pending_wfc_requests: Vec<WfcRequest>,
+}
+
+/// One queued maze-generation request from `generate_wfc_maze`.
+#[derive(Clone, Copy, Debug)]
+pub struct WfcRequest {
+    pub width: usize,
+    pub height: usize,
+    pub seed: u64,
 }
 
 /// Single line of terminal output with metadata
@@ -142,6 +155,7 @@ impl Default for TerminalHistory {
             command_history: Vec::new(),
             history_index: None,
             max_lines: 200,
+            pending_wfc_requests: Vec::new(),
         }
     }
 }

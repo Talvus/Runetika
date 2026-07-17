@@ -149,18 +149,20 @@ pub fn spawn_isometric_knossos_maze(
             ));
         }
 
-        // Spawn walls for missing passages
+        // Spawn walls for missing passages, using the same canonical-owner
+        // rule as the flat path (knossos.rs::spawn_knossos_maze_entities)
+        // to keep each interior edge a single sprite + collider.
         if render_config.show_walls {
-            if !cell.contains(Cell::NORTH) {
-                spawn_isometric_wall(commands, grid_x, grid_y, WallDirection::North, world_pos, z_depth, render_config);
-            }
             if !cell.contains(Cell::SOUTH) {
                 spawn_isometric_wall(commands, grid_x, grid_y, WallDirection::South, world_pos, z_depth, render_config);
             }
             if !cell.contains(Cell::EAST) {
                 spawn_isometric_wall(commands, grid_x, grid_y, WallDirection::East, world_pos, z_depth, render_config);
             }
-            if !cell.contains(Cell::WEST) {
+            if grid_y == 0 && !cell.contains(Cell::NORTH) {
+                spawn_isometric_wall(commands, grid_x, grid_y, WallDirection::North, world_pos, z_depth, render_config);
+            }
+            if grid_x == 0 && !cell.contains(Cell::WEST) {
                 spawn_isometric_wall(commands, grid_x, grid_y, WallDirection::West, world_pos, z_depth, render_config);
             }
         }

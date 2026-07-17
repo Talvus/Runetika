@@ -4,7 +4,7 @@
 
 use bevy::prelude::*;
 use super::wfc::GenerationCompleteEvent;
-use crate::terminal::{Command, CommandResult, CommandRegistry, TerminalHistory, TerminalLine, LineType};
+use crate::terminal::{Command, CommandResult, CommandRegistry, TerminalHistory, WfcRequest};
 
 /// WFC Maze Generation Command
 ///
@@ -49,12 +49,14 @@ impl Command for GenerateWfcMazeCommand {
                     .as_secs()
             });
 
-        // Store request as a hidden marker in terminal history
-        // A system will pick this up and trigger actual generation
-        terminal.lines.push(TerminalLine {
-            text: format!("__WFC_REQUEST__:{}:{}:{}", width, height, seed),
-            line_type: LineType::System,
-            timestamp: 0.0,
+        // Queue a structured request for the procedural system to drain.
+        // (Previously this was a stringly-typed `__WFC_REQUEST__:…` marker
+        // pushed into the visible `lines` buffer, which user history
+        // navigation could spuriously re-trigger.)
+        terminal.pending_wfc_requests.push(WfcRequest {
+            width,
+            height,
+            seed,
         });
 
         let output = format!(

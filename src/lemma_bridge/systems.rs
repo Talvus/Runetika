@@ -18,20 +18,31 @@ pub fn check_proof_completion(
         return;
     }
 
-    // Check if proof is complete (no open goals), skip if already verified
-    if ws.graph.is_complete() && certificates.earned.is_empty() {
-        match lemma_verify::verify_graph(&ws.graph) {
-            lemma_verify::VerificationResult::Valid(cert) => {
-                info!("Proof verified! Certificate: {}", cert.merkle_root);
-                certificates.earned.push(cert.clone());
-                proof_events.write(ProofVerifiedEvent { certificate: cert });
+    if !ws.graph.is_complete() {
+        return;
+    }
+    // Re-verify each frame the graph is complete and dedupe by Merkle root.
+    // The previous gate of `certificates.earned.is_empty()` made this a
+    // one-shot — once the player earned their first certificate, no
+    // subsequent proof would ever fire `ProofVerifiedEvent`.
+    match lemma_verify::verify_graph(&ws.graph) {
+        lemma_verify::VerificationResult::Valid(cert) => {
+            if certificates
+                .earned
+                .iter()
+                .any(|c| c.merkle_root == cert.merkle_root)
+            {
+                return; // already recorded this exact proof state
             }
-            lemma_verify::VerificationResult::Invalid(errors) => {
-                warn!("Proof invalid: {:?}", errors);
-            }
-            lemma_verify::VerificationResult::Incomplete { open_goal_count, .. } => {
-                debug!("Proof has {} remaining goals", open_goal_count);
-            }
+            info!("Proof verified! Certificate: {}", cert.merkle_root);
+            certificates.earned.push(cert.clone());
+            proof_events.write(ProofVerifiedEvent { certificate: cert });
+        }
+        lemma_verify::VerificationResult::Invalid(errors) => {
+            warn!("Proof invalid: {:?}", errors);
+        }
+        lemma_verify::VerificationResult::Incomplete { open_goal_count, .. } => {
+            debug!("Proof has {} remaining goals", open_goal_count);
         }
     }
 }
